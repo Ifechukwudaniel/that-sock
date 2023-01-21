@@ -51,4 +51,12 @@ library SockBackgroundLibrary {
       return color;
      }
 
+     function GetBackground(string memory backgroundColor) public pure returns(string memory){ 
+       return  string( abi.encodePacked(
+          '<rect width="1080" height="1080" '
+          ' fill="',backgroundColor,'"',
+          ' />'
+          ));
+     }
+
 } 
