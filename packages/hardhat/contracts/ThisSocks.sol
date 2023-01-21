@@ -10,6 +10,7 @@ import "base64-sol/base64.sol";
 import  "./StyleLibrary.sol";
 import  "./SockPinLibrary.sol";
 import  "./SockLayoutLibrary.sol";
+import  "./SockBackgroundLibrary.sol";
 
 
 // GET LISTED ON OPENSEA: https://testnets.opensea.io/get-listed/step-two
@@ -39,6 +40,7 @@ contract ThisSocks is ERC721Enumerable, Ownable {
     //Pin By token Id
     mapping(uint256 => uint256) tokenPin;
     mapping(uint256 => uint256[]) sockColors;
+    mapping(uint256 => uint256) sockBackgroundColor;
 
 
     constructor() ERC721("ThisSock", "THS") {
@@ -71,6 +73,7 @@ contract ThisSocks is ERC721Enumerable, Ownable {
             getPredicableRandomNumber(predictableRandom,8,9,12), 
             getPredicableRandomNumber(predictableRandom,20,30,12)
         ];
+        sockBackgroundColor[id] = getPredicableRandomNumber(predictableRandom,27,31,11);
         
 
 
@@ -139,10 +142,16 @@ contract ThisSocks is ERC721Enumerable, Ownable {
 
     // Visibility is `public` to enable it being called by other contracts for composition.
     function renderTokenById(uint256 id) public view returns (string memory) {
+        (uint256 color1, uint256 color2, uint256 color3)= getColorsByTokenId(id); 
         string memory render = string(
             abi.encodePacked(
+                SockBackgroundLibrary.GetBackground(SockBackgroundLibrary.GetBackgroundColor(getBackgroundByTokenId(id))),
                 '<g transform="translate(180, 130)">',
-                    SockLayoutLibrary.GetLayout("#000", "green", "yellow"),
+                    SockLayoutLibrary.GetLayout(
+                        SockLayoutLibrary.GetColor(color1), 
+                        SockLayoutLibrary.GetColor(color2), 
+                        SockLayoutLibrary.GetColor(color3)
+                    ),
                     SockPinLibrary.GetPin(getPinByTokenId(id)),
                 '</g>'
             )
@@ -160,6 +169,14 @@ contract ThisSocks is ERC721Enumerable, Ownable {
         tokenPin[id] = pinId ;
     }
 
+    function getBackgroundByTokenId(uint256 id) public view returns (uint256) {
+       return sockBackgroundColor[id];
+    }
+
+    function setBackgroundByTokenId(uint256 id, uint256 backgroundId ) public  {
+        sockBackgroundColor[id] = backgroundId;
+    }
+
     function getColorsByTokenId(uint256 id) public view returns (uint256 color1 , uint256 color2, uint256 color3 ) {
        require(_exists(id), "!exist");
        color1 =  sockColors[id][0];
@@ -174,7 +191,7 @@ contract ThisSocks is ERC721Enumerable, Ownable {
         sockColors[id][2] = color3;
     }
     
-    function getPredicableRandomNumber(bytes32 data, uint256 minByte, uint256 maxByte,  uint8 maxNumber) private returns (uint256) {
+    function getPredicableRandomNumber(bytes32 data, uint256 minByte, uint256 maxByte,  uint8 maxNumber) private pure returns (uint256) {
      return uint256(
             ((uint8(data[minByte]) << maxNumber) | uint8(data[minByte])) %
               maxNumber
