@@ -18,5 +18,22 @@
     "SockBackgroundLibrary": {
       "address": "0xa82fF9aFd8f496c3d6ac40E2a0F282E47488CFc9"
     }
+  },
+  "goerli": {
+    "SockBackgroundLibrary": {
+      "address": "0x79B04FFa6968FC3016B34D83e490b7fb7262d111"
+    },
+    "SockLayoutLibrary": {
+      "address": "0x4A41fD2c68A76c8F1463196cF912c42551389652"
+    },
+    "SockPinLibrary": {
+      "address": "0x777108BC79E62E7f4bC11075A01c227caE757cc7"
+    },
+    "StyleLibrary": {
+      "address": "0x07B6009e05Ce1F3FbfBb33b677BB646Daa4504a5"
+    },
+    "ThisSocks": {
+      "address": "0xde004bc23D8d3A207520F11c61489822F60e3De5"
+    }
   }
 }
