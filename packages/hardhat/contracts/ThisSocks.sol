@@ -41,6 +41,7 @@ contract ThisSocks is ERC721Enumerable, Ownable {
     mapping(uint256 => uint256) tokenPin;
     mapping(uint256 => uint256[]) sockColors;
     mapping(uint256 => uint256) sockBackgroundColor;
+    mapping(uint256 => uint256) sockBackgroundType;
 
 
     constructor() ERC721("ThisSock", "THS") {
@@ -67,13 +68,14 @@ contract ThisSocks is ERC721Enumerable, Ownable {
             )
         );
         
-        tokenPin[id] = getPredicableRandomNumber(predictableRandom,5,6,12); 
+        tokenPin[id] = getPredicableRandomNumber(predictableRandom,5,6,14); 
         sockColors[id] = [
             getPredicableRandomNumber(predictableRandom,1,2,12), 
             getPredicableRandomNumber(predictableRandom,8,9,12), 
             getPredicableRandomNumber(predictableRandom,20,30,12)
         ];
         sockBackgroundColor[id] = getPredicableRandomNumber(predictableRandom,27,31,11);
+        sockBackgroundType[id] = getPredicableRandomNumber(predictableRandom,20,22,30);
         
 
 
@@ -143,9 +145,14 @@ contract ThisSocks is ERC721Enumerable, Ownable {
     // Visibility is `public` to enable it being called by other contracts for composition.
     function renderTokenById(uint256 id) public view returns (string memory) {
         (uint256 color1, uint256 color2, uint256 color3)= getColorsByTokenId(id); 
+        uint256 backgroundType =  getBackgroundTypeByTokenId(id);
         string memory render = string(
             abi.encodePacked(
-                SockBackgroundLibrary.GetBackground(SockBackgroundLibrary.GetBackgroundColor(getBackgroundByTokenId(id))),
+                SockBackgroundLibrary.GetBackground(
+                    backgroundType,
+                    SockBackgroundLibrary.GetBackgroundColor(getBackgroundByTokenId(id))
+                ),
+                SockBackgroundLibrary.BackClip(backgroundType),
                 '<g transform="translate(180, 130)">',
                     SockLayoutLibrary.GetLayout(
                         SockLayoutLibrary.GetColor(color1), 
@@ -153,7 +160,8 @@ contract ThisSocks is ERC721Enumerable, Ownable {
                         SockLayoutLibrary.GetColor(color3)
                     ),
                     SockPinLibrary.GetPin(getPinByTokenId(id)),
-                '</g>'
+                '</g>',
+                SockBackgroundLibrary.FrontClip(backgroundType)
             )
         );
         // we want tail to render first so
@@ -175,6 +183,14 @@ contract ThisSocks is ERC721Enumerable, Ownable {
 
     function setBackgroundByTokenId(uint256 id, uint256 backgroundId ) public  {
         sockBackgroundColor[id] = backgroundId;
+    }
+
+     function getBackgroundTypeByTokenId(uint256 id) public view returns (uint256) {
+       return sockBackgroundType[id];
+    }
+
+    function setBackgroundTypeByTokenId(uint256 id, uint256 backgroundType ) public  {
+        sockBackgroundType[id] = backgroundType;
     }
 
     function getColorsByTokenId(uint256 id) public view returns (uint256 color1 , uint256 color2, uint256 color3 ) {
