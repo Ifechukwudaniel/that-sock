@@ -68,14 +68,14 @@ contract ThisSocks is ERC721Enumerable, Ownable {
             )
         );
         
-        tokenPin[id] = getPredicableRandomNumber(predictableRandom,5,6,14); 
+        tokenPin[id] = getPredicableRandomNumber(predictableRandom,5,6,20); 
         sockColors[id] = [
             getPredicableRandomNumber(predictableRandom,1,2,12), 
             getPredicableRandomNumber(predictableRandom,8,9,12), 
             getPredicableRandomNumber(predictableRandom,20,30,12)
         ];
         sockBackgroundColor[id] = getPredicableRandomNumber(predictableRandom,27,31,11);
-        sockBackgroundType[id] = getPredicableRandomNumber(predictableRandom,20,22,30);
+        sockBackgroundType[id] = getPredicableRandomNumber(predictableRandom,20,22,31);
         
 
 
@@ -152,8 +152,8 @@ contract ThisSocks is ERC721Enumerable, Ownable {
                     backgroundType,
                     SockBackgroundLibrary.GetBackgroundColor(getBackgroundByTokenId(id))
                 ),
-                SockBackgroundLibrary.BackClip(backgroundType),
                 '<g transform="translate(180, 130)">',
+                    SockBackgroundLibrary.BackClip(backgroundType),
                     SockLayoutLibrary.GetLayout(
                         SockLayoutLibrary.GetColor(color1), 
                         SockLayoutLibrary.GetColor(color2), 
