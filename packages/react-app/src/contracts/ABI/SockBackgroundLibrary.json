@@ -1,0 +1,83 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "backgroundType",
+        "type": "uint256"
+      }
+    ],
+    "name": "BackClip",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "backgroundType",
+        "type": "uint256"
+      }
+    ],
+    "name": "FrontClip",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "backgroundType",
+        "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "backgroundColor",
+        "type": "string"
+      }
+    ],
+    "name": "GetBackground",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "colorInt",
+        "type": "uint256"
+      }
+    ],
+    "name": "GetBackgroundColor",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  }
+]

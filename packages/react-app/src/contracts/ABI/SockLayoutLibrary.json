@@ -1,0 +1,50 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "colorInt",
+        "type": "uint256"
+      }
+    ],
+    "name": "GetColor",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "towAndHeelColor",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "cuffColor",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "color",
+        "type": "string"
+      }
+    ],
+    "name": "GetLayout",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  }
+]
