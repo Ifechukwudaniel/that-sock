@@ -1,0 +1,79 @@
+{
+  "address": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "GetStyle",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "HideBackClipStyle",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "ShowBackClipStyle",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0xe09a7cf193948f5bcd29598888d24c84d18873df40484e7b811defa3633928fe",
+  "receipt": {
+    "to": null,
+    "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+    "contractAddress": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
+    "transactionIndex": 0,
+    "gasUsed": "223613",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x8a723848fd0d14e28aa9caf76342060b4988a8c85b91251e3065df99d6254b36",
+    "transactionHash": "0xe09a7cf193948f5bcd29598888d24c84d18873df40484e7b811defa3633928fe",
+    "logs": [],
+    "blockNumber": 4,
+    "cumulativeGasUsed": "223613",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "solcInputHash": "964e3fdbbac358037f86bc2ff6019831",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.13+commit.abaa5c0e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"GetStyle\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"HideBackClipStyle\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ShowBackClipStyle\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"pure\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/StyleLibrary.sol\":\"StyleLibrary\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":100},\"remappings\":[],\"viaIR\":true},\"sources\":{\"contracts/StyleLibrary.sol\":{\"content\":\"pragma solidity ^0.8.0;\\n//SPDX-License-Identifier: MIT\\n\\n// GET LISTED ON OPENSEA: https://testnets.opensea.io/get-listed/step-two\\n\\n// Defining Library\\nlibrary StyleLibrary {\\n    function GetStyle() public pure returns (string memory) {\\n        string memory style = string(\\n            abi.encodePacked(\\\"\\\")\\n        );\\n        return style;\\n    }\\n\\n    function HideBackClipStyle() public pure returns(string memory){\\n        string memory style = string(\\n            abi.encodePacked(\\n            '     <defs>', \\n            '         <style>', \\n            '             .backClip {', \\n            '                 opacity: 0;', \\n            '             }', \\n            '         </style>', \\n            '     </defs>'\\n            ));\\n        return style;\\n    }\\n\\n     function ShowBackClipStyle() public pure returns(string memory){\\n        string memory style = string(\\n            abi.encodePacked(\\n            '     <defs>', \\n            '         <style>', \\n            '             .backClip {', \\n            '                 opacity: 1;', \\n            '             }', \\n            '         </style>', \\n            '     </defs>'\\n            ));\\n        return style;\\n    }\\n}\\n\",\"keccak256\":\"0x9341e905a3b39f764a302d02fe1a08c3705eba8c30c67c99333074e3e6930a51\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x6080806040523461001a576103149081610020823930815050f35b600080fdfe608080604052600436101561001357600080fd5b6000803560e01c918263160b1e2f1461013c575081632051ceb914610051575063b63e645114610044575b38600080fd5b61004c6101b1565b61003e565b80600319360112610139576101356040516a10101010101e3232b3399f60a91b60208201526f1010101010101010101e39ba3cb6329f60811b602b82015277202020202020202020202020202e6261636b436c6970207b60401b603b8201527f20202020202020202020202020202020206f7061636974793a20313b0000000060538201526d202020202020202020202020207d60901b606f820152701010101010101010101e17b9ba3cb6329f60791b607d8201526b10101010101e17b232b3399f60a11b608e820152607a8152610129816102c2565b6040519182918261015a565b0390f35b80fd5b816003193601126101565761013591815261012981610290565b5080fd5b919091602080825283519081818401526000945b82861061019b57505080604093941161018e575b601f01601f1916010190565b6000838284010152610182565b858101820151848701604001529481019461016e565b50600036600319011261028b576101356040516a10101010101e3232b3399f60a91b60208201526f1010101010101010101e39ba3cb6329f60811b602b82015277202020202020202020202020202e6261636b436c6970207b60401b603b8201527f20202020202020202020202020202020206f7061636974793a20303b0000000060538201526d202020202020202020202020207d60901b606f820152701010101010101010101e17b9ba3cb6329f60791b607d8201526b10101010101e17b232b3399f60a11b608e820152607a8152610129816102c2565b600080fd5b6020810190811067ffffffffffffffff8211176102ac57604052565b634e487b7160e01b600052604160045260246000fd5b60a0810190811067ffffffffffffffff8211176102ac5760405256fea2646970667358221220ede9a2e9641347e35c55d3121b36540e713706e3efe18b2f607a45d7d64164ac64736f6c634300080d0033",
+  "deployedBytecode": "0x608080604052600436101561001357600080fd5b6000803560e01c918263160b1e2f1461013c575081632051ceb914610051575063b63e645114610044575b38600080fd5b61004c6101b1565b61003e565b80600319360112610139576101356040516a10101010101e3232b3399f60a91b60208201526f1010101010101010101e39ba3cb6329f60811b602b82015277202020202020202020202020202e6261636b436c6970207b60401b603b8201527f20202020202020202020202020202020206f7061636974793a20313b0000000060538201526d202020202020202020202020207d60901b606f820152701010101010101010101e17b9ba3cb6329f60791b607d8201526b10101010101e17b232b3399f60a11b608e820152607a8152610129816102c2565b6040519182918261015a565b0390f35b80fd5b816003193601126101565761013591815261012981610290565b5080fd5b919091602080825283519081818401526000945b82861061019b57505080604093941161018e575b601f01601f1916010190565b6000838284010152610182565b858101820151848701604001529481019461016e565b50600036600319011261028b576101356040516a10101010101e3232b3399f60a91b60208201526f1010101010101010101e39ba3cb6329f60811b602b82015277202020202020202020202020202e6261636b436c6970207b60401b603b8201527f20202020202020202020202020202020206f7061636974793a20303b0000000060538201526d202020202020202020202020207d60901b606f820152701010101010101010101e17b9ba3cb6329f60791b607d8201526b10101010101e17b232b3399f60a11b608e820152607a8152610129816102c2565b600080fd5b6020810190811067ffffffffffffffff8211176102ac57604052565b634e487b7160e01b600052604160045260246000fd5b60a0810190811067ffffffffffffffff8211176102ac5760405256fea2646970667358221220ede9a2e9641347e35c55d3121b36540e713706e3efe18b2f607a45d7d64164ac64736f6c634300080d0033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [],
+    "types": null
+  }
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "inputs": [],
+    "name": "PinLibrary__PinOutOfBound",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "enum PinLibrary.Pin",
+        "name": "currentPin",
+        "type": "PinLibrary.Pin"
+      }
+    ],
+    "name": "GetPin",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  }
+]
