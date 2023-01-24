@@ -92,26 +92,4 @@ library SockLayoutLibrary {
       ));
       return sockLayout;
     }
-
-    function BackClip()  public pure returns(string memory){
-         string memory backClip;
-         backClip = string(abi.encodePacked(
-            '     <path class="backClip" transform="translate(-190, -10)"', 
-            '         d="M761.642 191.423L784.803 24.2317L858.721 20.7567L805.328 204.142L761.642 191.423Z" fill="#FDA2F4" stroke="black"', 
-            '         stroke-width="8" />'
-         ));
-         return backClip;
-    }
-
-    function FrontClip()  public pure returns(string memory){
-         string memory frontClip;
-         frontClip = string(abi.encodePacked(
-            '     <g transform="translate(-2, 120)">', 
-            '         <path d="M2 39.0845C228.167 107.918 761.8 212.984 1087 82.5845" stroke="black" stroke-width="8" />', 
-            '         <path d="M746.993 192.52L747.585 23.7335L820.375 10.4036L791.988 199.282L746.993 192.52Z" fill="#FDA2F4"', 
-            '             stroke="black" stroke-width="8" />', 
-            '     </g>'
-         ));
-         return frontClip;
-    }
 }
