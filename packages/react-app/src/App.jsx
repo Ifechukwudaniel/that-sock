@@ -29,7 +29,7 @@ import externalContracts from "./contracts/external_contracts";
 // contracts
 import deployedContracts from "./contracts/hardhat_contracts.json";
 import { Transactor, Web3ModalSetup } from "./helpers";
-import { Home, Accesories, Preview } from "./views";
+import { Home, Preview } from "./views";
 import { useStaticJsonRPC } from "./hooks";
 
 const { ethers } = require("ethers");
@@ -150,6 +150,7 @@ function App(props) {
   const contractConfig = { deployedContracts: deployedContracts || {}, externalContracts: externalContracts || {} };
 
   // Load in your local 📝 contract and read a value from it:
+  console.log(contractConfig);
   const readContracts = useContractLoader(localProvider, contractConfig);
 
   // If you want to make 🔐 write transactions to your contracts, use the userSigner:
@@ -169,12 +170,7 @@ function App(props) {
     "0x34aA3F359A9D614239015126635CE7732c18fDF3",
   ]);
 
-  /*
-  const addressFromENS = useResolveName(mainnetProvider, "austingriffith.eth");
-  console.log("🏷 Resolved austingriffith.eth as:",addressFromENS)
-  */
-
-  const ContractName = "YourCollectible";
+  const ContractName = "ThisSocks";
 
   const loadWeb3Modal = useCallback(async () => {
     const provider = await web3Modal.connect();
@@ -247,39 +243,6 @@ function App(props) {
     }
   }, [address, readContracts, selectedCollectible]);
 
-  useEffect(() => {
-    const updateYourAccesories = async () => {
-      const accesoriesUpdate = [];
-      const balance = readContracts[selectedAccesory] && (await readContracts[selectedAccesory].balanceOf(address));
-      for (let tokenIndex = 0; tokenIndex < balance; ++tokenIndex) {
-        try {
-          console.log("Getting token index " + tokenIndex);
-          const tokenId =
-            readContracts[selectedAccesory] &&
-            (await readContracts[selectedAccesory].tokenOfOwnerByIndex(address, tokenIndex));
-          console.log("tokenId: " + tokenId);
-          const tokenURI = readContracts[selectedAccesory] && (await readContracts[selectedAccesory].tokenURI(tokenId));
-          const jsonManifestString = Buffer.from(tokenURI.substring(29), "base64").toString();
-          console.log("jsonManifestString: " + jsonManifestString);
-
-          try {
-            const jsonManifest = JSON.parse(jsonManifestString);
-            console.log("jsonManifest: " + jsonManifest);
-            accesoriesUpdate.push({ id: tokenId, uri: tokenURI, owner: address, ...jsonManifest });
-          } catch (err) {
-            console.log(err);
-          }
-        } catch (err) {
-          console.log(err);
-        }
-      }
-      setYourAccesories(accesoriesUpdate.reverse());
-    };
-    if (address) {
-      updateYourAccesories();
-    }
-  }, [address, readContracts, selectedAccesory, selectedAccesoryBalance]);
-
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
 
@@ -300,7 +263,7 @@ function App(props) {
   return (
     <div className="App">
       {/* ✏️ Edit the header and change the title to your project name */}
-      <Header title="Arrogant Parrot">
+      <Header title="This Socks">
         {/* 👨‍💼 Your account is in the top right with a wallet at connect options */}
         <div style={{ position: "relative", display: "flex", flexDirection: "column" }}>
           <div style={{ display: "flex", flex: 1 }}>
@@ -348,14 +311,8 @@ function App(props) {
         <Menu.Item key="/">
           <Link to="/">Your Collectible</Link>
         </Menu.Item>
-        <Menu.Item key="/accesories">
-          <Link to="/accesories">Your Accesories</Link>
-        </Menu.Item>
         <Menu.Item key="/debug">
           <Link to="/debug">Debug Contracts</Link>
-        </Menu.Item>
-        <Menu.Item key="/debug2">
-          <Link to="/debug2">Debug Accesories</Link>
         </Menu.Item>
       </Menu>
 
@@ -371,7 +328,7 @@ function App(props) {
             blockExplorer={blockExplorer}
             address={address}
             setSelectedCollectible={setSelectedCollectible}
-            ContractName={"YourCollectible"}
+            ContractName={"ThisSocks"}
             showModal={showModal}
             DEBUG={DEBUG}
             perPage={perPage}
@@ -407,67 +364,9 @@ function App(props) {
             />
           </Modal>
         </Route>
-        <Route exact path="/accesories">
-          {/* pass in any web3 props to this Home component. For example, yourLocalBalance */}
-          <Accesories
-            userSigner={userSigner}
-            readContracts={readContracts}
-            writeContracts={writeContracts}
-            tx={tx}
-            loadWeb3Modal={loadWeb3Modal}
-            blockExplorer={blockExplorer}
-            address={address}
-            accesories={accesories}
-            DEBUG={DEBUG}
-            perPage={perPage}
-            gasPrice={gasPrice}
-          />
-        </Route>
         <Route exact path="/debug">
-          {/*
-                🎛 this scaffolding is full of commonly used components
-                this <Contract/> component will automatically parse your ABI
-                and give you a form to interact with it locally
-            */}
-
           <Contract
-            name="YourCollectible"
-            price={price}
-            signer={userSigner}
-            provider={localProvider}
-            address={address}
-            blockExplorer={blockExplorer}
-            contractConfig={contractConfig}
-          />
-        </Route>
-        <Route exact path="/debug2">
-          {/*
-                🎛 this scaffolding is full of commonly used components
-                this <Contract/> component will automatically parse your ABI
-                and give you a form to interact with it locally
-            */}
-
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <Select
-              style={{
-                width: 120,
-                margin: 10,
-              }}
-              defaultValue={debugAccessorySelected}
-              onChange={value => {
-                setDebugAccessorySelected(value);
-              }}
-            >
-              {accesories.map((accesory, index) => (
-                <Select.Option key={index} value={accesory}>
-                  {accesory}
-                </Select.Option>
-              ))}
-            </Select>
-          </div>
-
-          <Contract
-            name={debugAccessorySelected}
+            name="ThisSocks"
             price={price}
             signer={userSigner}
             provider={localProvider}

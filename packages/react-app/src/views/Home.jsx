@@ -119,7 +119,7 @@ function Home({
               }
             }}
           >
-            MINT Parrot for Ξ{priceToMint && (+ethers.utils.formatEther(priceToMint)).toFixed(4)}s
+            MINT Socks for Ξ{priceToMint && (+ethers.utils.formatEther(priceToMint)).toFixed(4)}s
           </Button>
         ) : (
           <Button type={"primary"} onClick={loadWeb3Modal}>
