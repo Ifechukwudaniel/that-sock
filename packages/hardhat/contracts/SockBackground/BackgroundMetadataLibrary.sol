@@ -6,27 +6,27 @@ library BackgroundMetadataLibrary {
        string memory colorProperty = '{"trait_type":"Background Color", "value":"' ;
        if(colorInt == 0 ) {
             // WHITE
-          return string(abi.encodePacked(colorProperty, 'White"},'));
+          return string(abi.encodePacked(colorProperty, 'White"}'));
        }
        else if (colorInt == 1) {
             // GRAY
-           return string(abi.encodePacked(colorProperty, 'Gray"},'));
+           return string(abi.encodePacked(colorProperty, 'Gray"}'));
        }
        else if(colorInt == 2) {
           //Orange
-         return string(abi.encodePacked(colorProperty, 'Orange"},'));
+         return string(abi.encodePacked(colorProperty, 'Orange"}'));
        } 
        else if(colorInt == 3) {
          //Pink
-        return string(abi.encodePacked(colorProperty, 'Pink"},'));
+        return string(abi.encodePacked(colorProperty, 'Pink"}'));
        }
        else if(colorInt == 4) {
          //YELLOW
-        return string(abi.encodePacked(colorProperty, 'Yellow"},'));
+        return string(abi.encodePacked(colorProperty, 'Yellow"}'));
        }
        else if(colorInt == 5) {
          //BRIGHT YELLOW
-        return string(abi.encodePacked(colorProperty, 'Bright Yellow"},'));
+        return string(abi.encodePacked(colorProperty, 'Bright Yellow"}'));
        }
        else if(colorInt == 6) {
          //Green
