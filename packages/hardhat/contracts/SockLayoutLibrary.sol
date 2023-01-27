@@ -59,6 +59,73 @@ library SockLayoutLibrary {
       return color;
      }
 
+     function GetColorName(uint256 colorInt) public pure returns(string memory){ 
+       string memory color ; 
+       if(colorInt == 0 ) {
+            // RED
+           color = "Red";
+       }
+       else if (colorInt == 1) {
+            // Pink
+            color = "Pink";
+       }
+       else if(colorInt == 2) {
+          //Orange
+          color ="Orange";
+       } 
+       else if(colorInt == 3) {
+         //Yellow
+         color = "Yellow";
+       }
+       else if(colorInt == 4) {
+         //Green
+         color = "Green";
+       }
+       else if(colorInt == 5) {
+         //Dark Green
+         color = "Dark Green";
+       }
+       else if(colorInt == 6) {
+         //Blue
+         color = "Blue";
+       }
+       else if(colorInt == 7) {
+         //Dark Blue
+         color = "Dark Blue";
+       }
+       else if(colorInt == 8) {
+         //Purple
+         color = "Purple";
+       }
+       else if(colorInt == 9) {
+         //Gray
+         color = "Gray";
+       }
+       else if(colorInt == 10) {
+         //White
+         color = "White";
+       }
+       else {
+         // Black
+         color ="Black";
+       }
+      return color;
+     }
+
+      function GetLayoutMetadata(uint256 towAndHeelColor, uint256 cuffColor,  uint256 color) public pure returns(string memory){ 
+         return string(abi.encodePacked(
+          '{"trait_type": "Tow Color", "value":"',
+           GetColorName(towAndHeelColor),
+          '"},',
+          '{"trait_type": "Cuff Color", "value":"',
+           GetColorName(cuffColor),
+          '"},',
+           '{"trait_type": "Color", "value":"',
+           GetColorName(color),
+          '"}'
+          ));
+     }
+
     function GetLayout(string memory towAndHeelColor , string memory cuffColor, string memory color) public pure returns(string memory){
       string memory sockLayout;
       sockLayout =  string(abi.encodePacked(
