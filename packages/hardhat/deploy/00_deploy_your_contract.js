@@ -18,15 +18,27 @@ module.exports = async ({ getNamedAccounts, deployments, getChainId }) => {
 
   const SockPinLibrary = await ethers.getContract("SockPinLibrary", deployer);
 
-  await deploy("SockBackgroundLibrary", {
+  await deploy("BackgroundLibrary", {
     // Learn more about args here: https://www.npmjs.com/package/hardhat-deploy#deploymentsdeploy
     from: deployer,
     log: true,
     waitConfirmations: 5,
   });
 
-  const SockBackgroundLibrary = await ethers.getContract(
-    "SockBackgroundLibrary",
+  const BackgroundLibrary = await ethers.getContract(
+    "BackgroundLibrary",
+    deployer
+  );
+
+  await deploy("BackgroundMetadataLibrary", {
+    // Learn more about args here: https://www.npmjs.com/package/hardhat-deploy#deploymentsdeploy
+    from: deployer,
+    log: true,
+    waitConfirmations: 5,
+  });
+
+  const BackgroundMetadataLibrary = await ethers.getContract(
+    "BackgroundMetadataLibrary",
     deployer
   );
 
@@ -59,7 +71,8 @@ module.exports = async ({ getNamedAccounts, deployments, getChainId }) => {
     waitConfirmations: 5,
     libraries: {
       SockLayoutLibrary: SockLayoutLibrary.address,
-      SockBackgroundLibrary: SockBackgroundLibrary.address,
+      BackgroundLibrary: BackgroundLibrary.address,
+      BackgroundMetadataLibrary: BackgroundMetadataLibrary.address,
       SockPinLibrary: SockPinLibrary.address,
       StyleLibrary: StyleLibrary.address,
     },
@@ -73,7 +86,8 @@ module.exports = async ({ getNamedAccounts, deployments, getChainId }) => {
         address: ThisSocks.address,
         contractArguments: [],
         libraries: {
-          SockBackgroundLibrary: SockBackgroundLibrary.address,
+          BackgroundLibrary: BackgroundLibrary.address,
+          BackgroundMetadataLibrary: BackgroundMetadataLibrary.address,
           SockPinLibrary: SockPinLibrary.address,
           SockLayoutLibrary: SockLayoutLibrary.address,
           StyleLibrary: StyleLibrary.address,
