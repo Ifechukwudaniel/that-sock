@@ -8,9 +8,13 @@ import "@openzeppelin/contracts/utils/Strings.sol";
 import "base64-sol/base64.sol";
 
 import  "./StyleLibrary.sol";
-import  "./SockPinLibrary.sol";
+import  "./SockPin/PinLibrary.sol";
+import  "./SockPin/PinLibraryMetadata.sol";
 import  "./SockLayoutLibrary.sol";
-import  "./SockBackgroundLibrary.sol";
+import  "./SockBackground/BackgroundLibrary.sol";
+import  "./SockBackground/BackgroundMetadataLibrary.sol";
+import  "./SockPattern/PatternLibrary.sol";
+import  "./SockPattern/PatternMetadataLibrary.sol";
 
 
 // GET LISTED ON OPENSEA: https://testnets.opensea.io/get-listed/step-two
@@ -42,6 +46,7 @@ contract ThisSocks is ERC721Enumerable, Ownable {
     mapping(uint256 => uint256[]) sockColors;
     mapping(uint256 => uint256) sockBackgroundColor;
     mapping(uint256 => uint256) sockBackgroundType;
+    mapping(uint256 => uint256) sockPatterns;
 
 
     constructor() ERC721("ThisSock", "THS") {
@@ -76,6 +81,7 @@ contract ThisSocks is ERC721Enumerable, Ownable {
         ];
         sockBackgroundColor[id] = getPredicableRandomNumber(predictableRandom,27,31,11);
         sockBackgroundType[id] = getPredicableRandomNumber(predictableRandom,20,22,31);
+        sockPatterns[id] =  getPredicableRandomNumber(predictableRandom,10,30,15);
         
 
 
@@ -99,6 +105,8 @@ contract ThisSocks is ERC721Enumerable, Ownable {
         string memory description = string(
             abi.encodePacked("")
         );
+        
+        (uint256 color1, uint256 color2, uint256 color3) = getColorsByTokenId(id); 
 
         return
             string(
@@ -118,7 +126,19 @@ contract ThisSocks is ERC721Enumerable, Ownable {
                                 '","image": "',
                                 "data:image/svg+xml;base64,",
                                 image,
-                                '"}'
+                                '",',
+                                '"attributes":[',
+                                  BackgroundMetadataLibrary.GetBackgroundColorMetadata(getBackgroundByTokenId(id)),
+                                  ",",
+                                  BackgroundMetadataLibrary.GetBackgroundTypeMetadata(getBackgroundTypeByTokenId(id)),
+                                  ",",
+                                  SockLayoutLibrary.GetLayoutMetadata(color1,color2,color3),
+                                  ",",
+                                  PinMetadataLibrary.GetPinMetadata(getPinByTokenId(id)),
+                                  ",",
+                                  PatternMetadataLibrary.GetPatternMetadata(getPatternByTokenId(id)),
+                                ']',
+                                '}'
                             )
                         )
                     )
@@ -146,22 +166,24 @@ contract ThisSocks is ERC721Enumerable, Ownable {
     function renderTokenById(uint256 id) public view returns (string memory) {
         (uint256 color1, uint256 color2, uint256 color3)= getColorsByTokenId(id); 
         uint256 backgroundType =  getBackgroundTypeByTokenId(id);
+        uint256 patternType = getPatternByTokenId(id);
         string memory render = string(
             abi.encodePacked(
-                SockBackgroundLibrary.GetBackground(
+                BackgroundLibrary.GetBackground(
                     backgroundType,
-                    SockBackgroundLibrary.GetBackgroundColor(getBackgroundByTokenId(id))
+                    BackgroundLibrary.GetBackgroundColor(getBackgroundByTokenId(id))
                 ),
                 '<g transform="translate(180, 130)">',
-                    SockBackgroundLibrary.BackClip(backgroundType),
+                    BackgroundLibrary.BackClip(backgroundType),
                     SockLayoutLibrary.GetLayout(
                         SockLayoutLibrary.GetColor(color1), 
                         SockLayoutLibrary.GetColor(color2), 
                         SockLayoutLibrary.GetColor(color3)
                     ),
-                    SockPinLibrary.GetPin(getPinByTokenId(id)),
+                    PinLibrary.GetPin(getPinByTokenId(id)),
                 '</g>',
-                SockBackgroundLibrary.FrontClip(backgroundType)
+                BackgroundLibrary.FrontClip(backgroundType),
+                PatternLibrary.GetPattern(patternType)
             )
         );
         // we want tail to render first so
@@ -207,9 +229,19 @@ contract ThisSocks is ERC721Enumerable, Ownable {
         sockColors[id][2] = color3;
     }
     
+    function setPatternByTokenId(uint256 id,uint256 pattern) public  {
+        require(_exists(id), "!exist");
+        sockPatterns[id] = pattern;
+    }
+    
+    function getPatternByTokenId(uint256 id) public view returns (uint256)  {
+        require(_exists(id), "!exist");
+        return sockPatterns[id];
+    }
+
     function getPredicableRandomNumber(bytes32 data, uint256 minByte, uint256 maxByte,  uint8 maxNumber) private pure returns (uint256) {
      return uint256(
-            ((uint8(data[minByte]) << maxNumber) | uint8(data[minByte])) %
+            ((uint8(data[minByte]) << maxNumber) | uint8(data[maxByte])) %
               maxNumber
         );
     }
