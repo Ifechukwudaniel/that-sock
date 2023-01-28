@@ -54,7 +54,7 @@ library PatternMetadataLibrary {
         return '{"trait_type":"Pattern", "value":"Ufos"}'; 
       }
       else {
-         return "";
+         return '{"trait_type":"Pattern", "value":"None"}';
       }
     }
 }
