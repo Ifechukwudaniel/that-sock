@@ -52,7 +52,7 @@ const { ethers } = require("ethers");
 */
 
 /// 📡 What chain are your contracts deployed to?
-let initialNetwork = NETWORKS.goerli; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
+let initialNetwork = NETWORKS.localhost; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
 
 // 😬 Sorry for all the console logging
 let DEBUG = true;
@@ -333,36 +333,7 @@ function App(props) {
             DEBUG={DEBUG}
             perPage={perPage}
             gasPrice={gasPrice}
-          />
-          <Modal
-            width="70%"
-            title={"Add or remove accessories"}
-            open={isModalOpen}
-            onOk={handleOk}
-            onCancel={handleCancel}
-          >
-            <Preview
-              userSigner={userSigner}
-              readContracts={readContracts}
-              writeContracts={writeContracts}
-              tx={tx}
-              loadWeb3Modal={loadWeb3Modal}
-              blockExplorer={blockExplorer}
-              address={address}
-              ContractName={"YourCollectible"}
-              accesories={accesories}
-              selectedCollectible={selectedCollectible}
-              selectedAccesory={selectedAccesory}
-              setSelectedAccesory={setSelectedAccesory}
-              yourAccesories={yourAccesories}
-              yourCollectibleSVG={yourCollectibleSVG}
-              selectedAccesoryBalance={selectedAccesoryBalance}
-              previewAccesory={previewAccesory}
-              setPreviewAccesory={setPreviewAccesory}
-              DEBUG={DEBUG}
-              gasPrice={gasPrice}
-            />
-          </Modal>
+          />s
         </Route>
         <Route exact path="/debug">
           <Contract

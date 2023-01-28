@@ -19,9 +19,7 @@ function Home({
   blockExplorer,
   mainnetProvider,
   address,
-  setSelectedCollectible,
   ContractName,
-  showModal,
   DEBUG,
   perPage,
   gasPrice,
@@ -170,7 +168,7 @@ function Home({
                         target="_blank"
                         rel="noreferrer"
                       >
-                        <img width="100%" height="100%" src={nft.image} alt={nft.description} />
+                        <img width="300px" height="300px" src={nft.image} alt={nft.description} />
                       </a>
                     </div>
                     <div style={{ marginBottom: "10px" }}>{nft.description}</div>
@@ -198,18 +196,6 @@ function Home({
                         }}
                       >
                         Transfer
-                      </Button>
-                    </div>
-                    <div>
-                      <Button
-                        style={{ margin: "10px" }}
-                        onClick={() => {
-                          setSelectedCollectible(nft.id);
-                          // history.push("/preview");
-                          showModal();
-                        }}
-                      >
-                        Upgrade/Degrade
                       </Button>
                     </div>
                   </div>
