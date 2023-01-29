@@ -40,12 +40,12 @@ export default function NavBar({
             </Tooltip>
           </Menu.Item>
 
-          <Menu.Item key="/yourLoogies" className="navbar__menu-item">
-            <Link to="/yourLoogies" className="navbar__link navbar__menu-item-desktop-content">
-              Your Loogies
+          <Menu.Item key="/yourSocks" className="navbar__menu-item">
+            <Link to="/yourSocks" className="navbar__link navbar__menu-item-desktop-content">
+              Your Socks
             </Link>
-            <Tooltip title="Your Loogies" className="navbar__menu-item-mobile-content">
-              <Link to="/yourLoogies" className="navbar__link">
+            <Tooltip title="Your Socks" className="navbar__menu-item-mobile-content">
+              <Link to="/yourSocks" className="navbar__link">
                 <LoogieNavIcon />
               </Link>
             </Tooltip>
