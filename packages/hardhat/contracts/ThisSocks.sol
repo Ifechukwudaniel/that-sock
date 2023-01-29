@@ -81,7 +81,7 @@ contract ThisSocks is ERC721Enumerable, Ownable {
         ];
         sockBackgroundColor[id] = getPredicableRandomNumber(predictableRandom,27,31,11);
         sockBackgroundType[id] = getPredicableRandomNumber(predictableRandom,20,22,31);
-        sockPatterns[id] =  getPredicableRandomNumber(predictableRandom,10,30,15);
+        sockPatterns[id] =  getPredicableRandomNumber(predictableRandom,10,30,25);
         
 
 
