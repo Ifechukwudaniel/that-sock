@@ -903,8 +903,8 @@
       ]
     },
     "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/contracts/SockBackground/BackgroundMetadataLibrary.sol": {
-      "lastModificationDate": 1674823710067,
-      "contentHash": "e820a1d688e901d1a570c0c56887d243",
+      "lastModificationDate": 1675006753996,
+      "contentHash": "deb0ba2d4c8c836bccad70ba4b40ff6d",
       "sourceName": "contracts/SockBackground/BackgroundMetadataLibrary.sol",
       "solcConfig": {
         "version": "0.8.13",
