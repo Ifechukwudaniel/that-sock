@@ -7,7 +7,7 @@
       "address": "0x3Aa5ebB10DC797CAC828524e59A333d0A371443c"
     },
     "ThisSocks": {
-      "address": "0xc6e7DF5E7b4f2A278906862b61205850344D4e7d"
+      "address": "0xc5a5C42992dECbae36851359345FE25997F5C42d"
     },
     "SockPinLibrary": {
       "address": "0x84eA74d481Ee0A5332c457a4d796187F6Ba67fEB"
@@ -19,7 +19,7 @@
       "address": "0xa82fF9aFd8f496c3d6ac40E2a0F282E47488CFc9"
     },
     "BackgroundLibrary": {
-      "address": "0x959922bE3CAee4b8Cd9a407cc3ac1C251C2007B1"
+      "address": "0x09635F643e140090A9A8Dcd712eD6285858ceBef"
     },
     "BackgroundMetadataLibrary": {
       "address": "0x9A9f2CCfdE556A7E9Ff0848998Aa4a0CFD8863AE"
@@ -68,6 +68,21 @@
     },
     "PatternMetadataLibrary": {
       "address": "0x0DCd1Bf9A1b36cE34237eEaFef220932846BCD82"
+    },
+    "FlowerBackground": {
+      "address": "0x4ed7c70F96B99c776995fB64377f0d4aB3B0e1C1"
+    },
+    "LeavesBackground": {
+      "address": "0x322813Fd9A801c5507c9de605d63CEA4f2CE6c44"
+    },
+    "PillowBackground": {
+      "address": "0xa85233C63b9Ee964Add6F2cffe00Fd84eb32338f"
+    },
+    "RugBackground": {
+      "address": "0x4A679253410272dd5232B3Ff7cF5dbB88f295319"
+    },
+    "WaterBackground": {
+      "address": "0x7a2088a1bFc9d81c55368AE168C2C02570cB814F"
     }
   },
   "goerli": {
@@ -75,7 +90,7 @@
       "address": "0x79B04FFa6968FC3016B34D83e490b7fb7262d111"
     },
     "SockLayoutLibrary": {
-      "address": "0x4A41fD2c68A76c8F1463196cF912c42551389652"
+      "address": "0xDA7991CB363e76C33cE5dBa42c6ea28B4e8A5ECc"
     },
     "SockPinLibrary": {
       "address": "0x777108BC79E62E7f4bC11075A01c227caE757cc7"
@@ -84,13 +99,61 @@
       "address": "0x07B6009e05Ce1F3FbfBb33b677BB646Daa4504a5"
     },
     "ThisSocks": {
-      "address": "0xde004bc23D8d3A207520F11c61489822F60e3De5"
+      "address": "0xceEE9818e7B0a21eEcC66085A735C95c0A1EcBc8"
     },
     "BackgroundLibrary": {
-      "address": "0xf40bc48B6dF60a24cceD1D49dCFA1b2A6cE775d8"
+      "address": "0x650902674B9EA17dC8F2089222292DBb3f3AC2A3"
     },
     "BackgroundMetadataLibrary": {
-      "address": "0xA4c198263584234fFE10a1d38DE8203BA55Cb440"
+      "address": "0xA59B1E4dD7d44eF8738A3c74DeB97f7a19de16d6"
+    },
+    "BonePattern": {
+      "address": "0x2E2C1849132299eA5C0d4dEe0FCfD81026D7D84b"
+    },
+    "ChilliPattern": {
+      "address": "0x7814BF5Bc4FBc9E206532713176e8Afb02897D23"
+    },
+    "CloudPattern": {
+      "address": "0x05D4b4021058Fca6cC7cfc1d5C856176868125fD"
+    },
+    "FirePattern": {
+      "address": "0x8633543D625166b4f5088701004d9f6cD53458B8"
+    },
+    "HeartBreakPattern": {
+      "address": "0x9A78514f21cD37C8E1D37C1a69871cFd3A7520F5"
+    },
+    "HeartPattern": {
+      "address": "0xB75909e295134BCB0A6707Af21dA81f738589Be3"
+    },
+    "LemonPattern": {
+      "address": "0xB26497417bc9F4957527EDA77c010E3D7A7aAC38"
+    },
+    "LightingPattern": {
+      "address": "0x44C4033822A7c3e7f0ECc5b5a07da3C38Ce339df"
+    },
+    "MultiplePattern": {
+      "address": "0x9f0bc85E4A5CBB3C02132191D87c27f384fe8Eab"
+    },
+    "PatternLibrary": {
+      "address": "0x4Baf7A213EeB9398bA7f191623335a24f768b418"
+    },
+    "PatternMetadataLibrary": {
+      "address": "0xa994149F46C5D483F95894Abf17Ad3ba6643426B"
+    },
+    "PinLibrary": {
+      "address": "0x05482875e24Bd0FCf6a94dA6480680eCb4D8113D"
+    },
+    "PinMetadataLibrary": {
+      "address": "0x186328255cFfbCba0B126c53b23CE570b93249cC"
+    },
+    "StarPattern": {
+      "address": "0x68aC6A27111A4517678e92e3769f74F875bdDd14"
+    },
+    "StripePattern": {
+      "address": "0x4B5A93772514Df6f5Fc4549EaaCB30190820e28c"
+    },
+    "UfoPattern": {
+      "address": "0xf98612f6AbF3CCab50f87425a859df0b452A78f8"
     }
   }
 }

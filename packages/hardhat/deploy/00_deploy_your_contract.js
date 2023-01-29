@@ -141,10 +141,64 @@ module.exports = async ({ getNamedAccounts, deployments, getChainId }) => {
     deployer
   );
 
+  //  Additional Backgrounds
+
+  await deploy("FlowerBackground", {
+    from: deployer,
+    log: true,
+    waitConfirmations: 5,
+  });
+
+  await deploy("LeavesBackground", {
+    from: deployer,
+    log: true,
+    waitConfirmations: 5,
+  });
+
+  await deploy("PillowBackground", {
+    from: deployer,
+    log: true,
+    waitConfirmations: 5,
+  });
+
+  await deploy("RugBackground", {
+    from: deployer,
+    log: true,
+    waitConfirmations: 5,
+  });
+
+  await deploy("WaterBackground", {
+    from: deployer,
+    log: true,
+    waitConfirmations: 5,
+  });
+
+  const FlowerBackground = await ethers.getContract(
+    "FlowerBackground",
+    deployer
+  );
+  const LeavesBackground = await ethers.getContract(
+    "LeavesBackground",
+    deployer
+  );
+  const PillowBackground = await ethers.getContract(
+    "PillowBackground",
+    deployer
+  );
+  const RugBackground = await ethers.getContract("RugBackground", deployer);
+  const WaterBackground = await ethers.getContract("WaterBackground", deployer);
+
   await deploy("BackgroundLibrary", {
     from: deployer,
     log: true,
     waitConfirmations: 5,
+    libraries: {
+      FlowerBackground: FlowerBackground.address,
+      LeavesBackground: LeavesBackground.address,
+      PillowBackground: PillowBackground.address,
+      RugBackground: RugBackground.address,
+      WaterBackground: WaterBackground.address,
+    },
   });
 
   const BackgroundLibrary = await ethers.getContract(
@@ -207,6 +261,11 @@ module.exports = async ({ getNamedAccounts, deployments, getChainId }) => {
         address: ThisSocks.address,
         contractArguments: [],
         libraries: {
+          FlowerBackground: FlowerBackground.address,
+          LeavesBackground: LeavesBackground.address,
+          PillowBackground: PillowBackground.address,
+          RugBackground: RugBackground.address,
+          WaterBackground: WaterBackground.address,
           BonePattern: BonePattern.address,
           ChilliPattern: ChilliPattern.address,
           CloudPattern: CloudPattern.address,
