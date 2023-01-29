@@ -99,13 +99,13 @@
       "address": "0x07B6009e05Ce1F3FbfBb33b677BB646Daa4504a5"
     },
     "ThisSocks": {
-      "address": "0xceEE9818e7B0a21eEcC66085A735C95c0A1EcBc8"
+      "address": "0xc20b9e8f470fdaB60E9a8D7D3b483E04442F97F3"
     },
     "BackgroundLibrary": {
-      "address": "0x650902674B9EA17dC8F2089222292DBb3f3AC2A3"
+      "address": "0xfeeea43f4D4251BD883b9433762e9101380c6D70"
     },
     "BackgroundMetadataLibrary": {
-      "address": "0xA59B1E4dD7d44eF8738A3c74DeB97f7a19de16d6"
+      "address": "0x3d009EE2FB10D114e12b0BDbBC5F0A198319369A"
     },
     "BonePattern": {
       "address": "0x2E2C1849132299eA5C0d4dEe0FCfD81026D7D84b"
@@ -154,6 +154,21 @@
     },
     "UfoPattern": {
       "address": "0xf98612f6AbF3CCab50f87425a859df0b452A78f8"
+    },
+    "FlowerBackground": {
+      "address": "0x6470adde736d2Ca5E962E544a3104927ACeC5eDC"
+    },
+    "LeavesBackground": {
+      "address": "0x40A65A9772ef5A7592A802deFf0CcB341baC7b3c"
+    },
+    "PillowBackground": {
+      "address": "0xf012Df67DF9441D640c3a528E902BFBE7A323B06"
+    },
+    "RugBackground": {
+      "address": "0x6988c2620b6C4a268F2acDf6267eF40AaECFc2Ed"
+    },
+    "WaterBackground": {
+      "address": "0x3650e9CE21C307fF5f0C16c90ebaAb730Cae0342"
     }
   }
 }
