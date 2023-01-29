@@ -74,7 +74,22 @@ library BackgroundMetadataLibrary {
             // Alps
           return string(abi.encodePacked(backgroundTypeProperty,'Alps"}',',{"trait_type": "Hanged", "value":"True"}'));
         }
-        
+        else if(backgroundType == 3) {
+          return string(abi.encodePacked(backgroundTypeProperty, 'Flower"}'));
+        }
+        else if(backgroundType == 6) {
+           return string(abi.encodePacked(backgroundTypeProperty, 'Leaves"}'));
+        }
+        else if(backgroundType == 12) {
+            return string(abi.encodePacked(backgroundTypeProperty, 'Pillow"}'));
+        }
+        else if(backgroundType == 18) {
+            return string(abi.encodePacked(backgroundTypeProperty, 'Rug"}'));
+        }
+        else if(backgroundType == 24) {
+           return string(abi.encodePacked(backgroundTypeProperty, 'Water"}'));
+        }
+     
         return string(abi.encodePacked(backgroundTypeProperty,'Plain"}'));
      }
 } 

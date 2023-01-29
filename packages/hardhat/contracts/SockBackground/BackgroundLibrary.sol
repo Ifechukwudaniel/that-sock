@@ -1,6 +1,12 @@
 pragma solidity ^0.8.0;
 //SPDX-License-Identifier: MIT
 
+import "./AdditionalBackgrounds/FlowerBackground.sol";
+import "./AdditionalBackgrounds/LeavesBackground.sol";
+import "./AdditionalBackgrounds/PillowBackground.sol";
+import "./AdditionalBackgrounds/RugBackground.sol";
+import "./AdditionalBackgrounds/WaterBackground.sol";
+
 library BackgroundLibrary {
      function GetBackgroundColor(uint256 colorInt) public pure returns(string memory){ 
        if(colorInt == 0 ) {
@@ -49,108 +55,108 @@ library BackgroundLibrary {
        }
      }
 
-     function GetBackground(uint256 backgroundType,string memory backgroundColor) public pure returns(string memory){ 
+     function GetBackground(uint256 backgroundType,string memory backgroundColor) public pure returns(string memory){   
       // NATURAL WOOD
       if (backgroundType == 10) {
         return string(abi.encodePacked(
-              '     <g clip-path="url(#clip0_104_1281)">', 
-              '     <rect width="1080" height="1080" fill="#FCDFB4"/>', 
-              '     <rect x="-24" y="90" width="1128" height="205" fill="#FCDFB4" stroke="#D2B17F" stroke-width="4"/>', 
-              '     <rect x="-297" y="729" width="1128" height="205" fill="#FCDFB4" stroke="#D2B17F" stroke-width="4"/>', 
-              '     <rect x="836" y="730" width="1128" height="205" fill="#FCDFB4" stroke="#D2B17F" stroke-width="4"/>', 
-              '     <rect x="289" y="304" width="1128" height="205" fill="#FCDFB4" stroke="#D2B17F" stroke-width="4"/>', 
-              '     <rect x="-848" y="304" width="1128" height="205" fill="#FCDFB4" stroke="#D2B17F" stroke-width="4"/>', 
-              '     <rect x="-24" y="943" width="1128" height="205" fill="#FCDFB4" stroke="#D2B17F" stroke-width="4"/>', 
-              '     <rect x="-21" y="517" width="1128" height="205" fill="#FCDFB4" stroke="#D2B17F" stroke-width="4"/>', 
-              '     <circle cx="250.5" cy="330.5" r="9.5" fill="#C5B093"/>', 
-              '     <circle cx="323.5" cy="330.5" r="9.5" fill="#C5B093"/>', 
-              '     <circle cx="863.5" cy="755.5" r="9.5" fill="#C5B093"/>', 
-              '     <circle cx="798.5" cy="755.5" r="9.5" fill="#C5B093"/>', 
-              '     <circle cx="1059.5" cy="115.5" r="9.5" fill="#C5B093"/>', 
-              '     <circle cx="250.5" cy="485.5" r="9.5" fill="#C5B093"/>', 
-              '     <circle cx="323.5" cy="485.5" r="9.5" fill="#C5B093"/>', 
-              '     <circle cx="863.5" cy="910.5" r="9.5" fill="#C5B093"/>', 
-              '     <circle cx="798.5" cy="910.5" r="9.5" fill="#C5B093"/>', 
-              '     <circle cx="1059.5" cy="270.5" r="9.5" fill="#C5B093"/>', 
-              '     <rect x="-24" y="-124" width="1128" height="205" fill="#FCDFB4" stroke="#D2B17F" stroke-width="4"/>', 
-              '     </g>', 
-              '     <defs>', 
-              '     <clipPath id="clip0_104_1281">', 
-              '     <rect width="1080" height="1080" fill="white"/>', 
-              '     </clipPath>', 
-              '     </defs>'
+              '<g clip-path="url(#clip0_104_1281)">', 
+              '<rect width="1080" height="1080" fill="#FCDFB4"/>', 
+              '<rect x="-24" y="90" width="1128" height="205" fill="#FCDFB4" stroke="#D2B17F" stroke-width="4"/>', 
+              '<rect x="-297" y="729" width="1128" height="205" fill="#FCDFB4" stroke="#D2B17F" stroke-width="4"/>', 
+              '<rect x="836" y="730" width="1128" height="205" fill="#FCDFB4" stroke="#D2B17F" stroke-width="4"/>', 
+              '<rect x="289" y="304" width="1128" height="205" fill="#FCDFB4" stroke="#D2B17F" stroke-width="4"/>', 
+              '<rect x="-848" y="304" width="1128" height="205" fill="#FCDFB4" stroke="#D2B17F" stroke-width="4"/>', 
+              '<rect x="-24" y="943" width="1128" height="205" fill="#FCDFB4" stroke="#D2B17F" stroke-width="4"/>', 
+              '<rect x="-21" y="517" width="1128" height="205" fill="#FCDFB4" stroke="#D2B17F" stroke-width="4"/>', 
+              '<circle cx="250.5" cy="330.5" r="9.5" fill="#C5B093"/>', 
+              '<circle cx="323.5" cy="330.5" r="9.5" fill="#C5B093"/>', 
+              '<circle cx="863.5" cy="755.5" r="9.5" fill="#C5B093"/>', 
+              '<circle cx="798.5" cy="755.5" r="9.5" fill="#C5B093"/>', 
+              '<circle cx="1059.5" cy="115.5" r="9.5" fill="#C5B093"/>', 
+              '<circle cx="250.5" cy="485.5" r="9.5" fill="#C5B093"/>', 
+              '<circle cx="323.5" cy="485.5" r="9.5" fill="#C5B093"/>', 
+              '<circle cx="863.5" cy="910.5" r="9.5" fill="#C5B093"/>', 
+              '<circle cx="798.5" cy="910.5" r="9.5" fill="#C5B093"/>', 
+              '<circle cx="1059.5" cy="270.5" r="9.5" fill="#C5B093"/>', 
+              '<rect x="-24" y="-124" width="1128" height="205" fill="#FCDFB4" stroke="#D2B17F" stroke-width="4"/>', 
+              '</g>', 
+              '<defs>', 
+              '<clipPath id="clip0_104_1281">', 
+              '<rect width="1080" height="1080" fill="white"/>', 
+              '</clipPath>', 
+              '</defs>'
         ));
      }
       else if (backgroundType == 15) {
         //Grey Wood
         return string(abi.encodePacked(
-            '     <g clip-path="url(#clip0_104_1261)">', 
-            '     <rect width="1080" height="1080" fill="#818181"/>', 
-            '     <rect x="-24" y="90" width="1128" height="205" fill="#818181" stroke="#DCDCDC" stroke-width="4"/>', 
-            '     <rect x="-297" y="729" width="1128" height="205" fill="#818181" stroke="#DCDCDC" stroke-width="4"/>', 
-            '     <rect x="836" y="730" width="1128" height="205" fill="#818181" stroke="#DCDCDC" stroke-width="4"/>', 
-            '     <rect x="289" y="304" width="1128" height="205" fill="#818181" stroke="#DCDCDC" stroke-width="4"/>', 
-            '     <rect x="-848" y="304" width="1128" height="205" fill="#818181" stroke="#DCDCDC" stroke-width="4"/>', 
-            '     <rect x="-24" y="943" width="1128" height="205" fill="#818181" stroke="#DCDCDC" stroke-width="4"/>', 
-            '     <rect x="-21" y="517" width="1128" height="205" fill="#818181" stroke="#DCDCDC" stroke-width="4"/>', 
-            '     <circle cx="250.5" cy="330.5" r="9.5" fill="#D6E4FF"/>', 
-            '     <circle cx="323.5" cy="330.5" r="9.5" fill="#D6E4FF"/>', 
-            '     <circle cx="863.5" cy="755.5" r="9.5" fill="#D6E4FF"/>', 
-            '     <circle cx="798.5" cy="755.5" r="9.5" fill="#D6E4FF"/>', 
-            '     <circle cx="1059.5" cy="115.5" r="9.5" fill="#D6E4FF"/>', 
-            '     <circle cx="250.5" cy="485.5" r="9.5" fill="#D6E4FF"/>', 
-            '     <circle cx="323.5" cy="485.5" r="9.5" fill="#D6E4FF"/>', 
-            '     <circle cx="863.5" cy="910.5" r="9.5" fill="#D6E4FF"/>', 
-            '     <circle cx="798.5" cy="910.5" r="9.5" fill="#D6E4FF"/>', 
-            '     <circle cx="1059.5" cy="270.5" r="9.5" fill="#D6E4FF"/>', 
-            '     <rect x="-13" y="-123" width="1128" height="205" fill="#818181" stroke="#DCDCDC" stroke-width="4"/>', 
-            '     </g>', 
-            '     <defs>', 
-            '     <clipPath id="clip0_104_1261">', 
-            '     <rect width="1080" height="1080" fill="white"/>', 
-            '     </clipPath>', 
-            '     </defs>'
+            '<g clip-path="url(#clip0_104_1261)">', 
+            '<rect width="1080" height="1080" fill="#818181"/>', 
+            '<rect x="-24" y="90" width="1128" height="205" fill="#818181" stroke="#DCDCDC" stroke-width="4"/>', 
+            '<rect x="-297" y="729" width="1128" height="205" fill="#818181" stroke="#DCDCDC" stroke-width="4"/>', 
+            '<rect x="836" y="730" width="1128" height="205" fill="#818181" stroke="#DCDCDC" stroke-width="4"/>', 
+            '<rect x="289" y="304" width="1128" height="205" fill="#818181" stroke="#DCDCDC" stroke-width="4"/>', 
+            '<rect x="-848" y="304" width="1128" height="205" fill="#818181" stroke="#DCDCDC" stroke-width="4"/>', 
+            '<rect x="-24" y="943" width="1128" height="205" fill="#818181" stroke="#DCDCDC" stroke-width="4"/>', 
+            '<rect x="-21" y="517" width="1128" height="205" fill="#818181" stroke="#DCDCDC" stroke-width="4"/>', 
+            '<circle cx="250.5" cy="330.5" r="9.5" fill="#D6E4FF"/>', 
+            '<circle cx="323.5" cy="330.5" r="9.5" fill="#D6E4FF"/>', 
+            '<circle cx="863.5" cy="755.5" r="9.5" fill="#D6E4FF"/>', 
+            '<circle cx="798.5" cy="755.5" r="9.5" fill="#D6E4FF"/>', 
+            '<circle cx="1059.5" cy="115.5" r="9.5" fill="#D6E4FF"/>', 
+            '<circle cx="250.5" cy="485.5" r="9.5" fill="#D6E4FF"/>', 
+            '<circle cx="323.5" cy="485.5" r="9.5" fill="#D6E4FF"/>', 
+            '<circle cx="863.5" cy="910.5" r="9.5" fill="#D6E4FF"/>', 
+            '<circle cx="798.5" cy="910.5" r="9.5" fill="#D6E4FF"/>', 
+            '<circle cx="1059.5" cy="270.5" r="9.5" fill="#D6E4FF"/>', 
+            '<rect x="-13" y="-123" width="1128" height="205" fill="#818181" stroke="#DCDCDC" stroke-width="4"/>', 
+            '</g>', 
+            '<defs>', 
+            '<clipPath id="clip0_104_1261">', 
+            '<rect width="1080" height="1080" fill="white"/>', 
+            '</clipPath>', 
+            '</defs>'
         ));
      }
         else if (backgroundType == 20) {
         return string(abi.encodePacked(
           // Basic  Tile
-            '     <g clip-path="url(#clip0_33_78)">', 
-            '     <rect width="1080" height="1080" fill="#DCDCDC"/>', 
-            '     <rect x="106" y="99" width="263" height="263" rx="12" fill="#F5F5F5"/>', 
-            '     <rect x="1008" y="99" width="263" height="263" rx="12" fill="#F5F5F5"/>', 
-            '     <rect x="408" y="99" width="264" height="263" rx="12" fill="#F5F5F5"/>', 
-            '     <rect x="-193" y="99" width="264" height="263" rx="12" fill="#F5F5F5"/>', 
-            '     <rect x="711" y="99" width="263" height="263" rx="12" fill="#F5F5F5"/>', 
-            '     <rect x="110" y="99" width="263" height="263" rx="12" fill="#F5F5F5"/>', 
-            '     <rect x="106" y="408" width="263" height="263" rx="12" fill="#F5F5F5"/>', 
-            '     <rect x="1008" y="408" width="263" height="263" rx="12" fill="#F5F5F5"/>', 
-            '     <rect x="408" y="408" width="264" height="263" rx="12" fill="#F5F5F5"/>', 
-            '     <rect x="-193" y="408" width="264" height="263" rx="12" fill="#F5F5F5"/>', 
-            '     <rect x="711" y="408" width="263" height="263" rx="12" fill="#F5F5F5"/>', 
-            '     <rect x="110" y="408" width="263" height="263" rx="12" fill="#F5F5F5"/>', 
-            '     <rect x="106" y="717" width="263" height="263" rx="12" fill="#F5F5F5"/>', 
-            '     <rect x="106" y="-211" width="263" height="263" rx="12" fill="#F5F5F5"/>', 
-            '     <rect x="-191" y="-211" width="263" height="263" rx="12" fill="#F5F5F5"/>', 
-            '     <rect x="1008" y="-211" width="263" height="263" rx="12" fill="#F5F5F5"/>', 
-            '     <rect x="1008" y="717" width="263" height="263" rx="12" fill="#F5F5F5"/>', 
-            '     <rect x="408" y="717" width="264" height="263" rx="12" fill="#F5F5F5"/>', 
-            '     <rect x="408" y="1020" width="264" height="263" rx="12" fill="#F5F5F5"/>', 
-            '     <rect x="408" y="-211" width="264" height="263" rx="12" fill="#F5F5F5"/>', 
-            '     <rect x="-193" y="717" width="264" height="263" rx="12" fill="#F5F5F5"/>', 
-            '     <rect x="711" y="717" width="263" height="263" rx="12" fill="#F5F5F5"/>', 
-            '     <rect x="711" y="1020" width="263" height="263" rx="12" fill="#F5F5F5"/>', 
-            '     <rect x="1013" y="1020" width="263" height="263" rx="12" fill="#F5F5F5"/>', 
-            '     <rect x="711" y="-211" width="263" height="263" rx="12" fill="#F5F5F5"/>', 
-            '     <rect x="110" y="717" width="263" height="263" rx="12" fill="#F5F5F5"/>', 
-            '     <rect x="110" y="1020" width="263" height="263" rx="12" fill="#F5F5F5"/>', 
-            '     <rect x="-192" y="1020" width="263" height="263" rx="12" fill="#F5F5F5"/>', 
-            '     </g>', 
-            '     <defs>', 
-            '     <clipPath id="clip0_33_78">', 
-            '     <rect width="1080" height="1080" fill="white"/>', 
-            '     </clipPath>', 
-            '     </defs>'
+            '<g clip-path="url(#clip0_33_78)">', 
+            '<rect width="1080" height="1080" fill="#DCDCDC"/>', 
+            '<rect x="106" y="99" width="263" height="263" rx="12" fill="#F5F5F5"/>', 
+            '<rect x="1008" y="99" width="263" height="263" rx="12" fill="#F5F5F5"/>', 
+            '<rect x="408" y="99" width="264" height="263" rx="12" fill="#F5F5F5"/>', 
+            '<rect x="-193" y="99" width="264" height="263" rx="12" fill="#F5F5F5"/>', 
+            '<rect x="711" y="99" width="263" height="263" rx="12" fill="#F5F5F5"/>', 
+            '<rect x="110" y="99" width="263" height="263" rx="12" fill="#F5F5F5"/>', 
+            '<rect x="106" y="408" width="263" height="263" rx="12" fill="#F5F5F5"/>', 
+            '<rect x="1008" y="408" width="263" height="263" rx="12" fill="#F5F5F5"/>', 
+            '<rect x="408" y="408" width="264" height="263" rx="12" fill="#F5F5F5"/>', 
+            '<rect x="-193" y="408" width="264" height="263" rx="12" fill="#F5F5F5"/>', 
+            '<rect x="711" y="408" width="263" height="263" rx="12" fill="#F5F5F5"/>', 
+            '<rect x="110" y="408" width="263" height="263" rx="12" fill="#F5F5F5"/>', 
+            '<rect x="106" y="717" width="263" height="263" rx="12" fill="#F5F5F5"/>', 
+            '<rect x="106" y="-211" width="263" height="263" rx="12" fill="#F5F5F5"/>', 
+            '<rect x="-191" y="-211" width="263" height="263" rx="12" fill="#F5F5F5"/>', 
+            '<rect x="1008" y="-211" width="263" height="263" rx="12" fill="#F5F5F5"/>', 
+            '<rect x="1008" y="717" width="263" height="263" rx="12" fill="#F5F5F5"/>', 
+            '<rect x="408" y="717" width="264" height="263" rx="12" fill="#F5F5F5"/>', 
+            '<rect x="408" y="1020" width="264" height="263" rx="12" fill="#F5F5F5"/>', 
+            '<rect x="408" y="-211" width="264" height="263" rx="12" fill="#F5F5F5"/>', 
+            '<rect x="-193" y="717" width="264" height="263" rx="12" fill="#F5F5F5"/>', 
+            '<rect x="711" y="717" width="263" height="263" rx="12" fill="#F5F5F5"/>', 
+            '<rect x="711" y="1020" width="263" height="263" rx="12" fill="#F5F5F5"/>', 
+            '<rect x="1013" y="1020" width="263" height="263" rx="12" fill="#F5F5F5"/>', 
+            '<rect x="711" y="-211" width="263" height="263" rx="12" fill="#F5F5F5"/>', 
+            '<rect x="110" y="717" width="263" height="263" rx="12" fill="#F5F5F5"/>', 
+            '<rect x="110" y="1020" width="263" height="263" rx="12" fill="#F5F5F5"/>', 
+            '<rect x="-192" y="1020" width="263" height="263" rx="12" fill="#F5F5F5"/>', 
+            '</g>', 
+            '<defs>', 
+            '<clipPath id="clip0_33_78">', 
+            '<rect width="1080" height="1080" fill="white"/>', 
+            '</clipPath>', 
+            '</defs>'
         ));
      }
      else  if (backgroundType == 25) {
@@ -226,7 +232,22 @@ library BackgroundLibrary {
             '     </clipPath>', 
             '     </defs>'));
      }
-      else {
+    else if(backgroundType == 3) {
+       return FlowerBackground.background(backgroundColor);
+    }
+    else if(backgroundType == 6) {
+       return LeavesBackground.background(backgroundColor);
+    }
+     else if(backgroundType == 12) {
+       return PillowBackground.background(backgroundColor);
+    }
+    else if(backgroundType == 18) {
+       return RugBackground.background(backgroundColor);
+    }
+     else if(backgroundType == 24) {
+       return WaterBackground.background(backgroundColor);
+    }
+     else {
         return  string(abi.encodePacked(
           // Plane
           '<rect width="1080" height="1080" '
