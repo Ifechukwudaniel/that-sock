@@ -4,30 +4,6 @@
       "name": "goerli",
       "chainId": "5",
       "contracts": {
-        "SockPinLibrary": {
-          "address": "0x777108BC79E62E7f4bC11075A01c227caE757cc7",
-          "abi": [
-            {
-              "inputs": [
-                {
-                  "internalType": "uint256",
-                  "name": "currentPin",
-                  "type": "uint256"
-                }
-              ],
-              "name": "GetPin",
-              "outputs": [
-                {
-                  "internalType": "string",
-                  "name": "",
-                  "type": "string"
-                }
-              ],
-              "stateMutability": "pure",
-              "type": "function"
-            }
-          ]
-        },
         "SockBackgroundLibrary": {
           "address": "0x79B04FFa6968FC3016B34D83e490b7fb7262d111",
           "abi": [
@@ -155,6 +131,30 @@
                 }
               ],
               "name": "GetLayout",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "pure",
+              "type": "function"
+            }
+          ]
+        },
+        "SockPinLibrary": {
+          "address": "0x777108BC79E62E7f4bC11075A01c227caE757cc7",
+          "abi": [
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "currentPin",
+                  "type": "uint256"
+                }
+              ],
+              "name": "GetPin",
               "outputs": [
                 {
                   "internalType": "string",
@@ -919,8 +919,320 @@
       "name": "localhost",
       "chainId": "31337",
       "contracts": {
-        "SockBackgroundLibrary": {
-          "address": "0xa82fF9aFd8f496c3d6ac40E2a0F282E47488CFc9",
+        "BonePattern": {
+          "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+          "abi": [
+            {
+              "inputs": [],
+              "name": "pattern",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "pure",
+              "type": "function"
+            }
+          ]
+        },
+        "ChilliPattern": {
+          "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+          "abi": [
+            {
+              "inputs": [],
+              "name": "pattern",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "pure",
+              "type": "function"
+            }
+          ]
+        },
+        "CloudPattern": {
+          "address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+          "abi": [
+            {
+              "inputs": [],
+              "name": "pattern",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "pure",
+              "type": "function"
+            }
+          ]
+        },
+        "FirePattern": {
+          "address": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
+          "abi": [
+            {
+              "inputs": [],
+              "name": "pattern",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "pure",
+              "type": "function"
+            }
+          ]
+        },
+        "HeartBreakPattern": {
+          "address": "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9",
+          "abi": [
+            {
+              "inputs": [],
+              "name": "pattern",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "pure",
+              "type": "function"
+            }
+          ]
+        },
+        "HeartPattern": {
+          "address": "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707",
+          "abi": [
+            {
+              "inputs": [],
+              "name": "pattern",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "pure",
+              "type": "function"
+            }
+          ]
+        },
+        "LemonPattern": {
+          "address": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+          "abi": [
+            {
+              "inputs": [],
+              "name": "pattern",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "pure",
+              "type": "function"
+            }
+          ]
+        },
+        "LightingPattern": {
+          "address": "0xa513E6E4b8f2a923D98304ec87F64353C4D5C853",
+          "abi": [
+            {
+              "inputs": [],
+              "name": "pattern",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "pure",
+              "type": "function"
+            }
+          ]
+        },
+        "MultiplePattern": {
+          "address": "0x2279B7A0a67DB372996a5FaB50D91eAA73d2eBe6",
+          "abi": [
+            {
+              "inputs": [],
+              "name": "pattern",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "pure",
+              "type": "function"
+            }
+          ]
+        },
+        "StarPattern": {
+          "address": "0x8A791620dd6260079BF849Dc5567aDC3F2FdC318",
+          "abi": [
+            {
+              "inputs": [],
+              "name": "pattern",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "pure",
+              "type": "function"
+            }
+          ]
+        },
+        "StripePattern": {
+          "address": "0x610178dA211FEF7D417bC0e6FeD39F05609AD788",
+          "abi": [
+            {
+              "inputs": [],
+              "name": "pattern",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "pure",
+              "type": "function"
+            }
+          ]
+        },
+        "UfoPattern": {
+          "address": "0xB7f8BC63BbcaD18155201308C8f3540b07f84F5e",
+          "abi": [
+            {
+              "inputs": [],
+              "name": "pattern",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "pure",
+              "type": "function"
+            }
+          ]
+        },
+        "PatternLibrary": {
+          "address": "0xA51c1fc2f0D1a1b8494Ed1FE312d7C3a78Ed91C0",
+          "abi": [
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "currentPattern",
+                  "type": "uint256"
+                }
+              ],
+              "name": "GetPattern",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "pure",
+              "type": "function"
+            }
+          ]
+        },
+        "PatternMetadataLibrary": {
+          "address": "0x0DCd1Bf9A1b36cE34237eEaFef220932846BCD82",
+          "abi": [
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "currentPattern",
+                  "type": "uint256"
+                }
+              ],
+              "name": "GetPatternMetadata",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "pure",
+              "type": "function"
+            }
+          ]
+        },
+        "PinLibrary": {
+          "address": "0x9A676e781A523b5d0C0e43731313A708CB607508",
+          "abi": [
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "currentPin",
+                  "type": "uint256"
+                }
+              ],
+              "name": "GetPin",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "pure",
+              "type": "function"
+            }
+          ]
+        },
+        "PinMetadataLibrary": {
+          "address": "0x0B306BF915C4d645ff596e518fAf3F9669b97016",
+          "abi": [
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "currentPin",
+                  "type": "uint256"
+                }
+              ],
+              "name": "GetPinMetadata",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "pure",
+              "type": "function"
+            }
+          ]
+        },
+        "BackgroundLibrary": {
+          "address": "0x959922bE3CAee4b8Cd9a407cc3ac1C251C2007B1",
           "abi": [
             {
               "inputs": [
@@ -1005,8 +1317,51 @@
             }
           ]
         },
+        "BackgroundMetadataLibrary": {
+          "address": "0x9A9f2CCfdE556A7E9Ff0848998Aa4a0CFD8863AE",
+          "abi": [
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "colorInt",
+                  "type": "uint256"
+                }
+              ],
+              "name": "GetBackgroundColorMetadata",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "pure",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "backgroundType",
+                  "type": "uint256"
+                }
+              ],
+              "name": "GetBackgroundTypeMetadata",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "pure",
+              "type": "function"
+            }
+          ]
+        },
         "SockLayoutLibrary": {
-          "address": "0xE6E340D132b5f46d1e472DebcD681B2aBc16e57E",
+          "address": "0x68B1D87F95878fE05B998F19b66F4baba5De1aed",
           "abi": [
             {
               "inputs": [
@@ -1017,6 +1372,25 @@
                 }
               ],
               "name": "GetColor",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "pure",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "colorInt",
+                  "type": "uint256"
+                }
+              ],
+              "name": "GetColorName",
               "outputs": [
                 {
                   "internalType": "string",
@@ -1055,21 +1429,26 @@
               ],
               "stateMutability": "pure",
               "type": "function"
-            }
-          ]
-        },
-        "SockPinLibrary": {
-          "address": "0x84eA74d481Ee0A5332c457a4d796187F6Ba67fEB",
-          "abi": [
+            },
             {
               "inputs": [
                 {
                   "internalType": "uint256",
-                  "name": "currentPin",
+                  "name": "towAndHeelColor",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "cuffColor",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "color",
                   "type": "uint256"
                 }
               ],
-              "name": "GetPin",
+              "name": "GetLayoutMetadata",
               "outputs": [
                 {
                   "internalType": "string",
@@ -1083,7 +1462,7 @@
           ]
         },
         "StyleLibrary": {
-          "address": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
+          "address": "0x3Aa5ebB10DC797CAC828524e59A333d0A371443c",
           "abi": [
             {
               "inputs": [],
@@ -1127,7 +1506,7 @@
           ]
         },
         "ThisSocks": {
-          "address": "0x851356ae760d987E095750cCeb3bC6014560891C",
+          "address": "0xc6e7DF5E7b4f2A278906862b61205850344D4e7d",
           "abi": [
             {
               "inputs": [],
@@ -1358,6 +1737,25 @@
                 {
                   "internalType": "uint256",
                   "name": "color3",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "id",
+                  "type": "uint256"
+                }
+              ],
+              "name": "getPatternByTokenId",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
                   "type": "uint256"
                 }
               ],
@@ -1659,6 +2057,24 @@
                 }
               ],
               "name": "setColorsByTokenId",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "id",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "pattern",
+                  "type": "uint256"
+                }
+              ],
+              "name": "setPatternByTokenId",
               "outputs": [],
               "stateMutability": "nonpayable",
               "type": "function"

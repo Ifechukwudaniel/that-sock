@@ -333,7 +333,7 @@ function App(props) {
             DEBUG={DEBUG}
             perPage={perPage}
             gasPrice={gasPrice}
-          />s
+          />
         </Route>
         <Route exact path="/debug">
           <Contract

@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/contracts/ThisSocks.sol": {
-      "lastModificationDate": 1674569914107,
-      "contentHash": "6ce5400837741169685744b575b2122f",
+      "lastModificationDate": 1674947786020,
+      "contentHash": "c30a114cfedc16ea5e3a6263ac83430d",
       "sourceName": "contracts/ThisSocks.sol",
       "solcConfig": {
         "version": "0.8.13",
@@ -43,9 +43,13 @@
         "@openzeppelin/contracts/utils/Strings.sol",
         "base64-sol/base64.sol",
         "./StyleLibrary.sol",
-        "./SockPinLibrary.sol",
+        "./SockPin/PinLibrary.sol",
+        "./SockPin/PinLibraryMetadata.sol",
         "./SockLayoutLibrary.sol",
-        "./SockBackgroundLibrary.sol"
+        "./SockBackground/BackgroundLibrary.sol",
+        "./SockBackground/BackgroundMetadataLibrary.sol",
+        "./SockPattern/PatternLibrary.sol",
+        "./SockPattern/PatternMetadataLibrary.sol"
       ],
       "versionPragmas": [
         "^0.8.0"
@@ -763,52 +767,9 @@
         "console"
       ]
     },
-    "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/contracts/SockPinLibrary.sol": {
-      "lastModificationDate": 1674566893432,
-      "contentHash": "dbfb0ac42d811f0e71575b002ec06918",
-      "sourceName": "contracts/SockPinLibrary.sol",
-      "solcConfig": {
-        "version": "0.8.13",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "viaIR": true,
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "devdoc",
-                "userdoc",
-                "storageLayout",
-                "evm.gasEstimates"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          },
-          "metadata": {
-            "useLiteralContent": true
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "SockPinLibrary"
-      ]
-    },
     "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/contracts/SockLayoutLibrary.sol": {
-      "lastModificationDate": 1674564729827,
-      "contentHash": "40a7e19595aef7b8052b2ea49bebe6dd",
+      "lastModificationDate": 1674833730184,
+      "contentHash": "eb440cf65a8efa938202d195d205a210",
       "sourceName": "contracts/SockLayoutLibrary.sol",
       "solcConfig": {
         "version": "0.8.13",
@@ -847,49 +808,6 @@
       ],
       "artifacts": [
         "SockLayoutLibrary"
-      ]
-    },
-    "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/contracts/SockBackgroundLibrary.sol": {
-      "lastModificationDate": 1674567905751,
-      "contentHash": "bc65b00c36a464ce0f2a69c9654be635",
-      "sourceName": "contracts/SockBackgroundLibrary.sol",
-      "solcConfig": {
-        "version": "0.8.13",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 100
-          },
-          "viaIR": true,
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "devdoc",
-                "userdoc",
-                "storageLayout",
-                "evm.gasEstimates"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          },
-          "metadata": {
-            "useLiteralContent": true
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "SockBackgroundLibrary"
       ]
     },
     "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/contracts/SockPatternLibrary.sol": {
@@ -933,6 +851,806 @@
       ],
       "artifacts": [
         "SockPatternLibrary"
+      ]
+    },
+    "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/contracts/SockBackground/BackgroundLibrary.sol": {
+      "lastModificationDate": 1674810114726,
+      "contentHash": "df6014b02a23bfc55bf0ee8ad8c1ef9c",
+      "sourceName": "contracts/SockBackground/BackgroundLibrary.sol",
+      "solcConfig": {
+        "version": "0.8.13",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "BackgroundLibrary"
+      ]
+    },
+    "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/contracts/SockBackground/BackgroundMetadataLibrary.sol": {
+      "lastModificationDate": 1674823710067,
+      "contentHash": "e820a1d688e901d1a570c0c56887d243",
+      "sourceName": "contracts/SockBackground/BackgroundMetadataLibrary.sol",
+      "solcConfig": {
+        "version": "0.8.13",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "BackgroundMetadataLibrary"
+      ]
+    },
+    "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/contracts/SockPin/PinLibrary.sol": {
+      "lastModificationDate": 1674833016120,
+      "contentHash": "b21df8b312b42aca428127d56d320bdc",
+      "sourceName": "contracts/SockPin/PinLibrary.sol",
+      "solcConfig": {
+        "version": "0.8.13",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "PinLibrary"
+      ]
+    },
+    "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/contracts/SockPin/PinLibraryMetadata.sol": {
+      "lastModificationDate": 1674840644981,
+      "contentHash": "0bd2a9db9bfa487f37298b33a26bf92f",
+      "sourceName": "contracts/SockPin/PinLibraryMetadata.sol",
+      "solcConfig": {
+        "version": "0.8.13",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "PinMetadataLibrary"
+      ]
+    },
+    "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/contracts/SockPattern/PatternLibrary.sol": {
+      "lastModificationDate": 1674926076871,
+      "contentHash": "3ab3678e29fa30ab7df3589a41e61889",
+      "sourceName": "contracts/SockPattern/PatternLibrary.sol",
+      "solcConfig": {
+        "version": "0.8.13",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [
+        "./Patterns/BonePattern.sol",
+        "./Patterns/ChilliPattern.sol",
+        "./Patterns/CloudPattern.sol",
+        "./Patterns/FirePattern.sol",
+        "./Patterns/HeartBreakPattern.sol",
+        "./Patterns/HeartPattern.sol",
+        "./Patterns/LemonPattern.sol",
+        "./Patterns/LightingPattern.sol",
+        "./Patterns/MultiplePattern.sol",
+        "./Patterns/StarPattern.sol",
+        "./Patterns/StripePattern.sol",
+        "./Patterns/UfoPattern.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "PatternLibrary"
+      ]
+    },
+    "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/contracts/SockPattern/Patterns/BonePattern.sol": {
+      "lastModificationDate": 1674924525118,
+      "contentHash": "cbbe39ecd22d291edfd1c4c8b7c29824",
+      "sourceName": "contracts/SockPattern/Patterns/BonePattern.sol",
+      "solcConfig": {
+        "version": "0.8.13",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "BonePattern"
+      ]
+    },
+    "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/contracts/SockPattern/Patterns/ChilliPattern.sol": {
+      "lastModificationDate": 1674924589789,
+      "contentHash": "a53a1378c5ae45af1e6c789ca8ba9981",
+      "sourceName": "contracts/SockPattern/Patterns/ChilliPattern.sol",
+      "solcConfig": {
+        "version": "0.8.13",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ChilliPattern"
+      ]
+    },
+    "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/contracts/SockPattern/Patterns/CloudPattern.sol": {
+      "lastModificationDate": 1674925508188,
+      "contentHash": "bbd0e79e2a2e12d9e19e5766840cd61d",
+      "sourceName": "contracts/SockPattern/Patterns/CloudPattern.sol",
+      "solcConfig": {
+        "version": "0.8.13",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "CloudPattern"
+      ]
+    },
+    "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/contracts/SockPattern/Patterns/FirePattern.sol": {
+      "lastModificationDate": 1674924691945,
+      "contentHash": "c7c2c7c69b623b3e237be6ff68a771aa",
+      "sourceName": "contracts/SockPattern/Patterns/FirePattern.sol",
+      "solcConfig": {
+        "version": "0.8.13",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "FirePattern"
+      ]
+    },
+    "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/contracts/SockPattern/Patterns/HeartBreakPattern.sol": {
+      "lastModificationDate": 1674924755955,
+      "contentHash": "270f58008800d7f66eb1f14399c1debc",
+      "sourceName": "contracts/SockPattern/Patterns/HeartBreakPattern.sol",
+      "solcConfig": {
+        "version": "0.8.13",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "HeartBreakPattern"
+      ]
+    },
+    "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/contracts/SockPattern/Patterns/HeartPattern.sol": {
+      "lastModificationDate": 1674924793315,
+      "contentHash": "5eb03ef5dd0368cbde5a6b0e6f4c7a04",
+      "sourceName": "contracts/SockPattern/Patterns/HeartPattern.sol",
+      "solcConfig": {
+        "version": "0.8.13",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "HeartPattern"
+      ]
+    },
+    "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/contracts/SockPattern/Patterns/LemonPattern.sol": {
+      "lastModificationDate": 1674924833872,
+      "contentHash": "1846469ad7ed063362d06fe4679a565f",
+      "sourceName": "contracts/SockPattern/Patterns/LemonPattern.sol",
+      "solcConfig": {
+        "version": "0.8.13",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "LemonPattern"
+      ]
+    },
+    "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/contracts/SockPattern/Patterns/LightingPattern.sol": {
+      "lastModificationDate": 1674924907607,
+      "contentHash": "06e08439cff0be7a622c7a1662be9597",
+      "sourceName": "contracts/SockPattern/Patterns/LightingPattern.sol",
+      "solcConfig": {
+        "version": "0.8.13",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "LightingPattern"
+      ]
+    },
+    "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/contracts/SockPattern/Patterns/MultiplePattern.sol": {
+      "lastModificationDate": 1674924970902,
+      "contentHash": "09f6482e6b797e750fdd4f3a1b032891",
+      "sourceName": "contracts/SockPattern/Patterns/MultiplePattern.sol",
+      "solcConfig": {
+        "version": "0.8.13",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "MultiplePattern"
+      ]
+    },
+    "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/contracts/SockPattern/Patterns/StarPattern.sol": {
+      "lastModificationDate": 1674948065026,
+      "contentHash": "d21fba8b12119b607d9df2f68fdc0d6c",
+      "sourceName": "contracts/SockPattern/Patterns/StarPattern.sol",
+      "solcConfig": {
+        "version": "0.8.13",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "StarPattern"
+      ]
+    },
+    "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/contracts/SockPattern/Patterns/StripePattern.sol": {
+      "lastModificationDate": 1674925148791,
+      "contentHash": "cc2844b4278b2b15d474a1e5ba52abc7",
+      "sourceName": "contracts/SockPattern/Patterns/StripePattern.sol",
+      "solcConfig": {
+        "version": "0.8.13",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "StripePattern"
+      ]
+    },
+    "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/contracts/SockPattern/Patterns/UfoPattern.sol": {
+      "lastModificationDate": 1674933694831,
+      "contentHash": "bb9b6cce2bd3ab740890633885e71c7c",
+      "sourceName": "contracts/SockPattern/Patterns/UfoPattern.sol",
+      "solcConfig": {
+        "version": "0.8.13",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "UfoPattern"
+      ]
+    },
+    "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/contracts/SockPattern/PatternMetadataLibrary.sol": {
+      "lastModificationDate": 1674949181879,
+      "contentHash": "2871ca3d74c9a155ab347df5c67ceca6",
+      "sourceName": "contracts/SockPattern/PatternMetadataLibrary.sol",
+      "solcConfig": {
+        "version": "0.8.13",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 100
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [
+        "./Patterns/BonePattern.sol",
+        "./Patterns/ChilliPattern.sol",
+        "./Patterns/CloudPattern.sol",
+        "./Patterns/FirePattern.sol",
+        "./Patterns/HeartBreakPattern.sol",
+        "./Patterns/HeartPattern.sol",
+        "./Patterns/LemonPattern.sol",
+        "./Patterns/LightingPattern.sol",
+        "./Patterns/MultiplePattern.sol",
+        "./Patterns/StarPattern.sol",
+        "./Patterns/StripePattern.sol",
+        "./Patterns/UfoPattern.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "PatternMetadataLibrary"
       ]
     }
   }

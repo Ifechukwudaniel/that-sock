@@ -1,0 +1,224 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "PatternLibrary",
+  "sourceName": "contracts/SockPattern/PatternLibrary.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "currentPattern",
+          "type": "uint256"
+        }
+      ],
+      "name": "GetPattern",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x6080806040523461001a576105419081610020823930815050f35b600080fdfe6080604052600436101561001257600080fd5b60003560e01c630722ef891461002757600080fd5b602036600319011261006f5761003e6004356101a8565b604080518092602082526100618151809281602086015260208686019101610074565b601f01601f19168101030190f35b600080fd5b918091926000905b82821061009457501161008d575050565b6000910152565b9150806020918301518186015201829161007c565b50634e487b7160e01b600052604160045260246000fd5b90601f8019910116810190811067ffffffffffffffff8211176100e257604052565b6100ea6100a9565b604052565b604051906020820182811067ffffffffffffffff821117610114575b60405260008252565b61011c6100a9565b61010b565b60208183031261006f57805167ffffffffffffffff9182821161006f57019082601f8301121561006f57815190811161018e575b6040519261016d601f8301601f1916602001856100c0565b8184526020828401011161006f5761018b9160208085019101610074565b90565b6101966100a9565b610155565b506040513d6000823e3d90fd5b80610213575060405163a96f1c6960e01b815260008160048173__$3b823523b574a2febe2e1e43a92160c877$__5af4908115610206575b6000916101eb575090565b61018b913d8091833e6101fe81836100c0565b810190610121565b61020e61019b565b6101e0565b60018103610258575060405163a96f1c6960e01b815260008160048173__$f0930af758e332680a168b8a37f870f1cb$__5af4908115610206576000916101eb575090565b6002810361029d575060405163a96f1c6960e01b815260008160048173__$18894c7e98642358bafb4f96aaa476e286$__5af4908115610206576000916101eb575090565b600381036102e2575060405163a96f1c6960e01b815260008160048173__$c0b8a333edc9707c2e86768540521ca98b$__5af4908115610206576000916101eb575090565b60049080820361032857506000604051809263a96f1c6960e01b82528173__$7ace15007747a4e14ab0daea7bfef0f84d$__5af4908115610206576000916101eb575090565b6005810361036c57506000604051809263a96f1c6960e01b82528173__$30d14cca345a55515fe568b6515d224cde$__5af4908115610206576000916101eb575090565b600681036103b057506000604051809263a96f1c6960e01b82528173__$0af9b92c0f4f3021c360f5697ed4d887ef$__5af4908115610206576000916101eb575090565b600781036103f457506000604051809263a96f1c6960e01b82528173__$fdc5958c9d0f2a289e0ee45ba960feecd8$__5af4908115610206576000916101eb575090565b6008810361043857506000604051809263a96f1c6960e01b82528173__$77e5c00bc9f6f3b67493680dcdd1083bd7$__5af4908115610206576000916101eb575090565b6009810361047c57506000604051809263a96f1c6960e01b82528173__$95ceee603e06303d4cc2410c49deda99d5$__5af4908115610206576000916101eb575090565b600a81036104c057506000604051809263a96f1c6960e01b82528173__$cddfc1f16f47ea5463b7b70253a7288937$__5af4908115610206576000916101eb575090565b600b03610502576000604051809263a96f1c6960e01b82528173__$39a221e63db6870c72d3811771de4c416e$__5af4908115610206576000916101eb575090565b5061018b6100ef56fea2646970667358221220248db6706a7adba13d34e8610f4f08da9c33e6d39a6c8b68f8376c8fba4a2d7664736f6c634300080d0033",
+  "deployedBytecode": "0x6080604052600436101561001257600080fd5b60003560e01c630722ef891461002757600080fd5b602036600319011261006f5761003e6004356101a8565b604080518092602082526100618151809281602086015260208686019101610074565b601f01601f19168101030190f35b600080fd5b918091926000905b82821061009457501161008d575050565b6000910152565b9150806020918301518186015201829161007c565b50634e487b7160e01b600052604160045260246000fd5b90601f8019910116810190811067ffffffffffffffff8211176100e257604052565b6100ea6100a9565b604052565b604051906020820182811067ffffffffffffffff821117610114575b60405260008252565b61011c6100a9565b61010b565b60208183031261006f57805167ffffffffffffffff9182821161006f57019082601f8301121561006f57815190811161018e575b6040519261016d601f8301601f1916602001856100c0565b8184526020828401011161006f5761018b9160208085019101610074565b90565b6101966100a9565b610155565b506040513d6000823e3d90fd5b80610213575060405163a96f1c6960e01b815260008160048173__$3b823523b574a2febe2e1e43a92160c877$__5af4908115610206575b6000916101eb575090565b61018b913d8091833e6101fe81836100c0565b810190610121565b61020e61019b565b6101e0565b60018103610258575060405163a96f1c6960e01b815260008160048173__$f0930af758e332680a168b8a37f870f1cb$__5af4908115610206576000916101eb575090565b6002810361029d575060405163a96f1c6960e01b815260008160048173__$18894c7e98642358bafb4f96aaa476e286$__5af4908115610206576000916101eb575090565b600381036102e2575060405163a96f1c6960e01b815260008160048173__$c0b8a333edc9707c2e86768540521ca98b$__5af4908115610206576000916101eb575090565b60049080820361032857506000604051809263a96f1c6960e01b82528173__$7ace15007747a4e14ab0daea7bfef0f84d$__5af4908115610206576000916101eb575090565b6005810361036c57506000604051809263a96f1c6960e01b82528173__$30d14cca345a55515fe568b6515d224cde$__5af4908115610206576000916101eb575090565b600681036103b057506000604051809263a96f1c6960e01b82528173__$0af9b92c0f4f3021c360f5697ed4d887ef$__5af4908115610206576000916101eb575090565b600781036103f457506000604051809263a96f1c6960e01b82528173__$fdc5958c9d0f2a289e0ee45ba960feecd8$__5af4908115610206576000916101eb575090565b6008810361043857506000604051809263a96f1c6960e01b82528173__$77e5c00bc9f6f3b67493680dcdd1083bd7$__5af4908115610206576000916101eb575090565b6009810361047c57506000604051809263a96f1c6960e01b82528173__$95ceee603e06303d4cc2410c49deda99d5$__5af4908115610206576000916101eb575090565b600a81036104c057506000604051809263a96f1c6960e01b82528173__$cddfc1f16f47ea5463b7b70253a7288937$__5af4908115610206576000916101eb575090565b600b03610502576000604051809263a96f1c6960e01b82528173__$39a221e63db6870c72d3811771de4c416e$__5af4908115610206576000916101eb575090565b5061018b6100ef56fea2646970667358221220248db6706a7adba13d34e8610f4f08da9c33e6d39a6c8b68f8376c8fba4a2d7664736f6c634300080d0033",
+  "linkReferences": {
+    "contracts/SockPattern/Patterns/BonePattern.sol": {
+      "BonePattern": [
+        {
+          "length": 20,
+          "start": 483
+        }
+      ]
+    },
+    "contracts/SockPattern/Patterns/ChilliPattern.sol": {
+      "ChilliPattern": [
+        {
+          "length": 20,
+          "start": 593
+        }
+      ]
+    },
+    "contracts/SockPattern/Patterns/CloudPattern.sol": {
+      "CloudPattern": [
+        {
+          "length": 20,
+          "start": 662
+        }
+      ]
+    },
+    "contracts/SockPattern/Patterns/FirePattern.sol": {
+      "FirePattern": [
+        {
+          "length": 20,
+          "start": 731
+        }
+      ]
+    },
+    "contracts/SockPattern/Patterns/HeartBreakPattern.sol": {
+      "HeartBreakPattern": [
+        {
+          "length": 20,
+          "start": 801
+        }
+      ]
+    },
+    "contracts/SockPattern/Patterns/HeartPattern.sol": {
+      "HeartPattern": [
+        {
+          "length": 20,
+          "start": 869
+        }
+      ]
+    },
+    "contracts/SockPattern/Patterns/LemonPattern.sol": {
+      "LemonPattern": [
+        {
+          "length": 20,
+          "start": 937
+        }
+      ]
+    },
+    "contracts/SockPattern/Patterns/LightingPattern.sol": {
+      "LightingPattern": [
+        {
+          "length": 20,
+          "start": 1005
+        }
+      ]
+    },
+    "contracts/SockPattern/Patterns/MultiplePattern.sol": {
+      "MultiplePattern": [
+        {
+          "length": 20,
+          "start": 1073
+        }
+      ]
+    },
+    "contracts/SockPattern/Patterns/StarPattern.sol": {
+      "StarPattern": [
+        {
+          "length": 20,
+          "start": 1141
+        }
+      ]
+    },
+    "contracts/SockPattern/Patterns/StripePattern.sol": {
+      "StripePattern": [
+        {
+          "length": 20,
+          "start": 1209
+        }
+      ]
+    },
+    "contracts/SockPattern/Patterns/UfoPattern.sol": {
+      "UfoPattern": [
+        {
+          "length": 20,
+          "start": 1275
+        }
+      ]
+    }
+  },
+  "deployedLinkReferences": {
+    "contracts/SockPattern/Patterns/BonePattern.sol": {
+      "BonePattern": [
+        {
+          "length": 20,
+          "start": 451
+        }
+      ]
+    },
+    "contracts/SockPattern/Patterns/ChilliPattern.sol": {
+      "ChilliPattern": [
+        {
+          "length": 20,
+          "start": 561
+        }
+      ]
+    },
+    "contracts/SockPattern/Patterns/CloudPattern.sol": {
+      "CloudPattern": [
+        {
+          "length": 20,
+          "start": 630
+        }
+      ]
+    },
+    "contracts/SockPattern/Patterns/FirePattern.sol": {
+      "FirePattern": [
+        {
+          "length": 20,
+          "start": 699
+        }
+      ]
+    },
+    "contracts/SockPattern/Patterns/HeartBreakPattern.sol": {
+      "HeartBreakPattern": [
+        {
+          "length": 20,
+          "start": 769
+        }
+      ]
+    },
+    "contracts/SockPattern/Patterns/HeartPattern.sol": {
+      "HeartPattern": [
+        {
+          "length": 20,
+          "start": 837
+        }
+      ]
+    },
+    "contracts/SockPattern/Patterns/LemonPattern.sol": {
+      "LemonPattern": [
+        {
+          "length": 20,
+          "start": 905
+        }
+      ]
+    },
+    "contracts/SockPattern/Patterns/LightingPattern.sol": {
+      "LightingPattern": [
+        {
+          "length": 20,
+          "start": 973
+        }
+      ]
+    },
+    "contracts/SockPattern/Patterns/MultiplePattern.sol": {
+      "MultiplePattern": [
+        {
+          "length": 20,
+          "start": 1041
+        }
+      ]
+    },
+    "contracts/SockPattern/Patterns/StarPattern.sol": {
+      "StarPattern": [
+        {
+          "length": 20,
+          "start": 1109
+        }
+      ]
+    },
+    "contracts/SockPattern/Patterns/StripePattern.sol": {
+      "StripePattern": [
+        {
+          "length": 20,
+          "start": 1177
+        }
+      ]
+    },
+    "contracts/SockPattern/Patterns/UfoPattern.sol": {
+      "UfoPattern": [
+        {
+          "length": 20,
+          "start": 1243
+        }
+      ]
+    }
+  }
+}
