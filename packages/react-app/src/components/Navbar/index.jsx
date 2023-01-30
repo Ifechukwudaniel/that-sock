@@ -1,13 +1,13 @@
 import { Menu, Tooltip } from "antd";
 
 import { Link, useLocation } from "react-router-dom";
-import Account from "./Account";
-import ContractIcon from "./Icons/ContractIcon";
-import GuideIcon from "./Icons/GuideIcon";
-import HomeIcon from "./Icons/HomeIcon";
-import LogoIcon from "./Icons/LogoIcon";
-import LoogieIcon from "./Icons/LoogieIcon";
-import LoogieNavIcon from "./Icons/LoogieNavIcon";
+import Account from "../Account";
+import ContractIcon from "../Icons/ContractIcon";
+import GuideIcon from "../Icons/GuideIcon";
+import HomeIcon from "../Icons/HomeIcon";
+import LogoIcon from "../Icons/LogoIcon";
+import LoogieIcon from "../Icons/LoogieIcon";
+import LoogieNavIcon from "../Icons/LoogieNavIcon";
 
 import "./Navbar.css";
 

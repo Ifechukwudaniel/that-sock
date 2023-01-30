@@ -2,10 +2,10 @@ import { Button } from "antd";
 import React from "react";
 import { useThemeSwitcher } from "react-css-theme-switcher";
 
-import Address from "./Address";
-import Balance from "./Balance";
-import Wallet from "./Wallet";
-import WalletIcon from "./Icons/WalletIcon";
+import Address from "../Address";
+import Balance from "../Balance";
+import Wallet from "../Wallet";
+import WalletIcon from "../Icons/WalletIcon";
 
 import "./Account.css";
 
@@ -87,6 +87,8 @@ export default function Account({
       )}
     </div>
   );
+
+  console.log(connectButtonStyles === "lg", accountButtonInfo.showWallet, WalletIcon);
 
   return (
     <div className="account">
