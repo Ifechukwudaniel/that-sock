@@ -12,18 +12,7 @@ import { useExchangeEthPrice } from "eth-hooks/dapps/dex";
 import React, { useCallback, useEffect, useState } from "react";
 import { Link, Route, Switch, useLocation } from "react-router-dom";
 import "./App.css";
-import {
-  Account,
-  Contract,
-  Faucet,
-  GasGauge,
-  Header,
-  Ramp,
-  ThemeSwitch,
-  NetworkDisplay,
-  FaucetHint,
-  NetworkSwitch,
-} from "./components";
+import { Account, Contract, ThemeSwitch, NetworkDisplay, Address, FaucetHint, NetworkSwitch } from "./components";
 import { NETWORKS, ALCHEMY_KEY } from "./constants";
 import externalContracts from "./contracts/external_contracts";
 // contracts
@@ -166,11 +155,6 @@ function App(props) {
     console.log(`⛓ A new mainnet block is here: ${mainnetProvider._lastBlockNumber}`);
   });
 
-  // Then read your DAI balance like:
-  const myMainnetDAIBalance = useContractReader(mainnetContracts, "DAI", "balanceOf", [
-    "0x34aA3F359A9D614239015126635CE7732c18fDF3",
-  ]);
-
   const ContractName = "ThisSocks";
 
   const loadWeb3Modal = useCallback(async () => {
@@ -250,14 +234,6 @@ function App(props) {
   const showModal = () => {
     setIsModalOpen(true);
   };
-  const handleOk = () => {
-    setIsModalOpen(false);
-    setPreviewAccesory({});
-  };
-  const handleCancel = () => {
-    setIsModalOpen(false);
-    setPreviewAccesory({});
-  };
 
   const [debugAccessorySelected, setDebugAccessorySelected] = useState(accesories[0]);
 
@@ -283,40 +259,42 @@ function App(props) {
         logoutOfWeb3Modal={logoutOfWeb3Modal}
       />
       <Switch>
-        <Route exact path="/">
-          {/* pass in any web3 props to this Home component. For example, yourLocalBalance */}
-          <Home
-            userSigner={userSigner}
-            readContracts={readContracts}
-            writeContracts={writeContracts}
-            tx={tx}
-            loadWeb3Modal={loadWeb3Modal}
-            blockExplorer={blockExplorer}
-            address={address}
-            setSelectedCollectible={setSelectedCollectible}
-            ContractName={"ThisSocks"}
-            showModal={showModal}
-            DEBUG={DEBUG}
-            perPage={perPage}
-            gasPrice={gasPrice}
-          />
-        </Route>
-        <Route exact path="/contracts">
-          <Contract
-            name="ThisSocks"
-            price={price}
-            signer={userSigner}
-            provider={localProvider}
-            address={address}
-            blockExplorer={blockExplorer}
-            contractConfig={contractConfig}
-          />
-        </Route>
+        <div className="App__page-content-wrapper">
+          <Route exact path="/">
+            {/* pass in any web3 props to this Home component. For example, yourLocalBalance */}
+            <Home
+              userSigner={userSigner}
+              readContracts={readContracts}
+              writeContracts={writeContracts}
+              tx={tx}
+              loadWeb3Modal={loadWeb3Modal}
+              blockExplorer={blockExplorer}
+              address={address}
+              setSelectedCollectible={setSelectedCollectible}
+              ContractName={"ThisSocks"}
+              DEBUG={DEBUG}
+              perPage={perPage}
+              gasPrice={gasPrice}
+            />
+          </Route>
+          <Route exact path="/contracts">
+            <div style={{ padding: 32 }}>
+              <Address value={readContracts && readContracts.ThisSocks && readContracts.ThisSocks.address} />
+            </div>
+            <Contract
+              name="ThisSocks"
+              price={price}
+              signer={userSigner}
+              provider={localProvider}
+              address={address}
+              blockExplorer={blockExplorer}
+              contractConfig={contractConfig}
+            />
+          </Route>
+        </div>
       </Switch>
 
       <ThemeSwitch />
-
-      {/* 🗺 Extra UI like gas price, eth price, faucet, and support: */}
     </div>
   );
 }

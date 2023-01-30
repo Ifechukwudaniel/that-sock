@@ -4,7 +4,7 @@
 }
 
 .App__page-content-wrapper {
-  background-color: #f5f5f5;
+  background-color: #98C1FF;
   /* 240px is top menu + bottom menu + footer */
   min-height: calc(100vh - 240px);
   padding-top: 80px;

@@ -117,7 +117,7 @@ function Home({
               }
             }}
           >
-            MINT Socks for Ξ{priceToMint && (+ethers.utils.formatEther(priceToMint)).toFixed(4)}s
+            Mint Now! for Ξ{priceToMint && (+ethers.utils.formatEther(priceToMint)).toFixed(4)}s
           </Button>
         ) : (
           <Button type={"primary"} onClick={loadWeb3Modal}>
