@@ -1,4 +1,3 @@
-import { Button, Col, Menu, Row, Modal, Select } from "antd";
 import "antd/dist/antd.css";
 import {
   useBalance,
@@ -10,15 +9,15 @@ import {
 } from "eth-hooks";
 import { useExchangeEthPrice } from "eth-hooks/dapps/dex";
 import React, { useCallback, useEffect, useState } from "react";
-import { Link, Route, Switch, useLocation } from "react-router-dom";
+import { Route, Switch, useLocation } from "react-router-dom";
 import "./App.css";
-import { Account, Contract, ThemeSwitch, NetworkDisplay, Address, FaucetHint, NetworkSwitch } from "./components";
+import { Contract, NetworkDisplay, Address } from "./components";
 import { NETWORKS, ALCHEMY_KEY } from "./constants";
 import externalContracts from "./contracts/external_contracts";
 // contracts
 import deployedContracts from "./contracts/hardhat_contracts.json";
 import { Transactor, Web3ModalSetup } from "./helpers";
-import { Home, Preview } from "./views";
+import { Home } from "./views";
 import { useStaticJsonRPC } from "./hooks";
 import NavBar from "./components/Navbar";
 import ScaffoldIcon from "./components/Icons/ScaffoldIcon";
@@ -130,14 +129,6 @@ function App(props) {
   // The transactor wraps transactions and provides notificiations
   const tx = Transactor(userSigner, gasPrice);
 
-  // handy hooks like this one to get your balance:
-  const yourLocalBalance = useBalance(localProvider, address);
-
-  // Just plug in different 🛰 providers to get your balance on different chains:
-  const yourMainnetBalance = useBalance(mainnetProvider, address);
-
-  // const contractConfig = useContractConfig();
-
   const contractConfig = { deployedContracts: deployedContracts || {}, externalContracts: externalContracts || {} };
 
   // Load in your local 📝 contract and read a value from it:
@@ -146,10 +137,6 @@ function App(props) {
 
   // If you want to make 🔐 write transactions to your contracts, use the userSigner:
   const writeContracts = useContractLoader(userSigner, contractConfig, localChainId);
-
-  // EXTERNAL CONTRACT EXAMPLE:
-  // If you want to bring in the mainnet DAI contract it would look like:
-  const mainnetContracts = useContractLoader(mainnetProvider, contractConfig);
 
   // If you want to call a function on a new block
   useOnBlock(mainnetProvider, () => {
@@ -185,8 +172,6 @@ function App(props) {
       loadWeb3Modal();
     }
   }, [loadWeb3Modal]);
-
-  const faucetAvailable = localProvider && localProvider.connection && targetNetwork.name.indexOf("local") !== -1;
 
   const accesories = ["Eye", "Head", "Neck", "Perch", "Background"];
   const [selectedCollectible, setSelectedCollectible] = useState();
@@ -235,8 +220,6 @@ function App(props) {
   const showModal = () => {
     setIsModalOpen(true);
   };
-
-  const [debugAccessorySelected, setDebugAccessorySelected] = useState(accesories[0]);
 
   return (
     <div className="App">
