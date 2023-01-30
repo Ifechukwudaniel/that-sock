@@ -21,6 +21,7 @@ import { Transactor, Web3ModalSetup } from "./helpers";
 import { Home, Preview } from "./views";
 import { useStaticJsonRPC } from "./hooks";
 import NavBar from "./components/Navbar";
+import ScaffoldIcon from "./components/Icons/ScaffoldIcon";
 
 const { ethers } = require("ethers");
 /*
@@ -293,8 +294,13 @@ function App(props) {
           </Route>
         </div>
       </Switch>
-
-      <ThemeSwitch />
+      <div className="App__footer-wrapper">
+        <div className="App__footer">
+          <div style={{ display: "flex", alignItems: "center", gap: "4px", fontWeight: 500 }}>
+            <ScaffoldIcon />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

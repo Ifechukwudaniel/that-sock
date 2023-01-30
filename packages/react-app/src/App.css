@@ -14,7 +14,7 @@
   max-width: 820px;
   margin: auto;
   display: flex;
-  height: 80px;
+  height: 100px;
   align-items: center;
   justify-content: center;
   gap: 4px;
@@ -23,7 +23,8 @@
 }
 
 .App__footer-wrapper {
-  padding-bottom: 80px;
+  padding-top: 30px;
+  background-color: #98C1FF;
 }
 
 @media screen and (min-width: 768px) {
@@ -38,7 +39,7 @@
     min-height: calc(100vh - 160px);
   }
   .App__footer-wrapper {
-    padding-bottom: 0px;
+    /* padding-bottom: 0px; */
   }
 }
 

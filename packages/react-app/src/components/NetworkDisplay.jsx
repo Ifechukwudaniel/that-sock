@@ -2,6 +2,7 @@ import { Alert, Button } from "antd";
 import React from "react";
 
 import { NETWORK } from "../constants";
+import "../styles/networkDisplay.css";
 
 function NetworkDisplay({
   NETWORKCHECK,
@@ -90,7 +91,7 @@ function NetworkDisplay({
     }
   } else {
     networkDisplay = USE_NETWORK_SELECTOR ? null : (
-      <div style={{ zIndex: -1, position: "absolute", right: 150, top: 25, padding: 16, color: targetNetwork.color }}>
+      <div className="networkDisplay__text" style={{ color: targetNetwork.color }}>
         {targetNetwork.name}
       </div>
     );
