@@ -8,9 +8,11 @@ import HomeIcon from "../Icons/HomeIcon";
 import LogoIcon from "../Icons/LogoIcon";
 import LoogieIcon from "../Icons/LoogieIcon";
 import LoogieNavIcon from "../Icons/LoogieNavIcon";
-
+import Hamburge from "../Icons/Hamburge";
+import BackgroundImageComponent from "../Icons/SocksAndPeg";
+import HamburgeClose from "../Icons/HamburgeClose.png";
 import "./Navbar.css";
-
+import { useState } from "react";
 export default function NavBar({
   useBurner,
   address,
@@ -23,54 +25,69 @@ export default function NavBar({
   logoutOfWeb3Modal,
 }) {
   const location = useLocation();
+  const [openMenu, setOpenMenu] = useState(false);
+  const handleOpenModal = () => {
+    setOpenMenu(!openMenu);
+    console.log("yessas");
+  };
 
+  console.log(openMenu)
   return (
     <div className="navbar">
-      <div>
-        <LoogieIcon className="navbar__loogie-logo" />
+      <div className="navbar__menu__container">
+        {/* <LoogieIcon className="navbar__loogie-logo" /> */}
+        <div className="navbar__menu-item__mobile">
+          {openMenu ? (
+            <Hamburge onClick={handleOpenModal} className="navbar__menu-item__mobile__hamburge" />
+          ) : (
+            <div onClick={handleOpenModal} className="navbar__menu-item__mobile__hamburge">
+              <BackgroundImageComponent src={HamburgeClose} />
+            </div>
+          )}
+        </div>
         <Menu selectedKeys={[location.pathname]} mode="horizontal" className="navbar__menu">
           <Menu.Item key="/" className="navbar__menu-item">
             <Link to="/" className="navbar__link navbar__menu-item-desktop-content">
               Home
             </Link>
-            <Tooltip title="Home" className="navbar__menu-item-mobile-content">
+            {/* <Tooltip title="Home" className="navbar__menu-item-mobile-content">
               <Link to="/" className="navbar__link">
                 <HomeIcon />
               </Link>
-            </Tooltip>
+            </Tooltip> */}
           </Menu.Item>
 
           <Menu.Item key="/yourSocks" className="navbar__menu-item">
             <Link to="/yourSocks" className="navbar__link navbar__menu-item-desktop-content">
               Your Socks
             </Link>
-            <Tooltip title="Your Socks" className="navbar__menu-item-mobile-content">
+            {/* <Tooltip title="Your Socks" className="navbar__menu-item-mobile-content">
               <Link to="/yourSocks" className="navbar__link">
                 <LoogieNavIcon />
               </Link>
-            </Tooltip>
+            </Tooltip> */}
           </Menu.Item>
 
           <Menu.Item key="/guide" className="navbar__menu-item">
             <Link to="/guide" className="navbar__link navbar__menu-item-desktop-content">
               Guide
             </Link>
-            <Tooltip title="Guide" className="navbar__menu-item-mobile-content">
+            {/* <Tooltip title="Guide" className="navbar__menu-item-mobile-content">
               <Link to="/guide" className="navbar__link">
                 <GuideIcon />
               </Link>
-            </Tooltip>
+            </Tooltip> */}
           </Menu.Item>
 
           <Menu.Item key="/contracts" className="navbar__menu-item">
             <Link to="/contracts" className="navbar__link navbar__menu-item-desktop-content">
               Contracts
             </Link>
-            <Tooltip title="Contracts" className="navbar__menu-item-mobile-content">
+            {/* <Tooltip title="Contracts" className="navbar__menu-item-mobile-content">
               <Link to="/contracts" className="navbar__link">
                 <ContractIcon />
               </Link>
-            </Tooltip>
+            </Tooltip> */}
           </Menu.Item>
         </Menu>
       </div>
@@ -81,18 +98,20 @@ export default function NavBar({
         </Link>
       </div>
 
-      <Account
-        useBurner={useBurner}
-        address={address}
-        localProvider={localProvider}
-        userSigner={userSigner}
-        mainnetProvider={mainnetProvider}
-        price={price}
-        web3Modal={web3Modal}
-        loadWeb3Modal={loadWeb3Modal}
-        logoutOfWeb3Modal={logoutOfWeb3Modal}
-        connectButtonStyles="lg"
-      />
+      <div className="navbar__account">
+        <Account
+          useBurner={useBurner}
+          address={address}
+          localProvider={localProvider}
+          userSigner={userSigner}
+          mainnetProvider={mainnetProvider}
+          price={price}
+          web3Modal={web3Modal}
+          loadWeb3Modal={loadWeb3Modal}
+          logoutOfWeb3Modal={logoutOfWeb3Modal}
+          connectButtonStyles="lg"
+        />
+      </div>
     </div>
   );
 }

@@ -5,6 +5,7 @@
 .account__connect-button {
   display: flex;
   margin-left: 16px;
+  display: none;
 }
 
 .account__display {
@@ -32,6 +33,7 @@
   padding-right: 24px;
   display: flex;
   align-items: center;
+  display: none;
 }
 
 .account .account__connect-button:not(:hover) {
@@ -40,14 +42,38 @@
 
 .account__connect-button-icon {
   margin-left: 8px;
-  height: 26px;
-  width: 26px;
+  height: 40px;
+  width: 40px;
 }
-
+.account__connect-button__mobile {
+}
+/* 
+.account__connect-button__mobile{
+  width: 100px;
+  height: 100px;
+} */
 @media screen and (min-width: 1140px) {
   .account__display {
     position: static;
     transform: none;
     background: #f3f3f3;
+  }
+  .account .account__connect-button--lg {
+    border-width: 2px;
+    font-size: 18px;
+    font-weight: bold;
+    height: 48px;
+    padding-left: 24px;
+    padding-right: 24px;
+    display: flex;
+    align-items: center;
+  }
+  .account__connect-button__mobile {
+    display: none;
+  }
+  .account__connect-button {
+    display: flex;
+    margin-left: 16px;
+    /* display: none; */
   }
 }
