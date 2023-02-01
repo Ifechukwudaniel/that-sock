@@ -1,0 +1,156 @@
+.Heros {
+  min-height: 100vh;
+  position: relative;
+  .Background__Socks__Container {
+    width: 100%;
+    z-index: 10;
+    position: relative;
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  .Card__Container {
+    width: 100%;
+    padding: 0 1rem;
+    position: absolute;
+    top: 140px;
+    z-index: 20;
+    .Container__Element {
+      position: relative;
+    }
+    .Card {
+      padding: 1.2rem;
+      z-index: 5;
+      background-color: #fff;
+      border: 1px solid black;
+      border-radius: 32px;
+      margin: auto;
+      width: min(100%, 500px);
+      font-family: "Inter";
+      position: relative;
+      .Mint__Card {
+        background-color: #ededed;
+        border: 1px solid #000000;
+        border-radius: 32px;
+        z-index: 4;
+        .Card__Head {
+          display: flex;
+          border-bottom: 1px solid black;
+          .party__div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            border-right: 1px solid black;
+          }
+          .Header__Text {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            padding: 0.2rem 1rem;
+            strong {
+              font-size: 22.5px;
+              line-height: 25px;
+            }
+          }
+        }
+        .SocksCardImage {
+          padding: 0.7rem;
+          img {
+            object-fit: cover;
+            width: 100%;
+          }
+        }
+        .Footer__Text {
+          padding: 0.4rem 1rem;
+          font-family: Inter;
+          font-style: normal;
+          font-weight: 600;
+          b {
+            font-weight: 500;
+            text-align: center;
+            font-size: 15px;
+            line-height: 18px;
+            span {
+              font-weight: 900;
+            }
+            a {
+              color: #2a7df9;
+            }
+          }
+        }
+        .Mint {
+          margin: 1.5rem auto;
+          span {
+            padding: 1rem 2rem;
+            background-color: #000000;
+            font-size: 16px;
+            font-weight: 900;
+            text-align: center;
+            color: #fff;
+            border-radius: 40px;
+          }
+        }
+      }
+    }
+    .Background__Image {
+      position: absolute;
+      height: 100%;
+      width: min(100%, 500px);
+      z-index: 3;
+      top: 20px;
+      left: 20px;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  .Background__clouds {
+    display: none;
+  }
+  @media (min-width: 960px) {
+    z-index: 1;
+    .Background__clouds {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      z-index: 0;
+      // width: 100;
+      .Cloud__1 {
+        position: absolute;
+        top: 5vh;
+        left: 8vw;
+      }
+      .Cloud__2 {
+        position: absolute;
+        top: 45vh;
+        left: 0vw;
+      }
+      .Cloud__3 {
+        position: absolute;
+        top: 75vh;
+        left: 25vw;
+      }
+      .Cloud__4 {
+        position: absolute;
+        top: 45vh;
+        right: 15vw;
+      }
+      .Cloud__5 {
+        position: absolute;
+        top: 15vh;
+        right: 25vw;
+        z-index: 0;
+      }
+    }
+  }
+}

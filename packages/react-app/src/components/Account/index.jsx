@@ -92,18 +92,23 @@ export default function Account({
 
   return (
     <div className="account">
-      {display}
+      {/* {display} */}
       {web3Modal && (
-        <Button
-          className={`account__connect-button ${connectButtonStyles === "lg" ? "account__connect-button--lg" : ""}`}
-          shape="round"
-          onClick={accountButtonInfo.action}
-        >
-          {accountButtonInfo.name}
-          {connectButtonStyles === "lg" && accountButtonInfo.showWallet && (
+        <>
+          <Button
+            className={`account__connect-button ${connectButtonStyles === "lg" ? "account__connect-button--lg" : ""}`}
+            shape="round"
+            onClick={accountButtonInfo.action}
+          >
+            {accountButtonInfo.name}
+            {connectButtonStyles === "lg" && accountButtonInfo.showWallet && (
+              <WalletIcon style={{ color: accountButtonInfo.color }} className="account__connect-button-icon" />
+            )}
+          </Button>
+          <div className="account__connect-button__mobile">
             <WalletIcon style={{ color: accountButtonInfo.color }} className="account__connect-button-icon" />
-          )}
-        </Button>
+          </div>
+        </>
       )}
     </div>
   );

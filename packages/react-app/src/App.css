@@ -1,13 +1,13 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
   padding-left: 0;
 }
 
 .App__page-content-wrapper {
-  background-color: #98C1FF;
+  background-color: #98c1ff;
   /* 240px is top menu + bottom menu + footer */
   min-height: calc(100vh - 240px);
-  padding-top: 80px;
+  position: relative;
 }
 
 .App__footer {
@@ -24,7 +24,7 @@
 
 .App__footer-wrapper {
   padding-bottom: 80px;
-  background-color: #98C1FF;
+  background-color: #98c1ff;
 }
 
 @media screen and (min-width: 768px) {
