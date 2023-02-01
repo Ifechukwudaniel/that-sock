@@ -8,9 +8,9 @@ import HomeIcon from "../Icons/HomeIcon";
 import LogoIcon from "../Icons/LogoIcon";
 import LoogieIcon from "../Icons/LoogieIcon";
 import LoogieNavIcon from "../Icons/LoogieNavIcon";
-import Hamburge from "../Icons/Hamburge";
+import Hamburger from "../Icons/Hamburger";
 import BackgroundImageComponent from "../Icons/SocksAndPeg";
-import HamburgeClose from "../Icons/HamburgeClose.png";
+import HamburgerClose from "../Icons/HamburgerClose.png";
 import "./Navbar.css";
 import { useState } from "react";
 export default function NavBar({
@@ -31,17 +31,16 @@ export default function NavBar({
     console.log("yessas");
   };
 
-  console.log(openMenu)
+  console.log(openMenu);
   return (
     <div className="navbar">
       <div className="navbar__menu__container">
-        {/* <LoogieIcon className="navbar__loogie-logo" /> */}
         <div className="navbar__menu-item__mobile">
           {openMenu ? (
-            <Hamburge onClick={handleOpenModal} className="navbar__menu-item__mobile__hamburge" />
+            <Hamburger onClick={handleOpenModal} className="navbar__menu-item__mobile__hamburger" />
           ) : (
-            <div onClick={handleOpenModal} className="navbar__menu-item__mobile__hamburge">
-              <BackgroundImageComponent src={HamburgeClose} />
+            <div onClick={handleOpenModal} className="navbar__menu-item__mobile__hamburger">
+              <BackgroundImageComponent src={HamburgerClose} />
             </div>
           )}
         </div>
@@ -50,44 +49,24 @@ export default function NavBar({
             <Link to="/" className="navbar__link navbar__menu-item-desktop-content">
               Home
             </Link>
-            {/* <Tooltip title="Home" className="navbar__menu-item-mobile-content">
-              <Link to="/" className="navbar__link">
-                <HomeIcon />
-              </Link>
-            </Tooltip> */}
           </Menu.Item>
 
           <Menu.Item key="/yourSocks" className="navbar__menu-item">
             <Link to="/yourSocks" className="navbar__link navbar__menu-item-desktop-content">
               Your Socks
             </Link>
-            {/* <Tooltip title="Your Socks" className="navbar__menu-item-mobile-content">
-              <Link to="/yourSocks" className="navbar__link">
-                <LoogieNavIcon />
-              </Link>
-            </Tooltip> */}
           </Menu.Item>
 
           <Menu.Item key="/guide" className="navbar__menu-item">
             <Link to="/guide" className="navbar__link navbar__menu-item-desktop-content">
               Guide
             </Link>
-            {/* <Tooltip title="Guide" className="navbar__menu-item-mobile-content">
-              <Link to="/guide" className="navbar__link">
-                <GuideIcon />
-              </Link>
-            </Tooltip> */}
           </Menu.Item>
 
           <Menu.Item key="/contracts" className="navbar__menu-item">
             <Link to="/contracts" className="navbar__link navbar__menu-item-desktop-content">
               Contracts
             </Link>
-            {/* <Tooltip title="Contracts" className="navbar__menu-item-mobile-content">
-              <Link to="/contracts" className="navbar__link">
-                <ContractIcon />
-              </Link>
-            </Tooltip> */}
           </Menu.Item>
         </Menu>
       </div>

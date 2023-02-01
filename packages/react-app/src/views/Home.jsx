@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Address, AddressInput } from "../components";
 import { useContractReader } from "eth-hooks";
 import { ethers } from "ethers";
-import Herospage from "../components/HerosPage";
+import HerosPage from "../components/HerosPage";
 /**
  * web3 props can be passed from '../App.jsx' into your local view component for use
  * @param {*} yourLocalBalance balance on current network
@@ -91,7 +91,7 @@ function Home({
 
   return (
     <div>
-      <Herospage />
+      <HerosPage />
       {/* <div
         style={{
           display: "flex",

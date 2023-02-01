@@ -45,6 +45,6 @@
 
 @media screen and (min-width: 1440px) {
   .App__page-content-wrapper {
-    padding-top: 20px;
+    padding-top: 0px;
   }
 }
