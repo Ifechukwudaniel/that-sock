@@ -4,6 +4,8 @@
 }
 .Heros .Background__Socks__Container {
   width: 100%;
+  z-index: 10;
+  position: relative;
 }
 .Heros .Background__Socks__Container img {
   width: 100%;
@@ -15,6 +17,7 @@
   padding: 0 1rem;
   position: absolute;
   top: 140px;
+  z-index: 20;
 }
 .Heros .Card__Container .Container__Element {
   position: relative;
@@ -115,6 +118,9 @@
   display: none;
 }
 @media (min-width: 960px) {
+  .Heros {
+    z-index: 1;
+  }
   .Heros .Background__clouds {
     display: block;
     position: absolute;
