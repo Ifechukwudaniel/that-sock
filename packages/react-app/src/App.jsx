@@ -182,34 +182,54 @@ function App(props) {
   const [yourSocks, setYourSocks] = useState();
   const [isYourSocksLoading, setIsYourSocksLoading] = useState(false);
   const [transferToAddresses, setTransferToAddresses] = useState({});
-  const [selectedCollectible, setSelectedCollectible] = useState();
 
   const perPage = 10;
 
   // 🧠 This effect will update yourCollectibles by polling when your balance changes
 
+  const [balance, setBalance] = useState();
+
   useEffect(() => {
-    const updateYourSocks = async () => {
-      try {
-        console.log("Getting token index " + selectedCollectible);
-        const tokenId = selectedCollectible;
-        console.log("tokenId: " + tokenId);
-        const svg =
-          readContracts[ContractName] && tokenId && (await readContracts[ContractName].renderTokenById(tokenId));
-        const newYourCollectibleSVG =
-          '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="300" viewBox="0 0 880 880">' +
-          svg +
-          "</svg>";
-        console.log(newYourCollectibleSVG);
-        // setYourCollectibleSVG(newYourCollectibleSVG);
-      } catch (err) {
-        console.log(err);
+    const updateBalance = async () => {
+      if (address) {
+        if (readContracts.ThisSocks) {
+          const balanceFromContract = await readContracts.ThisSocks.balanceOf(address);
+          if (DEBUG) console.log("balanceFromContract: ", balanceFromContract.toNumber());
+          setBalance(balanceFromContract.toNumber());
+        }
       }
     };
-    if (address && selectedCollectible) {
-      updateYourSocks();
-    }
-  }, [address, readContracts, selectedCollectible]);
+    updateBalance();
+  }, [address, readContracts.ThisSocks]);
+
+  useEffect(() => {
+    setIsYourSocksLoading(true);
+    const updateYourCollectibles = async () => {
+      const collectibleUpdate = [];
+      for (let tokenIndex = 0; tokenIndex < balance; tokenIndex++) {
+        try {
+          console.log("GEtting token index", tokenIndex);
+          const tokenId = await readContracts.ThisSocks.tokenOfOwnerByIndex(address, tokenIndex);
+          console.log("tokenId", tokenId);
+          const tokenURI = await readContracts.ThisSocks.tokenURI(tokenId);
+          const jsonManifestString = atob(tokenURI.substring(29));
+          console.log("jsonManifestString", jsonManifestString);
+          try {
+            const jsonManifest = JSON.parse(jsonManifestString);
+            console.log("jsonManifest", jsonManifest);
+            collectibleUpdate.push({ id: tokenId, uri: tokenURI, owner: address, ...jsonManifest });
+          } catch (e) {
+            console.log(e);
+          }
+        } catch (e) {
+          console.log(e);
+        }
+      }
+      setYourSocks(collectibleUpdate);
+    };
+    updateYourCollectibles();
+    setIsYourSocksLoading(false);
+  }, [address, balance]);
 
   const priceToMint = useContractReader(readContracts, ContractName, "price", [], localProviderPollingTime);
   if (DEBUG) console.log("🤗 priceToMint:", priceToMint);
@@ -249,7 +269,6 @@ function App(props) {
                 loadWeb3Modal={loadWeb3Modal}
                 blockExplorer={blockExplorer}
                 address={address}
-                setSelectedCollectible={setSelectedCollectible}
                 ContractName={"ThisSocks"}
                 DEBUG={DEBUG}
                 perPage={perPage}

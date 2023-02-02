@@ -5,12 +5,10 @@ import { Address, AddressInput } from "../components";
 import { ethers } from "ethers";
 
 import "./YourSocks.css";
-import SocksCard from "../components/SocksCard";
+import SocksCard from "../components/SockCard";
 
 function YourSocks({
-  readContracts,
   writeContracts,
-  priceToMint,
   yourSocks,
   tx,
   mainnetProvider,
@@ -28,13 +26,16 @@ function YourSocks({
         <List
           loading={loading}
           grid={{
-            gutter: 16,
+            gutter: 24,
             xs: 1,
             sm: 2,
             md: 2,
             lg: 3,
             xl: 4,
             xxl: 6,
+          }}
+          pagination={{
+            defaultPageSize: 8,
           }}
           dataSource={yourSocks}
           renderItem={item => {
