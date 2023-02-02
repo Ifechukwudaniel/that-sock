@@ -10,13 +10,13 @@
 .Heros .Background__Socks__Container img {
   width: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .Heros .Card__Container {
   width: 100%;
   padding: 0 1rem;
-  position: absolute;
-  top: 140px;
+  position: relative;
+  top: calc(-300px + 40px);
   z-index: 20;
 }
 .Heros .Card__Container .Container__Element {
@@ -66,7 +66,7 @@
 }
 .Heros .Card__Container .Card .Mint__Card .SocksCardImage img {
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   width: 100%;
 }
 .Heros .Card__Container .Card .Mint__Card .Footer__Text {
@@ -122,7 +122,6 @@
     z-index: 1;
   }
   .Heros .Background__clouds {
-    display: block;
     position: absolute;
     top: 0;
     right: 0;
@@ -156,4 +155,4 @@
     right: 25vw;
     z-index: 0;
   }
-}/*# sourceMappingURL=Heros.css.map */
+} /*# sourceMappingURL=Heros.css.map */
