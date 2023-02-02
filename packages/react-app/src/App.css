@@ -1,6 +1,7 @@
 .App {
   /* text-align: center; */
   padding-left: 0;
+  overflow: hidden;
 }
 
 .App__page-content-wrapper {
@@ -26,6 +27,15 @@
   padding-bottom: 80px;
   background-color: #98c1ff;
 }
+
+.App__content {
+   z-index: 1;
+   position: relative;
+   justify-content: center;
+   align-items: center;
+}
+
+
 
 @media screen and (min-width: 768px) {
   .App__footer {

@@ -15,6 +15,15 @@ export default function CloudBackground() {
       <div className="cloud__1">
         <img alt="cloud" src={cloud_1} />
       </div>
+      <div className="cloud__3">
+        <img alt="cloud" src={cloud_3} />
+      </div>
+      <div className="cloud__4">
+        <img alt="cloud" src={cloud_4} />
+      </div>
+      <div className="cloud__2">
+        <img alt="cloud" src={cloud_2} />
+      </div>
       <div className="cloud__5">
         <img alt="cloud" src={cloud_5} />
       </div>
