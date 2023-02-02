@@ -13,6 +13,7 @@ const localRpcUrl = process.env.REACT_APP_CODESPACES
   ? `https://${window.location.hostname.replace("3000", "8545")}`
   : "http://" + (global.window ? window.location.hostname : "localhost") + ":8545";
 
+export const RPC_POLL_TIME = 30000;
 export const NETWORKS = {
   localhost: {
     name: "localhost",
