@@ -12,7 +12,7 @@
     animation: animateCloud  12s linear infinite;
 }
 .cloud__2 {
-    animation: animateCloud  14s linear infinite;
+    animation: animateCloud  9s linear infinite;
 }
 .cloud__3 {
     animation: animateCloud  8s  linear infinite;
@@ -30,8 +30,8 @@
         margin-left: -1270px;
         opacity: 0;
     }
-    5% {
-        margin-left: -1270px;
+    20% {
+        margin-left: -1000px;
         opacity: 1;
     }
     95% {

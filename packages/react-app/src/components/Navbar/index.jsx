@@ -2,15 +2,8 @@ import { Menu, Tooltip } from "antd";
 
 import { Link, useLocation } from "react-router-dom";
 import Account from "../Account";
-import ContractIcon from "../Icons/ContractIcon";
-import GuideIcon from "../Icons/GuideIcon";
-import HomeIcon from "../Icons/HomeIcon";
 import LogoIcon from "../Icons/LogoIcon";
-import LoogieIcon from "../Icons/LoogieIcon";
-import LoogieNavIcon from "../Icons/LoogieNavIcon";
 import Hamburger from "../Icons/Hamburger";
-import BackgroundImageComponent from "../Icons/SocksAndPeg";
-import HamburgerClose from "../Icons/HamburgerClose.png";
 import "./Navbar.css";
 import { useState } from "react";
 export default function NavBar({
@@ -35,15 +28,7 @@ export default function NavBar({
   return (
     <div className="navbar">
       <div className="navbar__menu__container">
-        <div className="navbar__menu-item__mobile">
-          {openMenu ? (
-            <Hamburger onClick={handleOpenModal} className="navbar__menu-item__mobile__hamburger" />
-          ) : (
-            <div onClick={handleOpenModal} className="navbar__menu-item__mobile__hamburger">
-              <BackgroundImageComponent src={HamburgerClose} />
-            </div>
-          )}
-        </div>
+        <div className="navbar__menu-item__mobile"></div>
         <Menu selectedKeys={[location.pathname]} mode="horizontal" className="navbar__menu">
           <Menu.Item key="/" className="navbar__menu-item">
             <Link to="/" className="navbar__link navbar__menu-item-desktop-content">
