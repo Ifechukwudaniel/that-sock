@@ -24,9 +24,9 @@ export default function Guide() {
         </p>
         <div className="guide-image-row">
           <div className=" guide-image-col">
-            <img src="/assets/sockType/long.png" alt="Sock  Image" />
-            <img src="/assets/sockType/middle.png" alt="Sock  Image" />
-            <img src="/assets/sockType/short.png" alt="Sock  Image" />
+            <img src="/assets/sockType/Long.png" alt="Sock  Image" />
+            <img src="/assets/sockType/Middle.png" alt="Sock  Image" />
+            <img src="/assets/sockType/Short.png" alt="Sock  Image" />
           </div>
         </div>
       </div>
