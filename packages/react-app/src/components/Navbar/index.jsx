@@ -26,17 +26,20 @@ export default function NavBar({
 }) {
   const location = useLocation();
   const [openMenu, setOpenMenu] = useState(false);
-
+  const handleOpenModal = () => {
+    setOpenMenu(!openMenu);
+    console.log("yessas");
+  };
 
   console.log(openMenu);
   return (
     <div className="navbar">
       <div className="navbar__menu__container">
-        <div className="navbar__menu-item__mobile" onClick={() => setOpenMenu(!openMenu)}>
+        <div className="navbar__menu-item__mobile">
           {openMenu ? (
-            <Hamburger className="navbar__menu-item__mobile__hamburger" />
+            <Hamburger onClick={handleOpenModal} className="navbar__menu-item__mobile__hamburger" />
           ) : (
-            <div className="navbar__menu-item__mobile__hamburger">
+            <div onClick={handleOpenModal} className="navbar__menu-item__mobile__hamburger">
               <BackgroundImageComponent src={HamburgerClose} />
             </div>
           )}

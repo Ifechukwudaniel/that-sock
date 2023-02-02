@@ -12,7 +12,7 @@ function MobileSideModal() {
         <p>All Socks</p>
       </div>
       <div className="Sidebar__item">
-        <p>Contract</p>
+        <p>Contraact</p>
       </div>
       <div className="Sidebar__item">
         <p>Guide</p>

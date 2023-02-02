@@ -1,5 +1,3 @@
 node_modules
 build
 .eslintcache
-packages/services/optimism
-packages/services/arbitrum
