@@ -121,6 +121,15 @@ export default function Guide() {
           </div>
         </div>
       </div>
+      <div className="guide-wrapper">
+        <h2 className="guide__title">Alternative </h2>
+        <div className="guide-image-row">
+          <div className=" guide-image-col">
+            <img src="/assets/examples/dont-mix.png" alt="Sock  Image" />
+            <img src="/assets/examples/dont-mix-1.png" alt="Sock  Image" />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
