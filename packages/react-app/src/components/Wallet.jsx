@@ -9,6 +9,7 @@ import Address from "./Address";
 import AddressInput from "./AddressInput";
 import Balance from "./Balance";
 import EtherInput from "./EtherInput";
+import WalletIcon from "./Icons/WalletIcon";
 
 const { Text, Paragraph } = Typography;
 
@@ -62,19 +63,19 @@ export default function Wallet(props) {
 
   const providerSend = props.provider ? (
     <Tooltip title="Wallet">
-      <WalletOutlined
+      <div
         onClick={() => {
           setOpen(!open);
         }}
-        rotate={-90}
         style={{
-          padding: props.padding ? props.padding : 7,
-          color: props.color ? props.color : "",
           cursor: "pointer",
-          fontSize: props.size ? props.size : 28,
-          verticalAlign: "middle",
+          display: "flex",
+          alignItems: "center",
+          color: "#a056ff",
         }}
-      />
+      >
+        <WalletIcon />
+      </div>
     </Tooltip>
   ) : (
     ""
@@ -294,6 +295,7 @@ export default function Wallet(props) {
       {providerSend}
       <Modal
         visible={open}
+        style={{ zIndex: 10 }}
         title={
           <div>
             {selectedAddress ? <Address address={selectedAddress} ensProvider={props.ensProvider} /> : <Spin />}
