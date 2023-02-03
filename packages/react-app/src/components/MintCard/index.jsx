@@ -2,8 +2,8 @@
 import { Button } from "antd";
 import React from "react";
 import Party from "../Icons/Party";
+import scratchImage from "../Icons/scratch.png";
 import "./MintCard.css";
-import ScratchSockIcon from "../Icons/ScratchSockIcon";
 
 function MintCard({ handleMint }) {
   return (
@@ -21,14 +21,16 @@ function MintCard({ handleMint }) {
               <strong>Scratch this protective layer to see the true colours of your Sock</strong>
             </div>
           </div>
-          <div className="SocksCardImage"></div>
+          <div className="SocksCardImage">
+            <img draggable="false" src={scratchImage} />
+          </div>
           <div className="Footer__Text">
             <b>
               Only <span>3728 Socks</span>available on a price curve <span>increasing 0.2% </span>with each new mint. //
               Double the supply of the <a href="#">Original Ethereum Mainnet That Socks!</a>
             </b>
           </div>
-          <div>
+          <div className="sock__button_wrapper">
             <Button onClick={handleMint} className="mint__button">
               Mint Now
             </Button>

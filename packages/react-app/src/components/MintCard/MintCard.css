@@ -4,7 +4,7 @@
     margin: auto;
     /* background: #000; */
     width:  95%;
-    height: 600px;
+    height: 700px;
     left: -15px;
 }
 .mint__card__background-1 {
@@ -13,7 +13,7 @@
     position:absolute;
     background: #000000;
     border-radius: 40px;
-    transform: translate(20px, 20px);
+    transform: translate(24px, 24px);
 }
 
 .mint__card__background-2 {
@@ -98,7 +98,8 @@
     text-align: start;
     padding: 10px;
     overflow-wrap: break-word;
-  word-wrap: break-word;
+    word-wrap: break-word;
+    user-select: none;
   }
 
   .Header__Text strong {
@@ -108,13 +109,14 @@
 
 
   .SocksCardImage {
-    padding: 0.7rem;
+    height: 60%;
+    width: 100%;
+    margin-top: 10px;
+    cursor: url('https://i.imgur.com/47em5kM.png'), auto
   }
 
   .SocksCardImage img {
-    -o-object-fit: cover;
-       object-fit: cover;
-    width: 80%;
+    object-fit: cover;
   }
 
   .Footer__Text {
@@ -135,21 +137,25 @@
   }
 
   .mint__button {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 900;
-    font-size: 14px;
-    line-height: 32px;
-    /* or 229% */
+    font-family: 'Inter' !important;
+    font-style: normal !important;
+    font-weight: 900 !important;
+    font-size: 14px !important;
     
     display: flex;
     align-items: center;
     text-align: center;
-    
+
+    width: 150px !important;
+    height: 40px !important;
+     border-radius: 20px  !important;
     color: #FFFFFF !important;
     background: #000000 !important;
   }
 
+  .sock__button_wrapper{
+    width: 100%;
+  }
 
   @media screen and (min-width: 768px) {
     .mint-card__wrapper {
@@ -159,6 +165,9 @@
   
   @media screen and (min-width: 1024px) {
     .mint-card__wrapper {
+        padding-top: 50px;
         width:  30%;
+        height: 80vh;
+        padding-bottom: 50px;
      }
   }
