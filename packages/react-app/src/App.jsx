@@ -180,7 +180,7 @@ function App(props) {
   }, [loadWeb3Modal]);
 
   const [yourSocks, setYourSocks] = useState();
-  const [isYourSocksLoading, setIsYourSocksLoading] = useState(false);
+  const [isYourSocksLoading, setIsYourSocksLoading] = useState(true);
   const [transferToAddresses, setTransferToAddresses] = useState({});
 
   const perPage = 10;
@@ -203,8 +203,8 @@ function App(props) {
   }, [address, readContracts.ThisSocks]);
 
   useEffect(() => {
-    setIsYourSocksLoading(true);
     const updateYourCollectibles = async () => {
+      setIsYourSocksLoading(true);
       const collectibleUpdate = [];
       for (let tokenIndex = 0; tokenIndex < balance; tokenIndex++) {
         try {
@@ -226,9 +226,9 @@ function App(props) {
         }
       }
       setYourSocks(collectibleUpdate);
+      setIsYourSocksLoading(false);
     };
     updateYourCollectibles();
-    setIsYourSocksLoading(false);
   }, [address, balance]);
 
   const priceToMint = useContractReader(readContracts, ContractName, "price", [], localProviderPollingTime);
