@@ -1,6 +1,5 @@
 .guide__page {
-   padding-top: 50px;
-   width: 70%;
+   width: 90%;
    justify-self: center;
    margin: auto;
 }
@@ -31,8 +30,9 @@
 }
  
 .guide__howtosvg {
-     top: -30px;
-     position:relative;
+    width: 100%;
+    top: -15px;
+    position:relative;
 }
 
 .guide__text {
@@ -62,4 +62,38 @@
   margin-top: 8px;
   vertical-align: middle;
   padding: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .guide__page {
+    width: 80%;
+  }
+
+  .guide__howtosvg {
+    width: 80%;
+}
+
+}
+
+@media screen and (min-width: 1024px) {
+  .guide__page {
+    width: 90%;
+  }
+  .guide__howtosvg {
+    width: 80%;
+    top: -30px;
+    position:relative;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .guide__page {
+    width: 70%;
+  }
+  .guide__howtosvg {
+    width: 60%;
+    top: -30px;
+    position:relative;
+   }
+ 
 }
