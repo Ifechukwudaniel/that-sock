@@ -1,0 +1,133 @@
+
+.mint__card__background-1 {
+    width: 95%;
+    height: 600px;
+    background: #000;
+    margin: auto;
+    border-radius: 40px;
+}
+
+.mint__card__background-2 {
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 40px;
+}
+
+.mint__card__background-3 {
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 40px;
+}
+
+.mint__card__background-4 {
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 40px;
+   
+}
+
+.Mint__Card {
+    background-color: #ededed;
+    border: 1px solid #000000;
+    border-radius: 32px;
+    z-index: 4;
+}
+
+
+.Card {
+    padding: 1.2rem;
+    z-index: 5;
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 32px;
+    margin: auto;
+    width: min(100%, 500px);
+    font-family: "Inter";
+    position: relative;
+  }
+
+
+.Mint__Card {
+    background-color: #ededed;
+    border: 1px solid #000000;
+    border-radius: 32px;
+    z-index: 4;
+}
+
+
+.Card__Head {
+    display: flex;
+    border-bottom: 1px solid black;
+  }
+
+  .party__div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border-right: 1px solid black;
+  }
+
+  .Header__Text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    padding: 0.2rem 1rem;
+  }
+
+  .Header__Text strong {
+    font-size: 22.5px;
+    line-height: 25px;
+  }
+
+
+  .SocksCardImage {
+    padding: 0.7rem;
+  }
+
+  .SocksCardImage img {
+    -o-object-fit: cover;
+       object-fit: cover;
+    width: 80%;
+  }
+
+  .Footer__Text {
+    padding: 0.4rem 1rem;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  .Mint span {
+    padding: 1rem 2rem;
+    background-color: #000000;
+    font-size: 16px;
+    font-weight: 900;
+    text-align: center;
+    color: #fff;
+    border-radius: 40px;
+  }
+
+  .mint__button {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 14px;
+    line-height: 32px;
+    /* or 229% */
+    
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #FFFFFF !important;
+    background: #000000 !important;
+  }
+
+
+  @media screen and (min-width: 768px) {
+    .mint__card__background-1 {
+        width: 40%;
+    }
+  }
