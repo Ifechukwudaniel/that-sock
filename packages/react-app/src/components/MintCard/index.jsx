@@ -1,11 +1,18 @@
 /* eslint-disable prettier/prettier */
 import { Button } from "antd";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Party from "../Icons/Party";
 import scratchImage from "../Icons/scratch.png";
+import ScratchCard, { CUSTOM_BRUSH_PRESET } from "react-scratchcard-v2";
 import "./MintCard.css";
 
 function MintCard({ handleMint }) {
+  const ref = useRef(null);
+  const [canScratch, setCanScratch] = useState(false);
+  const resetScratch = () => {
+    ref.current && ref.current.reset();
+  };
+
   return (
     <div className="mint-card__wrapper">
       <div className="mint__card__background-1" />
@@ -21,12 +28,28 @@ function MintCard({ handleMint }) {
               <strong>Scratch this protective layer to see the true colours of your Sock</strong>
             </div>
           </div>
-          <div className="SocksCardImage">
-            <img draggable="false" src={scratchImage} />
-          </div>
+          <ScratchCard
+            ref={undefined}
+            isDrawing={false}
+            width={400}
+            height={400}
+            image={scratchImage}
+            finishPercent={50}
+            onComplete={() => console.log("complete")}
+            brushSize={0}
+            customBrush={CUSTOM_BRUSH_PRESET}
+          >
+            <div className="nft_image_wrapper">
+              <img
+                className="nft_image"
+                draggable="false"
+                src={!canScratch ? scratchImage : "/assets/sockType/Long.png"}
+              />
+            </div>
+          </ScratchCard>
           <div className="Footer__Text">
             <b>
-              Only <span>3728 Socks</span>available on a price curve <span>increasing 0.2% </span>with each new mint. //
+              Only <span>3728 Socks</span>available on a price curve <span>increasing 0.2% </span>with each new mint.
               Double the supply of the <a href="#">Original Ethereum Mainnet That Socks!</a>
             </b>
           </div>
@@ -43,6 +66,12 @@ function MintCard({ handleMint }) {
 
 export default MintCard;
 
+// <div className="SocksCardImage_wrapper">
+// <div className="SocksCardImage">
+//   <img className="nft__image" draggable="false" src={"/assets/sockType/Long.png"} />
+//   <img className="scratch__image" draggable="false" src={scratchImage} />
+// </div>
+// </div>
 // <div className="container__element">
 // <div className="mint_card">
 //   <div className="Mint__Card">
