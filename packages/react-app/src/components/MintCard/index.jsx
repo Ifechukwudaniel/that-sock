@@ -5,10 +5,11 @@ import Party from "../Icons/Party";
 import scratchImage from "../Icons/scratch.png";
 import ScratchCard, { CUSTOM_BRUSH_PRESET } from "react-scratchcard-v2";
 import "./MintCard.css";
+import { ethers } from "ethers";
 
-function MintCard({ handleMint }) {
+function MintCard({ onMint, priceToMint, image }) {
   const ref = useRef(null);
-  const [canScratch, setCanScratch] = useState(false);
+
   const resetScratch = () => {
     ref.current && ref.current.reset();
   };
@@ -40,11 +41,7 @@ function MintCard({ handleMint }) {
             customBrush={CUSTOM_BRUSH_PRESET}
           >
             <div className="nft_image_wrapper">
-              <img
-                className="nft_image"
-                draggable="false"
-                src={!canScratch ? scratchImage : "/assets/sockType/Long.png"}
-              />
+              <img className="nft_image" draggable="false" src={image.length == 0 ? scratchImage : image} />
             </div>
           </ScratchCard>
           <div className="Footer__Text">
@@ -54,8 +51,14 @@ function MintCard({ handleMint }) {
             </b>
           </div>
           <div className="sock__button_wrapper">
-            <Button onClick={handleMint} className="mint__button">
-              Mint Now
+            <Button
+              onClick={() => {
+                resetScratch();
+                onMint();
+              }}
+              className="mint__button"
+            >
+              Mint Now At {priceToMint && (+ethers.utils.formatEther(priceToMint)).toFixed(4)}
             </Button>
           </div>
         </div>
