@@ -37,6 +37,7 @@ function Home({
   // DEBUG && console.log("🤗 priceToMint:", priceToMint);
 
   const [page, setPage] = useState(1);
+  const [image, setImage] = useState("");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -89,11 +90,33 @@ function Home({
     if (address && balance) updateYourCollectibles();
   }, [ContractName, DEBUG, address, balance, readContracts, page, perPage, showMineTokenOnly]);
 
-  return (
-    <div>
-      <MintCard />
-    </div>
-  );
+  const getLatestMint = async () => {
+    let supply = readContracts[ContractName] && (await readContracts[ContractName].totalSupply());
+    let tokenURI = readContracts[ContractName] && (await readContracts[ContractName].tokenURI(supply.toNumber()));
+    const jsonManifestString = atob(tokenURI.substring(29));
+    console.log("jsonManifestString", jsonManifestString);
+    const jsonManifest = JSON.parse(jsonManifestString);
+    console.log("jsonManifest", jsonManifest);
+    setImage(jsonManifest.image);
+  };
+
+  const handleMint = async () => {
+    setImage("");
+    const priceRightNow = readContracts[ContractName] && (await readContracts[ContractName].price());
+    try {
+      const mintTx = tx(
+        writeContracts[ContractName].mintItem({ value: priceRightNow, gasLimit: 500000 }),
+        function (transaction) {
+          getLatestMint();
+        },
+      );
+      console.log(mintTx);
+    } catch (e) {
+      DEBUG && console.log("mint failed", e);
+    }
+  };
+
+  return <MintCard onMint={handleMint} image={image} getLatestMint={getLatestMint} priceToMint={priceToMint} />;
 }
 
 export default Home;
