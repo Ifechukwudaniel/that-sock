@@ -1,36 +1,60 @@
 
-.mint__card__background-1 {
-    width: 95%;
-    height: 600px;
-    background: #000;
+.mint-card__wrapper {
+    position: relative;
     margin: auto;
+    /* background: #000; */
+    width:  95%;
+    height: 600px;
+    left: -15px;
+}
+.mint__card__background-1 {
+    width: 100%;
+    height: 100%;
+    position:absolute;
+    background: #000000;
     border-radius: 40px;
+    transform: translate(20px, 20px);
 }
 
 .mint__card__background-2 {
+    width: 100%;
+    height: 100%;
+    position:absolute;
     background: #FFFFFF;
     border: 1px solid #000000;
     border-radius: 40px;
+    transform: translate(16px, 16px);
 }
 
 .mint__card__background-3 {
+    width: 100%;
+    height: 100%;
+    position:absolute;
     background: #FFFFFF;
     border: 1px solid #000000;
     border-radius: 40px;
+    transform: translate(13px, 13px);
 }
 
 .mint__card__background-4 {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position:absolute;
     background: #FFFFFF;
     border: 1px solid #000000;
     border-radius: 40px;
-   
+    transform: translate(10px, 10px);
+    justify-content: center ;
+    align-items: center;
 }
 
 .Mint__Card {
     background-color: #ededed;
     border: 1px solid #000000;
     border-radius: 32px;
-    z-index: 4;
+    width: 95%;
+    height: 95%;
 }
 
 
@@ -44,6 +68,7 @@
     width: min(100%, 500px);
     font-family: "Inter";
     position: relative;
+    display: none;
   }
 
 
@@ -69,15 +94,15 @@
   }
 
   .Header__Text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-weight: 700;
-    padding: 0.2rem 1rem;
+    text-align: start;
+    padding: 10px;
+    overflow-wrap: break-word;
+  word-wrap: break-word;
   }
 
   .Header__Text strong {
-    font-size: 22.5px;
+    font-size: 15px;
     line-height: 25px;
   }
 
@@ -127,7 +152,13 @@
 
 
   @media screen and (min-width: 768px) {
-    .mint__card__background-1 {
-        width: 40%;
+    .mint-card__wrapper {
+       width:  50%;
     }
+  }
+  
+  @media screen and (min-width: 1024px) {
+    .mint-card__wrapper {
+        width:  30%;
+     }
   }
