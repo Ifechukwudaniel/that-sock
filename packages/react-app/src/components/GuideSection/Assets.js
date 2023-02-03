@@ -34,7 +34,6 @@ import Frame2 from "./Assets/Alternative/Alt2.png";
 import Frame3 from "./Assets/Alternative/Alt3.png";
 import Frame4 from "./Assets/Alternative/Alt4.png";
 const IMAGES = [
-  //   [],
   [LengthLong, LengthMiddle, LengthShort],
   [Ex1, Ex2, Ex3, Ex4, Ex5, Ex6, Ex7, Ex8, Ex9],
   [Black, White],
