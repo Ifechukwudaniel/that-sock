@@ -19,7 +19,9 @@ export default function SockCard({
   const showTransfer = yourSocks && tx && transferToAddresses && setTransferToAddresses && writeContracts && address;
   return (
     <div className="sock__card">
-      <img className="sock__image" src={image} alt={"Sock #" + id} />
+      <div className="sock__image__wrapper">
+        <img className="sock__image" src={image} alt={"Sock #" + id} />
+      </div>
       <div className="sock__content">
         <div>
           <span>{name}</span>
