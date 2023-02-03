@@ -42,7 +42,7 @@ function YourSocks({
             const id = item.id;
 
             return (
-              <List.Item key={id + "_" + "_" + item.owner} style={{ maxWidth: "320px" }}>
+              <List.Item key={id + "_" + "_" + item.owner}>
                 <SocksCard
                   image={item.image}
                   id={id}

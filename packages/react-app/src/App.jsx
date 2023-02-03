@@ -300,18 +300,20 @@ function App(props) {
           </Route>
           <Route exact path="/contracts">
             <div className="App__content">
-              <div style={{ padding: 32 }}>
-                <Address value={readContracts && readContracts.ThisSocks && readContracts.ThisSocks.address} />
+              <div className="App__contract">
+                <div style={{ padding: 32 }}>
+                  <Address value={readContracts && readContracts.ThisSocks && readContracts.ThisSocks.address} />
+                </div>
+                <Contract
+                  name="ThisSocks"
+                  price={price}
+                  signer={userSigner}
+                  provider={localProvider}
+                  address={address}
+                  blockExplorer={blockExplorer}
+                  contractConfig={contractConfig}
+                />
               </div>
-              <Contract
-                name="ThisSocks"
-                price={price}
-                signer={userSigner}
-                provider={localProvider}
-                address={address}
-                blockExplorer={blockExplorer}
-                contractConfig={contractConfig}
-              />
             </div>
           </Route>
         </div>

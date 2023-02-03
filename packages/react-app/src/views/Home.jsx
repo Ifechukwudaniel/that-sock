@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Address, AddressInput } from "../components";
 import { useContractReader } from "eth-hooks";
 import { ethers } from "ethers";
+import MintCard from "../components/MintCard";
 /**
  * web3 props can be passed from '../App.jsx' into your local view component for use
  * @param {*} yourLocalBalance balance on current network
@@ -90,120 +91,7 @@ function Home({
 
   return (
     <div>
-      {/* <div
-        style={{
-          display: "flex",
-          maxWidth: 1800,
-          margin: "auto",
-          marginTop: 32,
-          paddingBottom: 32,
-          justifyContent: "center",
-        }}
-      >
-        {userSigner ? (
-          <Button
-            type={"primary"}
-            onClick={async () => {
-              const priceRightNow = readContracts[ContractName] && (await readContracts[ContractName].price());
-              try {
-                const mintTx = tx(
-                  writeContracts[ContractName].mintItem({ value: priceRightNow, gasLimit: 500000 }),
-                  function (transaction) {},
-                );
-                // console.log(mintTx);
-              } catch (e) {
-                // DEBUG && console.log("mint failed", e);
-              }
-            }}
-          >
-            Mint Now! for Ξ{priceToMint && (+ethers.utils.formatEther(priceToMint)).toFixed(4)}s
-          </Button>
-        ) : (
-          <Button type={"primary"} onClick={loadWeb3Modal}>
-            CONNECT WALLET
-          </Button>
-        )}
-        <div style={{ marginLeft: 32 }}>
-          {showMineTokenOnly ? "Mine " : "All "}
-          <Switch
-            checked={showMineTokenOnly}
-            onChange={() => {
-              setShowMineTokenOnly(!showMineTokenOnly);
-            }}
-          />
-        </div>
-      </div>
-
-      <div style={{ maxWidth: 1800, display: "flex", flexWrap: "wrap", margin: "auto", justifyContent: "center" }}>
-        {yourCollectibles && (
-          <List
-            grid={{
-              gutter: 16,
-            }}
-            pagination={{
-              total: balance,
-              defaultPageSize: perPage,
-              defaultCurrent: page,
-              onChange: currentPage => {
-                setPage(currentPage);
-              },
-              showTotal: (total, range) => `${range[0]}-${range[1]} of ${balance} items`,
-            }}
-            dataSource={yourCollectibles}
-            renderItem={nft => {
-              const id = nft.id.toNumber();
-              return (
-                <List.Item key={id + "_" + nft.uri + "_" + nft.owner}>
-                  <div style={{ width: "80%", height: "50%", border: "1px solid" }}>
-                    <div>{nft.name}</div>
-                    <div>
-                      <a
-                        href={
-                          "https://opensea.io/assets/" +
-                          (readContracts && readContracts.YourCollectible && readContracts.YourCollectible.address) +
-                          "/" +
-                          nft.id
-                        }
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        <img width="300px" height="300px" src={nft.image} alt={nft.description} />
-                      </a>
-                    </div>
-                    <div style={{ marginBottom: "10px" }}>{nft.description}</div>
-                    <div>
-                      owner:{" "}
-                      <Address
-                        address={nft.owner}
-                        ensProvider={mainnetProvider}
-                        blockExplorer={blockExplorer}
-                        fontSize={16}
-                      />
-                      <AddressInput
-                        ensProvider={mainnetProvider}
-                        placeholder="transfer to address"
-                        value={transferToAddresses[id]}
-                        onChange={newValue => {
-                          const update = {};
-                          update[id] = newValue;
-                          setTransferToAddresses({ ...transferToAddresses, ...update });
-                        }}
-                      />
-                      <Button
-                        onClick={() => {
-                          tx(writeContracts[ContractName].transferFrom(address, transferToAddresses[id], id));
-                        }}
-                      >
-                        Transfer
-                      </Button>
-                    </div>
-                  </div>
-                </List.Item>
-              );
-            }}
-          />
-        )}
-      </div> */}
+      <MintCard />
     </div>
   );
 }

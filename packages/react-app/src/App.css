@@ -24,7 +24,6 @@
 }
 
 .App__footer-wrapper {
-  padding-bottom: 80px;
   background-color: #98c1ff;
 }
 
@@ -33,6 +32,7 @@
    position: relative;
    justify-content: center;
    align-items: center;
+   padding-top: 100px;
 }
 
 
@@ -40,6 +40,9 @@
 @media screen and (min-width: 768px) {
   .App__footer {
     flex-direction: row;
+  }
+  .App__content {
+    padding-top: 0px;
   }
 }
 

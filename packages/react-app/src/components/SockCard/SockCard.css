@@ -1,16 +1,17 @@
 .sock__card {
-    height: 300px;
+    height: 400px;
     width: 300px;
     background: #FFFFFF;
     border-radius: 24px 24px 24px 24px;
     border: 1px solid #000000;
+    padding: 0;
 }
 
 .sock__image {
-     width: 100%;
+     width: 300px;
      height: 70%;
 }
 
 .sock__content {
-   
+    height: 30%;
 }
