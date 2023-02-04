@@ -3,9 +3,11 @@ import { Menu, Tooltip } from "antd";
 import { Link, useLocation } from "react-router-dom";
 import Account from "../Account";
 import LogoIcon from "../Icons/LogoIcon";
-import Hamburger from "../Icons/Hamburger";
+import openbtn from "../Icons/mobilenavbtn/openbtn.svg";
+import closebtn from "../Icons/mobilenavbtn/closebtn.svg";
+import MobileSideModal from "./MobileSideModal";
 import "./Navbar.css";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 export default function NavBar({
   useBurner,
   address,
@@ -21,14 +23,35 @@ export default function NavBar({
   const [openMenu, setOpenMenu] = useState(false);
   const handleOpenModal = () => {
     setOpenMenu(!openMenu);
-    console.log("yessas");
   };
 
-  console.log(openMenu);
+  const REF = useRef();
+  useEffect(() => {
+    const checkIfClickedOutside = e => {
+      if (openMenu && REF.current && !REF.current.contains(e.target)) {
+        setOpenMenu(false);
+      }
+    };
+    document.addEventListener("mousedown", checkIfClickedOutside);
+    return () => {
+      document.removeEventListener("mousedown", checkIfClickedOutside);
+    };
+  });
   return (
     <div className="navbar">
       <div className="navbar__menu__container">
-        <div className="navbar__menu-item__mobile"></div>
+        <div className="navbar__menu-item__mobile">
+          {/* {!openMenu ? ( */}
+          <div onClick={() => handleOpenModal()}>
+            <img src={openMenu ? closebtn : openbtn} className="btn" alt="click here" />
+          </div>
+          {/* ) : ( */}
+          {/* <div onClick={() => setOpenMenu(false)}>
+              <img src={closebtn} className="btn" alt="click here" />
+            </div> */}
+          {/* )} */}
+          {openMenu && <MobileSideModal REF={REF} openMenu={openMenu} handleOpenModal={handleOpenModal} />}
+        </div>
         <Menu selectedKeys={[location.pathname]} mode="horizontal" className="navbar__menu">
           <Menu.Item key="/" className="navbar__menu-item">
             <Link to="/" className="navbar__link navbar__menu-item-desktop-content">
