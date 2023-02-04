@@ -144,6 +144,9 @@
   .nft_image_wrapper  img {
     width: 100%;
     height: 100%;
+    border-radius: 40px;
+    border: 1px solid #000000;
+    object-fit: fill;
   }
 
   .Footer__Text {
