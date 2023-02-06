@@ -1,0 +1,26 @@
+.sock__card {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    width: 300px;
+    background: #FFFFFF;
+    border-radius: 24px 24px 24px 24px;
+    border: 1px solid #000000;
+    justify-content: center;
+}
+
+.sock__image__wrapper {
+    width: 100%;
+    height: 70%;
+    background: red;
+}
+.sock__image {
+     object-fit: fill;
+     width: 100%;
+     height: 100%;
+     border-radius: 24px 24px 0px 0px;
+}
+
+.sock__content {
+    height: 30%;
+}

@@ -1,0 +1,206 @@
+
+.mint-card__wrapper {
+    position: relative;
+    margin: auto;
+    width:  95%;
+    height: 600px;
+    left: -15px;
+}
+.mint__card__background-1 {
+    width: 100%;
+    height: 100%;
+    position:absolute;
+    background: #000000;
+    border-radius: 40px;
+    transform: translate(24px, 24px);
+}
+
+.mint__card__background-2 {
+    width: 100%;
+    height: 100%;
+    position:absolute;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 40px;
+    transform: translate(16px, 16px);
+}
+
+.mint__card__background-3 {
+    width: 100%;
+    height: 100%;
+    position:absolute;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 40px;
+    transform: translate(13px, 13px);
+}
+
+.mint__card__background-4 {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position:absolute;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 40px;
+    transform: translate(10px, 10px);
+    justify-content: center ;
+    align-items: center;
+}
+
+.Mint__Card {
+    background-color: #ededed;
+    border: 1px solid #000000;
+    border-radius: 32px;
+    width: 95%;
+    height: 95%;
+}
+
+
+.Card {
+    padding: 1.2rem;
+    z-index: 5;
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 32px;
+    margin: auto;
+    width: min(100%, 500px);
+    font-family: "Inter";
+    position: relative;
+    display: none;
+  }
+
+
+.Mint__Card {
+    background-color: #ededed;
+    border: 1px solid #000000;
+    border-radius: 32px;
+    z-index: 4;
+}
+
+
+.Card__Head {
+    display: flex;
+    border-bottom: 1px solid black;
+    height: 10%;
+  }
+
+  .party__div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border-right: 1px solid black;
+  }
+
+  .Header__Text {
+    font-weight: 700;
+    text-align: start;
+    padding: 5px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    user-select: none;
+  }
+
+  .Header__Text strong {
+    font-size: 15px;
+    line-height: 25px;
+  }
+
+  .ScratchCard__Container{
+    height: 60% !important;
+    width: 90% !important;
+    margin: auto;
+  }
+
+  .ScratchCard__Canvas {
+    display: flex;
+    margin-top: 10% ;
+    justify-content: center;
+    height: 100% !important;
+    width: 100% !important;
+    margin: auto;
+    margin-top: 10px;
+    position: relative;
+    cursor: url('https://i.imgur.com/47em5kM.png'), auto
+  }
+
+   .ScratchCard__Result {
+    position: absolute;
+    margin: auto;
+    width: 90%;
+    height: 100%;
+  }
+
+  .nft_image_wrapper {
+    position: absolute;
+    margin-top: 10px;
+    width: 100%;
+    height: 100%;
+    border-radius: 42px;
+    /* border: 2px solid #000; */
+    /* background-color: #fff; */
+  }
+  .nft_image_wrapper  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 40px;
+    border: 1px solid #000000;
+    object-fit: fill;
+  }
+
+  .Footer__Text {
+    padding: 0.4rem 1rem;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    height: 15%;
+    margin-top: 7%;
+  }
+
+  .Mint span {
+    padding: 1rem 2rem;
+    background-color: #000000;
+    font-size: 16px;
+    font-weight: 900;
+    text-align: center;
+    color: #fff;
+    border-radius: 40px;
+  }
+
+  .mint__button {
+    font-family: 'Inter' !important;
+    font-style: normal !important;
+    font-weight: 900 !important;
+    font-size: 14px !important;
+    
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    width: 150px !important;
+    height: 40px !important;
+     border-radius: 20px  !important;
+    color: #FFFFFF !important;
+    background: #000000 !important;
+  }
+
+  .sock__button_wrapper{
+    width: 100%;
+    height: 15%;
+  }
+
+  @media screen and (min-width: 768px) {
+    .mint-card__wrapper {
+       width:  50%;
+    }
+  }
+  
+  @media screen and (min-width: 1024px) {
+    .mint-card__wrapper {
+        padding-top: 50px;
+        width:  30%;
+        height: 80vh;
+        padding-bottom: 50px;
+     }
+  }

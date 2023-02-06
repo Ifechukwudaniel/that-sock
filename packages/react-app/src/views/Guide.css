@@ -1,0 +1,99 @@
+.guide__page {
+   width: 90%;
+   justify-self: center;
+   margin: auto;
+}
+
+.guide-wrapper {
+  padding-top: 30px;
+}
+
+.guide__title {
+    font-family: 'Just Another Hand';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 52px;
+    text-align: center;
+    user-select: none;
+    margin-bottom: 10px;
+}
+
+.large__text{
+  font-family: 'Just Another Hand';
+  font-style: normal;
+  font-weight: 400;
+  line-height: 72px;
+  text-align: center;
+  font-size: 80px;
+  user-select: none;
+}
+ 
+.guide__howtosvg {
+    width: 100%;
+    top: -15px;
+    position:relative;
+}
+
+.guide__text {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
+    text-align: center;
+    color: #000000;
+    user-select: none;
+}
+
+.guide-image-row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+.guide-image-col{
+  flex: 30%;
+  padding: 0 4px;
+}
+
+
+.guide-image-col img {
+  margin-top: 8px;
+  vertical-align: middle;
+  padding: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .guide__page {
+    width: 80%;
+  }
+
+  .guide__howtosvg {
+    width: 80%;
+}
+
+}
+
+@media screen and (min-width: 1024px) {
+  .guide__page {
+    width: 90%;
+  }
+  .guide__howtosvg {
+    width: 80%;
+    top: -30px;
+    position:relative;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .guide__page {
+    width: 70%;
+  }
+  .guide__howtosvg {
+    width: 60%;
+    top: -30px;
+    position:relative;
+   }
+ 
+}

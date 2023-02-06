@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 3rem 2rem 1.5rem 2rem;
+  padding: 0rem 2rem 0rem 0rem;
   position: relative;
   height: 80px;
 }
@@ -19,6 +19,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .navbar .navbar__menu {
@@ -62,6 +63,53 @@
   color: #a056ff;
 }
 
+.Sidebar__Container {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  background-color: rgba(199, 184, 184, 0.52);
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.Sidebar {
+  position: absolute;
+  background-color: #fff;
+  width: 180px;
+  padding: 3px;
+  /* right: -200%; */
+  animation: movemodal .8s;
+}
+@keyframes movemodal {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+.Sidebar div {
+  background-color: #fff;
+  border-bottom: 1.5px solid #987272;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 0;
+  font-size: 18px;
+  font-weight: 600;
+  height: 100%;
+}
+.btn {
+  position: relative;
+  width: 60px;
+  height: 40px;
+}
+
+/* Menu button */
+
 @media (min-width: 900px) {
   .navbar {
     display: flex;
@@ -70,6 +118,9 @@
     padding: 2rem;
     position: relative;
     height: 80px;
+  }
+  .Sidebar__Container {
+    display: none;
   }
   .navbar__menu-item__mobile {
     display: none;

@@ -7,15 +7,14 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 import "base64-sol/base64.sol";
 
-import  "./StyleLibrary.sol";
-import  "./SockPin/PinLibrary.sol";
-import  "./SockPin/PinLibraryMetadata.sol";
-import  "./SockLayoutLibrary.sol";
-import  "./SockBackground/BackgroundLibrary.sol";
-import  "./SockBackground/BackgroundMetadataLibrary.sol";
-import  "./SockPattern/PatternLibrary.sol";
-import  "./SockPattern/PatternMetadataLibrary.sol";
-
+import "./StyleLibrary.sol";
+import "./SockPin/PinLibrary.sol";
+import "./SockPin/PinLibraryMetadata.sol";
+import "./SockLayoutLibrary.sol";
+import "./SockBackground/BackgroundLibrary.sol";
+import "./SockBackground/BackgroundMetadataLibrary.sol";
+import "./SockPattern/PatternLibrary.sol";
+import "./SockPattern/PatternMetadataLibrary.sol";
 
 // GET LISTED ON OPENSEA: https://testnets.opensea.io/get-listed/step-two
 
@@ -27,7 +26,6 @@ contract ThisSocks is ERC721Enumerable, Ownable {
     Counters.Counter private _tokenIds;
 
     uint256 mintDeadline = block.timestamp + 3650 days;
-
 
     // all funds go to buidlguidl.eth
     address payable public constant recipient =
@@ -48,10 +46,7 @@ contract ThisSocks is ERC721Enumerable, Ownable {
     mapping(uint256 => uint256) sockBackgroundType;
     mapping(uint256 => uint256) sockPatterns;
 
-
-    constructor() ERC721("ThisSock", "THS") {
-    
-    }
+    constructor() ERC721("ThisSock", "THS") {}
 
     function mintItem() public payable returns (uint256) {
         require(block.timestamp < mintDeadline, "DONE MINTING");
@@ -72,18 +67,31 @@ contract ThisSocks is ERC721Enumerable, Ownable {
                 address(this)
             )
         );
-        
-        tokenPin[id] = getPredicableRandomNumber(predictableRandom,5,6,20); 
-        sockColors[id] = [
-            getPredicableRandomNumber(predictableRandom,1,2,12), 
-            getPredicableRandomNumber(predictableRandom,8,9,12), 
-            getPredicableRandomNumber(predictableRandom,20,30,12)
-        ];
-        sockBackgroundColor[id] = getPredicableRandomNumber(predictableRandom,27,31,11);
-        sockBackgroundType[id] = getPredicableRandomNumber(predictableRandom,20,22,31);
-        sockPatterns[id] =  getPredicableRandomNumber(predictableRandom,10,30,25);
-        
 
+        tokenPin[id] = getPredicableRandomNumber(predictableRandom, 5, 6, 20);
+        sockColors[id] = [
+            getPredicableRandomNumber(predictableRandom, 1, 2, 12),
+            getPredicableRandomNumber(predictableRandom, 8, 9, 12),
+            getPredicableRandomNumber(predictableRandom, 20, 30, 12)
+        ];
+        sockBackgroundColor[id] = getPredicableRandomNumber(
+            predictableRandom,
+            27,
+            31,
+            11
+        );
+        sockBackgroundType[id] = getPredicableRandomNumber(
+            predictableRandom,
+            20,
+            22,
+            31
+        );
+        sockPatterns[id] = getPredicableRandomNumber(
+            predictableRandom,
+            10,
+            30,
+            25
+        );
 
         (bool success, ) = recipient.call{value: msg.value}("");
         require(success, "could not send");
@@ -94,19 +102,18 @@ contract ThisSocks is ERC721Enumerable, Ownable {
     function tokenURI(uint256 id) public view override returns (string memory) {
         require(_exists(id), "!exist");
 
-        string memory name = string(
-            abi.encodePacked("Sock #", id.toString())
-        );
+        string memory name = string(abi.encodePacked("Sock #", id.toString()));
 
         string memory base = string("Sock");
         string memory image = Base64.encode(bytes(generateSVGofTokenById(id)));
-
-
-        string memory description = string(
-            abi.encodePacked("")
-        );
         
-        (uint256 color1, uint256 color2, uint256 color3) = getColorsByTokenId(id); 
+        string memory background =   BackgroundMetadataLibrary.GetBackgroundColorMetadata(getBackgroundByTokenId(id))
+
+        string memory description = string(abi.encodePacked("This Socks has"));
+
+        (uint256 color1, uint256 color2, uint256 color3) = getColorsByTokenId(
+            id
+        );
 
         return
             string(
@@ -128,17 +135,31 @@ contract ThisSocks is ERC721Enumerable, Ownable {
                                 image,
                                 '",',
                                 '"attributes":[',
-                                  BackgroundMetadataLibrary.GetBackgroundColorMetadata(getBackgroundByTokenId(id)),
-                                  ",",
-                                  BackgroundMetadataLibrary.GetBackgroundTypeMetadata(getBackgroundTypeByTokenId(id)),
-                                  ",",
-                                  SockLayoutLibrary.GetLayoutMetadata(color1,color2,color3),
-                                  ",",
-                                  PinMetadataLibrary.GetPinMetadata(getPinByTokenId(id)),
-                                  ",",
-                                  PatternMetadataLibrary.GetPatternMetadata(getPatternByTokenId(id)),
-                                ']',
-                                '}'
+                                BackgroundMetadataLibrary
+                                    .GetBackgroundColorMetadata(
+                                        getBackgroundByTokenId(id)
+                                    ),
+                                ",",
+                                BackgroundMetadataLibrary
+                                    .GetBackgroundTypeMetadata(
+                                        getBackgroundTypeByTokenId(id)
+                                    ),
+                                ",",
+                                SockLayoutLibrary.GetLayoutMetadata(
+                                    color1,
+                                    color2,
+                                    color3
+                                ),
+                                ",",
+                                PinMetadataLibrary.GetPinMetadata(
+                                    getPinByTokenId(id)
+                                ),
+                                ",",
+                                PatternMetadataLibrary.GetPatternMetadata(
+                                    getPatternByTokenId(id)
+                                ),
+                                "]",
+                                "}"
                             )
                         )
                     )
@@ -147,11 +168,9 @@ contract ThisSocks is ERC721Enumerable, Ownable {
     }
 
     // function generateSVGofTokenById(uint256 id) internal view returns (string memory) {
-    function generateSVGofTokenById(uint256 id)
-        internal
-        view
-        returns (string memory)
-    {
+    function generateSVGofTokenById(
+        uint256 id
+    ) internal view returns (string memory) {
         string memory svg = string(
             abi.encodePacked(
                 '<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080">',
@@ -164,24 +183,28 @@ contract ThisSocks is ERC721Enumerable, Ownable {
 
     // Visibility is `public` to enable it being called by other contracts for composition.
     function renderTokenById(uint256 id) public view returns (string memory) {
-        (uint256 color1, uint256 color2, uint256 color3)= getColorsByTokenId(id); 
-        uint256 backgroundType =  getBackgroundTypeByTokenId(id);
+        (uint256 color1, uint256 color2, uint256 color3) = getColorsByTokenId(
+            id
+        );
+        uint256 backgroundType = getBackgroundTypeByTokenId(id);
         uint256 patternType = getPatternByTokenId(id);
         string memory render = string(
             abi.encodePacked(
                 BackgroundLibrary.GetBackground(
                     backgroundType,
-                    BackgroundLibrary.GetBackgroundColor(getBackgroundByTokenId(id))
+                    BackgroundLibrary.GetBackgroundColor(
+                        getBackgroundByTokenId(id)
+                    )
                 ),
                 '<g transform="translate(180, 130)">',
-                    BackgroundLibrary.BackClip(backgroundType),
-                    SockLayoutLibrary.GetLayout(
-                        SockLayoutLibrary.GetColor(color1), 
-                        SockLayoutLibrary.GetColor(color2), 
-                        SockLayoutLibrary.GetColor(color3)
-                    ),
-                    PinLibrary.GetPin(getPinByTokenId(id)),
-                '</g>',
+                BackgroundLibrary.BackClip(backgroundType),
+                SockLayoutLibrary.GetLayout(
+                    SockLayoutLibrary.GetColor(color1),
+                    SockLayoutLibrary.GetColor(color2),
+                    SockLayoutLibrary.GetColor(color3)
+                ),
+                PinLibrary.GetPin(getPinByTokenId(id)),
+                "</g>",
                 BackgroundLibrary.FrontClip(backgroundType),
                 PatternLibrary.GetPattern(patternType)
             )
@@ -191,58 +214,44 @@ contract ThisSocks is ERC721Enumerable, Ownable {
         return render;
     }
 
-    function getPinByTokenId(uint256 id) public view returns (uint256) {
-       return tokenPin[id];
+    function getPinByTokenId(uint256 id) private view returns (uint256) {
+        return tokenPin[id];
     }
 
-    function setPinByTokenId(uint256 id, uint256 pinId ) public  {
-        tokenPin[id] = pinId ;
+    function getBackgroundByTokenId(uint256 id) private view returns (uint256) {
+        return sockBackgroundColor[id];
     }
 
-    function getBackgroundByTokenId(uint256 id) public view returns (uint256) {
-       return sockBackgroundColor[id];
+    function getBackgroundTypeByTokenId(
+        uint256 id
+    ) private view returns (uint256) {
+        return sockBackgroundType[id];
     }
 
-    function setBackgroundByTokenId(uint256 id, uint256 backgroundId ) public  {
-        sockBackgroundColor[id] = backgroundId;
-    }
-
-     function getBackgroundTypeByTokenId(uint256 id) public view returns (uint256) {
-       return sockBackgroundType[id];
-    }
-
-    function setBackgroundTypeByTokenId(uint256 id, uint256 backgroundType ) public  {
-        sockBackgroundType[id] = backgroundType;
-    }
-
-    function getColorsByTokenId(uint256 id) public view returns (uint256 color1 , uint256 color2, uint256 color3 ) {
-       require(_exists(id), "!exist");
-       color1 =  sockColors[id][0];
-       color2 =  sockColors[id][1];
-       color3 =  sockColors[id][2];
-    }
-
-    function setColorsByTokenId(uint256 id,uint256 color1 , uint256 color2, uint256 color3) public  {
+    function getColorsByTokenId(
+        uint256 id
+    ) private view returns (uint256 color1, uint256 color2, uint256 color3) {
         require(_exists(id), "!exist");
-        sockColors[id][0] = color1;
-        sockColors[id][1] = color2;
-        sockColors[id][2] = color3;
+        color1 = sockColors[id][0];
+        color2 = sockColors[id][1];
+        color3 = sockColors[id][2];
     }
-    
-    function setPatternByTokenId(uint256 id,uint256 pattern) public  {
-        require(_exists(id), "!exist");
-        sockPatterns[id] = pattern;
-    }
-    
-    function getPatternByTokenId(uint256 id) public view returns (uint256)  {
+
+    function getPatternByTokenId(uint256 id) private view returns (uint256) {
         require(_exists(id), "!exist");
         return sockPatterns[id];
     }
 
-    function getPredicableRandomNumber(bytes32 data, uint256 minByte, uint256 maxByte,  uint8 maxNumber) private pure returns (uint256) {
-     return uint256(
-            ((uint8(data[minByte]) << maxNumber) | uint8(data[maxByte])) %
-              maxNumber
-        );
+    function getPredicableRandomNumber(
+        bytes32 data,
+        uint256 minByte,
+        uint256 maxByte,
+        uint8 maxNumber
+    ) private pure returns (uint256) {
+        return
+            uint256(
+                ((uint8(data[minByte]) << maxNumber) | uint8(data[maxByte])) %
+                    maxNumber
+            );
     }
 }

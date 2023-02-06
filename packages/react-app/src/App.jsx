@@ -11,16 +11,19 @@ import { useExchangeEthPrice } from "eth-hooks/dapps/dex";
 import React, { useCallback, useEffect, useState } from "react";
 import { Route, Switch, useLocation } from "react-router-dom";
 import "./App.css";
-import { Contract, NetworkDisplay, Address } from "./components";
+import { Contract, NetworkDisplay, Address, Faucet } from "./components";
 import { NETWORKS, ALCHEMY_KEY } from "./constants";
 import externalContracts from "./contracts/external_contracts";
 // contracts
 import deployedContracts from "./contracts/hardhat_contracts.json";
-import { Transactor, Web3ModalSetup } from "./helpers";
-import { Home } from "./views";
+import { Home, YourSocks, Guide } from "./views";
 import { useStaticJsonRPC } from "./hooks";
 import NavBar from "./components/Navbar";
 import ScaffoldIcon from "./components/Icons/ScaffoldIcon";
+import CloudBackground from "./components/CloudBackground";
+
+import { getRPCPollTime, Transactor, Web3ModalSetup } from "./helpers";
+import { Row, Col } from "antd";
 
 const { ethers } = require("ethers");
 /*
@@ -52,7 +55,7 @@ const USE_NETWORK_SELECTOR = false;
 
 if (process.env.NODE_ENV === "production") {
   DEBUG = false;
-  initialNetwork = NETWORKS.goerli;
+  initialNetwork = NETWORKS.localhost;
 }
 
 const web3Modal = Web3ModalSetup();
@@ -131,6 +134,9 @@ function App(props) {
 
   const contractConfig = { deployedContracts: deployedContracts || {}, externalContracts: externalContracts || {} };
 
+  const localProviderPollingTime = getRPCPollTime(localProvider);
+  const mainnetProviderPollingTime = getRPCPollTime(mainnetProvider);
+
   // Load in your local 📝 contract and read a value from it:
   console.log(contractConfig);
   const readContracts = useContractLoader(localProvider, contractConfig);
@@ -173,53 +179,61 @@ function App(props) {
     }
   }, [loadWeb3Modal]);
 
-  const accesories = ["Eye", "Head", "Neck", "Perch", "Background"];
-  const [selectedCollectible, setSelectedCollectible] = useState();
-  const [yourCollectibleSVG, setYourCollectibleSVG] = useState();
+  const [yourSocks, setYourSocks] = useState();
+  const [isYourSocksLoading, setIsYourSocksLoading] = useState(true);
+  const [transferToAddresses, setTransferToAddresses] = useState({});
 
-  const [selectedAccesory, setSelectedAccesory] = useState(accesories[0]);
-  const [selectedAccesoryBalance, setSelectedAccesoryBalance] = useState(accesories[0]);
-  const [yourAccesories, setYourAccesories] = useState();
-  const [previewAccesory, setPreviewAccesory] = useState({});
   const perPage = 10;
 
   // 🧠 This effect will update yourCollectibles by polling when your balance changes
-  const AccesoryBalanceContract = useContractReader(readContracts, selectedAccesory, "balanceOf", [address]);
+
+  const [balance, setBalance] = useState();
 
   useEffect(() => {
-    if (AccesoryBalanceContract) {
-      setSelectedAccesoryBalance(AccesoryBalanceContract);
-    }
-  }, [AccesoryBalanceContract]);
-
-  useEffect(() => {
-    const updateYourCollectibleSVG = async () => {
-      try {
-        console.log("Getting token index " + selectedCollectible);
-        const tokenId = selectedCollectible;
-        console.log("tokenId: " + tokenId);
-        const svg =
-          readContracts[ContractName] && tokenId && (await readContracts[ContractName].renderTokenById(tokenId));
-        const newYourCollectibleSVG =
-          '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="300" viewBox="0 0 880 880">' +
-          svg +
-          "</svg>";
-        setYourCollectibleSVG(newYourCollectibleSVG);
-      } catch (err) {
-        console.log(err);
+    const updateBalance = async () => {
+      if (address) {
+        if (readContracts.ThisSocks) {
+          const balanceFromContract = await readContracts.ThisSocks.balanceOf(address);
+          if (DEBUG) console.log("balanceFromContract: ", balanceFromContract.toNumber());
+          setBalance(balanceFromContract.toNumber());
+        }
       }
     };
-    if (address && selectedCollectible) {
-      updateYourCollectibleSVG();
-    }
-  }, [address, readContracts, selectedCollectible]);
+    updateBalance();
+  }, [address, readContracts.ThisSocks]);
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [confirmLoading, setConfirmLoading] = useState(false);
+  useEffect(() => {
+    const updateYourCollectibles = async () => {
+      setIsYourSocksLoading(true);
+      const collectibleUpdate = [];
+      for (let tokenIndex = 0; tokenIndex < balance; tokenIndex++) {
+        try {
+          console.log("GEtting token index", tokenIndex);
+          const tokenId = await readContracts.ThisSocks.tokenOfOwnerByIndex(address, tokenIndex);
+          console.log("tokenId", tokenId);
+          const tokenURI = await readContracts.ThisSocks.tokenURI(tokenId);
+          const jsonManifestString = atob(tokenURI.substring(29));
+          console.log("jsonManifestString", jsonManifestString);
+          try {
+            const jsonManifest = JSON.parse(jsonManifestString);
+            console.log("jsonManifest", jsonManifest);
+            collectibleUpdate.push({ id: tokenId, uri: tokenURI, owner: address, ...jsonManifest });
+          } catch (e) {
+            console.log(e);
+          }
+        } catch (e) {
+          console.log(e);
+        }
+      }
+      setYourSocks(collectibleUpdate);
+      setIsYourSocksLoading(false);
+    };
+    updateYourCollectibles();
+  }, [address, balance]);
 
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
+  const priceToMint = useContractReader(readContracts, ContractName, "price", [], localProviderPollingTime);
+  if (DEBUG) console.log("🤗 priceToMint:", priceToMint);
+  const faucetAvailable = localProvider && localProvider.connection && targetNetwork.name.indexOf("local") !== -1;
 
   return (
     <div className="App">
@@ -244,40 +258,79 @@ function App(props) {
       />
       <Switch>
         <div className="App__page-content-wrapper">
+          <CloudBackground />
           <Route exact path="/">
-            {/* pass in any web3 props to this Home component. For example, yourLocalBalance */}
-            <Home
-              userSigner={userSigner}
-              readContracts={readContracts}
-              writeContracts={writeContracts}
-              tx={tx}
-              loadWeb3Modal={loadWeb3Modal}
-              blockExplorer={blockExplorer}
-              address={address}
-              setSelectedCollectible={setSelectedCollectible}
-              ContractName={"ThisSocks"}
-              DEBUG={DEBUG}
-              perPage={perPage}
-              gasPrice={gasPrice}
-            />
+            <div className="App__content">
+              <Home
+                userSigner={userSigner}
+                readContracts={readContracts}
+                writeContracts={writeContracts}
+                tx={tx}
+                loadWeb3Modal={loadWeb3Modal}
+                blockExplorer={blockExplorer}
+                address={address}
+                ContractName={"ThisSocks"}
+                DEBUG={DEBUG}
+                perPage={perPage}
+                gasPrice={gasPrice}
+              />
+            </div>
+          </Route>
+          <Route exact path="/yourSocks">
+            <div className="App__content">
+              <YourSocks
+                readContracts={readContracts}
+                writeContracts={writeContracts}
+                priceToMint={priceToMint}
+                yourSocks={yourSocks}
+                tx={tx}
+                mainnetProvider={mainnetProvider}
+                blockExplorer={blockExplorer}
+                transferToAddresses={transferToAddresses}
+                setTransferToAddresses={setTransferToAddresses}
+                address={address}
+                loading={isYourSocksLoading}
+              />
+            </div>
+          </Route>
+          <Route exact path="/guide">
+            <div className="App__content">
+              <Guide />
+            </div>
           </Route>
           <Route exact path="/contracts">
-            <div style={{ padding: 32 }}>
-              <Address value={readContracts && readContracts.ThisSocks && readContracts.ThisSocks.address} />
+            <div className="App__content">
+              <div className="App__contract">
+                <div style={{ padding: 32 }}>
+                  <Address value={readContracts && readContracts.ThisSocks && readContracts.ThisSocks.address} />
+                </div>
+                <Contract
+                  name="ThisSocks"
+                  price={price}
+                  signer={userSigner}
+                  provider={localProvider}
+                  address={address}
+                  blockExplorer={blockExplorer}
+                  contractConfig={contractConfig}
+                />
+              </div>
             </div>
-            <Contract
-              name="ThisSocks"
-              price={price}
-              signer={userSigner}
-              provider={localProvider}
-              address={address}
-              blockExplorer={blockExplorer}
-              contractConfig={contractConfig}
-            />
           </Route>
         </div>
       </Switch>
       <div className="App__footer-wrapper">
+        <Row align="middle" gutter={[4, 4]}>
+          <Col span={24}>
+            {
+              /*  if the local provider has a signer, let's show the faucet:  */
+              faucetAvailable ? (
+                <Faucet localProvider={localProvider} price={price} ensProvider={mainnetProvider} />
+              ) : (
+                ""
+              )
+            }
+          </Col>
+        </Row>
         <div className="App__footer">
           <div style={{ display: "flex", alignItems: "center", gap: "4px", fontWeight: 500 }}>
             <ScaffoldIcon />

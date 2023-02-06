@@ -2,17 +2,12 @@ import { Menu, Tooltip } from "antd";
 
 import { Link, useLocation } from "react-router-dom";
 import Account from "../Account";
-import ContractIcon from "../Icons/ContractIcon";
-import GuideIcon from "../Icons/GuideIcon";
-import HomeIcon from "../Icons/HomeIcon";
 import LogoIcon from "../Icons/LogoIcon";
-import LoogieIcon from "../Icons/LoogieIcon";
-import LoogieNavIcon from "../Icons/LoogieNavIcon";
-import Hamburger from "../Icons/Hamburger";
-import BackgroundImageComponent from "../Icons/SocksAndPeg";
-import HamburgerClose from "../Icons/HamburgerClose.png";
+import openbtn from "../Icons/mobilenavbtn/openbtn.svg";
+import closebtn from "../Icons/mobilenavbtn/closebtn.svg";
+import MobileSideModal from "./MobileSideModal";
 import "./Navbar.css";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 export default function NavBar({
   useBurner,
   address,
@@ -26,20 +21,36 @@ export default function NavBar({
 }) {
   const location = useLocation();
   const [openMenu, setOpenMenu] = useState(false);
+  const handleOpenModal = () => {
+    setOpenMenu(!openMenu);
+  };
 
-
-  console.log(openMenu);
+  const REF = useRef();
+  useEffect(() => {
+    const checkIfClickedOutside = e => {
+      if (openMenu && REF.current && !REF.current.contains(e.target)) {
+        setOpenMenu(false);
+      }
+    };
+    document.addEventListener("mousedown", checkIfClickedOutside);
+    return () => {
+      document.removeEventListener("mousedown", checkIfClickedOutside);
+    };
+  });
   return (
     <div className="navbar">
       <div className="navbar__menu__container">
-        <div className="navbar__menu-item__mobile" onClick={() => setOpenMenu(!openMenu)}>
-          {openMenu ? (
-            <Hamburger className="navbar__menu-item__mobile__hamburger" />
-          ) : (
-            <div className="navbar__menu-item__mobile__hamburger">
-              <BackgroundImageComponent src={HamburgerClose} />
-            </div>
-          )}
+        <div className="navbar__menu-item__mobile">
+          {/* {!openMenu ? ( */}
+          <div onClick={() => handleOpenModal()}>
+            <img src={openMenu ? closebtn : openbtn} className="btn" alt="click here" />
+          </div>
+          {/* ) : ( */}
+          {/* <div onClick={() => setOpenMenu(false)}>
+              <img src={closebtn} className="btn" alt="click here" />
+            </div> */}
+          {/* )} */}
+          {openMenu && <MobileSideModal REF={REF} openMenu={openMenu} handleOpenModal={handleOpenModal} />}
         </div>
         <Menu selectedKeys={[location.pathname]} mode="horizontal" className="navbar__menu">
           <Menu.Item key="/" className="navbar__menu-item">

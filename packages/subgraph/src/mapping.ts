@@ -1,33 +1,26 @@
 import { BigInt, Address } from "@graphprotocol/graph-ts";
 import {
-  YourCollectible,
-  SetPurpose,
-} from "../generated/YourCollectible/YourCollectible";
+  Approval,
+  ApprovalForAll,
+  Transfer,
+  OwnershipTransferred
+
+} from "../generated/ThisSocks/ThisSocks";
 import { Purpose, Sender } from "../generated/schema";
 
-export function handleSetPurpose(event: SetPurpose): void {
-  let senderString = event.params.sender.toHexString();
+export function handleApproval(event: Approval): void {
+  
+}
 
-  let sender = Sender.load(senderString);
 
-  if (sender === null) {
-    sender = new Sender(senderString);
-    sender.address = event.params.sender;
-    sender.createdAt = event.block.timestamp;
-    sender.purposeCount = BigInt.fromI32(1);
-  } else {
-    sender.purposeCount = sender.purposeCount.plus(BigInt.fromI32(1));
-  }
+export function handleApprovalForAll(event:ApprovalForAll):void {
 
-  let purpose = new Purpose(
-    event.transaction.hash.toHex() + "-" + event.logIndex.toString()
-  );
+}
 
-  purpose.purpose = event.params.purpose;
-  purpose.sender = senderString;
-  purpose.createdAt = event.block.timestamp;
-  purpose.transactionHash = event.transaction.hash.toHex();
+export function handleOwnershipTransferred(event: OwnershipTransferred):void {
 
-  purpose.save();
-  sender.save();
+}
+
+export function handleTransfer(event:Transfer):void {
+  
 }
