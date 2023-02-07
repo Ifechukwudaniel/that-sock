@@ -1,5 +1,3 @@
-/* eslint-disable prettier/prettier */
-import { Link, useLocation } from "react-router-dom";
 import BackgroundImageComponent from "../Icons/SocksAndPeg";
 import socks_1 from "../../components/Icons/SocksMobile.png";
 import socks_2 from "../../components/Icons/SocksTablet.png";

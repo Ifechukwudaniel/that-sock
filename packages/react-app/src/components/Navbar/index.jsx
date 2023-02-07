@@ -1,13 +1,12 @@
-import { Menu, Tooltip } from "antd";
-
+import { Menu } from "antd";
 import { Link, useLocation } from "react-router-dom";
 import Account from "../Account";
-import LogoIcon from "../Icons/LogoIcon";
-import openbtn from "../Icons/mobilenavbtn/openbtn.svg";
-import closebtn from "../Icons/mobilenavbtn/closebtn.svg";
+import useMediaQuery from "../../hooks/useMediaQueryhooks";
 import MobileSideModal from "./MobileSideModal";
 import "./Navbar.css";
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
+import CloseBtn from "../Icons/mobilenavbtn/CloseBtn";
+import OpenBtn from "../Icons/mobilenavbtn/OpenBtn";
 export default function NavBar({
   useBurner,
   address,
@@ -21,36 +20,21 @@ export default function NavBar({
 }) {
   const location = useLocation();
   const [openMenu, setOpenMenu] = useState(false);
-  const handleOpenModal = () => {
-    setOpenMenu(!openMenu);
-  };
+  
+  const isMobile = useMediaQuery("(max-width: 900px)")
 
-  const REF = useRef();
-  useEffect(() => {
-    const checkIfClickedOutside = e => {
-      if (openMenu && REF.current && !REF.current.contains(e.target)) {
-        setOpenMenu(false);
-      }
-    };
-    document.addEventListener("mousedown", checkIfClickedOutside);
-    return () => {
-      document.removeEventListener("mousedown", checkIfClickedOutside);
-    };
-  });
+  function menu() {
+    setOpenMenu(!openMenu);
+  }
+
   return (
     <div className="navbar">
       <div className="navbar__menu__container">
         <div className="navbar__menu-item__mobile">
-          {/* {!openMenu ? ( */}
-          <div onClick={() => handleOpenModal()}>
-            <img src={openMenu ? closebtn : openbtn} className="btn" alt="click here" />
+          <div onClick={menu}>
+            {openMenu ? <CloseBtn /> : <OpenBtn />}
           </div>
-          {/* ) : ( */}
-          {/* <div onClick={() => setOpenMenu(false)}>
-              <img src={closebtn} className="btn" alt="click here" />
-            </div> */}
-          {/* )} */}
-          {openMenu && <MobileSideModal REF={REF} openMenu={openMenu} handleOpenModal={handleOpenModal} />}
+          {openMenu && <MobileSideModal openMenu={openMenu} setOpenMenu={setOpenMenu} />}
         </div>
         <Menu selectedKeys={[location.pathname]} mode="horizontal" className="navbar__menu">
           <Menu.Item key="/" className="navbar__menu-item">
@@ -81,10 +65,9 @@ export default function NavBar({
 
       <div className="navbar__logo">
         <Link to="/">
-          <LogoIcon />
+          <img src="/LOGO.png" />  
         </Link>
       </div>
-
       <div className="navbar__account">
         <Account
           useBurner={useBurner}
@@ -96,7 +79,7 @@ export default function NavBar({
           web3Modal={web3Modal}
           loadWeb3Modal={loadWeb3Modal}
           logoutOfWeb3Modal={logoutOfWeb3Modal}
-          connectButtonStyles="lg"
+          connectButtonStyles={isMobile ? "" : 'lg'}
         />
       </div>
     </div>

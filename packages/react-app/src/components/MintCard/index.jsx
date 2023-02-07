@@ -3,7 +3,7 @@ import { Button } from "antd";
 import React, { useEffect, useRef, useState } from "react";
 import Party from "../Icons/Party";
 import scratchImage from "../Icons/scratch.png";
-import ScratchCard, { CUSTOM_BRUSH_PRESET } from "react-scratchcard-v2";
+// import ScratchCard, { CUSTOM_BRUSH_PRESET } from "react-scratchcard-v2";
 import "./MintCard.css";
 import { ethers } from "ethers";
 
@@ -29,7 +29,7 @@ function MintCard({ onMint, priceToMint, image }) {
               <strong>Scratch this protective layer to see the true colours of your Sock</strong>
             </div>
           </div>
-          <ScratchCard
+          {/* <ScratchCard
             ref={undefined}
             isDrawing={false}
             width={400}
@@ -39,11 +39,11 @@ function MintCard({ onMint, priceToMint, image }) {
             onComplete={() => console.log("complete")}
             brushSize={0}
             customBrush={CUSTOM_BRUSH_PRESET}
-          >
-            <div className="nft_image_wrapper">
+          > */}
+            {/* <div className="nft_image_wrapper">
               <img className="nft_image" draggable="false" src={image.length == 0 ? scratchImage : image} />
             </div>
-          </ScratchCard>
+          </ScratchCard> */}
           <div className="Footer__Text">
             <b>
               Only <span>3728 Socks</span>available on a price curve <span>increasing 0.2% </span>with each new mint.

@@ -1,18 +1,17 @@
 .navbar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 0rem 2rem 0rem 0rem;
   position: relative;
   height: 80px;
+  width: 100%;
+  padding: 10px;
 }
 
 .navbar__menu__container {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  flex: 1, 0, 0;
-  width: 33.33%;
+  flex: 1;
 }
 
 .navbar__menu-item__mobile {
@@ -20,6 +19,14 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  cursor: pointer;
+}
+
+.navbar__menu-item-desktop-content {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
 }
 
 .navbar .navbar__menu {
@@ -29,30 +36,20 @@
 .navbar__logo {
   display: flex;
   justify-content: center;
-  padding: 2rem;
-  width: 33.33%;
-  /* flex: 1, 0, 0; */
-  margin-bottom: 0.5rem;
+  flex: 1;
 }
 
 .navbar__account {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  width: 33.33%;
-  flex: 1, 0, 0;
+  flex: 1;
 }
 
 .navbar__loogie-logo {
   display: block;
   margin-left: 1.2rem;
 }
-
-/* .navbar__menu-item-mobile-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} */
 
 .navbar__menu-item svg {
   color: #fff;
@@ -70,7 +67,8 @@
   right: 0;
   bottom: 0;
   z-index: 100;
-  background-color: rgba(199, 184, 184, 0.52);
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -80,8 +78,7 @@
   background-color: #fff;
   width: 180px;
   padding: 3px;
-  /* right: -200%; */
-  animation: movemodal .8s;
+  animation: movemodal 0.8s;
 }
 @keyframes movemodal {
   0% {
@@ -93,7 +90,6 @@
 }
 .Sidebar div {
   background-color: #fff;
-  border-bottom: 1.5px solid #987272;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -101,6 +97,13 @@
   font-size: 18px;
   font-weight: 600;
   height: 100%;
+}
+.Sidebar div a {
+  color: #000;
+  transition: all 300ms ease-in-out;
+}
+.Sidebar div a:hover {
+  transform: translateY(-2px);
 }
 .btn {
   position: relative;
@@ -112,12 +115,7 @@
 
 @media (min-width: 900px) {
   .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem;
-    position: relative;
-    height: 80px;
+    width: max(900px, 100%);
   }
   .Sidebar__Container {
     display: none;
@@ -130,13 +128,3 @@
     border-top: none;
   }
 }
-
-/* @media screen and (min-width: 1440px) {
-  .navbar__menu-item-desktop-content {
-    display: block;
-  }
-
-  .navbar__menu-item-mobile-content {
-    display: none;
-  }
-} */
