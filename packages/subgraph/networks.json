@@ -99,13 +99,13 @@
       "address": "0x07B6009e05Ce1F3FbfBb33b677BB646Daa4504a5"
     },
     "ThisSocks": {
-      "address": "0xc20b9e8f470fdaB60E9a8D7D3b483E04442F97F3"
+      "address": "0x3dd4b25C28640CA79c09A0d6e84a07425095Eddf"
     },
     "BackgroundLibrary": {
       "address": "0xfeeea43f4D4251BD883b9433762e9101380c6D70"
     },
     "BackgroundMetadataLibrary": {
-      "address": "0x3d009EE2FB10D114e12b0BDbBC5F0A198319369A"
+      "address": "0x5a91980Bec7bE5c2A9ef352AB3320acE93671daD"
     },
     "BonePattern": {
       "address": "0x2E2C1849132299eA5C0d4dEe0FCfD81026D7D84b"
@@ -138,13 +138,13 @@
       "address": "0x4Baf7A213EeB9398bA7f191623335a24f768b418"
     },
     "PatternMetadataLibrary": {
-      "address": "0xa994149F46C5D483F95894Abf17Ad3ba6643426B"
+      "address": "0xAC328Cd835BD716f74eA57159308C64d4B9C6162"
     },
     "PinLibrary": {
       "address": "0x05482875e24Bd0FCf6a94dA6480680eCb4D8113D"
     },
     "PinMetadataLibrary": {
-      "address": "0x186328255cFfbCba0B126c53b23CE570b93249cC"
+      "address": "0xAdcd149C6d927a3ec0993F3E4b316614535c5948"
     },
     "StarPattern": {
       "address": "0x68aC6A27111A4517678e92e3769f74F875bdDd14"

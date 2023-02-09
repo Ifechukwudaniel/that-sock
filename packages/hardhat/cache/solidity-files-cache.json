@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/contracts/ThisSocks.sol": {
-      "lastModificationDate": 1674994695262,
-      "contentHash": "8ee711fc22c632ad351c68e646771234",
+      "lastModificationDate": 1675544534148,
+      "contentHash": "83c7f399dd5901b76f8f08654d14b75e",
       "sourceName": "contracts/ThisSocks.sol",
       "solcConfig": {
         "version": "0.8.13",
@@ -59,7 +59,7 @@
       ]
     },
     "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/node_modules/@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol": {
-      "lastModificationDate": 1674169638080,
+      "lastModificationDate": 1675426340836,
       "contentHash": "88095889e59d16821879a8083f906503",
       "sourceName": "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol",
       "solcConfig": {
@@ -105,7 +105,7 @@
       ]
     },
     "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/node_modules/@openzeppelin/contracts/utils/Counters.sol": {
-      "lastModificationDate": 1673385910290,
+      "lastModificationDate": 1675426262918,
       "contentHash": "74654e3ae5d7f39555055dfe244dab7a",
       "sourceName": "@openzeppelin/contracts/utils/Counters.sol",
       "solcConfig": {
@@ -148,7 +148,7 @@
       ]
     },
     "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/node_modules/@openzeppelin/contracts/access/Ownable.sol": {
-      "lastModificationDate": 1673385910261,
+      "lastModificationDate": 1675426262712,
       "contentHash": "8398972af73b4e9e5ff3b31cad86234f",
       "sourceName": "@openzeppelin/contracts/access/Ownable.sol",
       "solcConfig": {
@@ -193,7 +193,7 @@
       ]
     },
     "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/node_modules/@openzeppelin/contracts/utils/Strings.sol": {
-      "lastModificationDate": 1673385910290,
+      "lastModificationDate": 1675426262921,
       "contentHash": "9c54c6c065d9e590fdcdd72c451425b9",
       "sourceName": "@openzeppelin/contracts/utils/Strings.sol",
       "solcConfig": {
@@ -236,7 +236,7 @@
       ]
     },
     "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/node_modules/base64-sol/base64.sol": {
-      "lastModificationDate": 1673385864334,
+      "lastModificationDate": 1675426207012,
       "contentHash": "0d54cb6a748ddde95d92ed7802c9248d",
       "sourceName": "base64-sol/base64.sol",
       "solcConfig": {
@@ -322,7 +322,7 @@
       ]
     },
     "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/node_modules/@openzeppelin/contracts/token/ERC721/ERC721.sol": {
-      "lastModificationDate": 1673385951200,
+      "lastModificationDate": 1675426311235,
       "contentHash": "ead7082e39cf31875ff89b22f473500d",
       "sourceName": "@openzeppelin/contracts/token/ERC721/ERC721.sol",
       "solcConfig": {
@@ -373,7 +373,7 @@
       ]
     },
     "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/node_modules/@openzeppelin/contracts/token/ERC721/extensions/IERC721Enumerable.sol": {
-      "lastModificationDate": 1673385975228,
+      "lastModificationDate": 1675426340837,
       "contentHash": "f69eb47f667b846a8698697d25eeff4e",
       "sourceName": "@openzeppelin/contracts/token/ERC721/extensions/IERC721Enumerable.sol",
       "solcConfig": {
@@ -418,7 +418,7 @@
       ]
     },
     "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol": {
-      "lastModificationDate": 1673385951199,
+      "lastModificationDate": 1675426311234,
       "contentHash": "27d219ec6f69478d065fdbfa7931da68",
       "sourceName": "@openzeppelin/contracts/token/ERC721/IERC721.sol",
       "solcConfig": {
@@ -463,7 +463,7 @@
       ]
     },
     "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/node_modules/@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol": {
-      "lastModificationDate": 1673385951201,
+      "lastModificationDate": 1675426311234,
       "contentHash": "592df588492d45fdcf46b3cb608c0fbf",
       "sourceName": "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol",
       "solcConfig": {
@@ -506,7 +506,7 @@
       ]
     },
     "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/node_modules/@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol": {
-      "lastModificationDate": 1673385975228,
+      "lastModificationDate": 1675426340838,
       "contentHash": "efbc0d15b80a74e34dbe8da0f3e879bb",
       "sourceName": "@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol",
       "solcConfig": {
@@ -551,7 +551,7 @@
       ]
     },
     "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/node_modules/@openzeppelin/contracts/utils/Address.sol": {
-      "lastModificationDate": 1673385910290,
+      "lastModificationDate": 1675426262918,
       "contentHash": "4cff8b2ea0d958750786b4e3ca308445",
       "sourceName": "@openzeppelin/contracts/utils/Address.sol",
       "solcConfig": {
@@ -594,7 +594,7 @@
       ]
     },
     "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/node_modules/@openzeppelin/contracts/utils/Context.sol": {
-      "lastModificationDate": 1673385910290,
+      "lastModificationDate": 1675426262918,
       "contentHash": "5f2c5c4b6af2dd4551027144797bc8be",
       "sourceName": "@openzeppelin/contracts/utils/Context.sol",
       "solcConfig": {
@@ -637,7 +637,7 @@
       ]
     },
     "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/node_modules/@openzeppelin/contracts/utils/introspection/ERC165.sol": {
-      "lastModificationDate": 1673385951289,
+      "lastModificationDate": 1675426311244,
       "contentHash": "0e7db055ce108f9da7bb6686a00287c0",
       "sourceName": "@openzeppelin/contracts/utils/introspection/ERC165.sol",
       "solcConfig": {
@@ -682,7 +682,7 @@
       ]
     },
     "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol": {
-      "lastModificationDate": 1673385951289,
+      "lastModificationDate": 1675426311245,
       "contentHash": "03e6768535ac4da0e9756f1d8a4a018a",
       "sourceName": "@openzeppelin/contracts/utils/introspection/IERC165.sol",
       "solcConfig": {
@@ -903,8 +903,8 @@
       ]
     },
     "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/contracts/SockBackground/BackgroundMetadataLibrary.sol": {
-      "lastModificationDate": 1675006753996,
-      "contentHash": "deb0ba2d4c8c836bccad70ba4b40ff6d",
+      "lastModificationDate": 1675544028156,
+      "contentHash": "35e721c2884cd142376a7cff04846d00",
       "sourceName": "contracts/SockBackground/BackgroundMetadataLibrary.sol",
       "solcConfig": {
         "version": "0.8.13",
@@ -989,8 +989,8 @@
       ]
     },
     "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/contracts/SockPin/PinLibraryMetadata.sol": {
-      "lastModificationDate": 1674840644981,
-      "contentHash": "0bd2a9db9bfa487f37298b33a26bf92f",
+      "lastModificationDate": 1675542325090,
+      "contentHash": "e3311359cc3c397166348d79a7ff8719",
       "sourceName": "contracts/SockPin/PinLibraryMetadata.sol",
       "solcConfig": {
         "version": "0.8.13",
@@ -1604,8 +1604,8 @@
       ]
     },
     "/Users/emmanuelpepple/Development/blockchain/scaffold-eth/packages/hardhat/contracts/SockPattern/PatternMetadataLibrary.sol": {
-      "lastModificationDate": 1674949181879,
-      "contentHash": "2871ca3d74c9a155ab347df5c67ceca6",
+      "lastModificationDate": 1675545386581,
+      "contentHash": "8e5e72e15a3ef6ebdaa97509d3d7ebe7",
       "sourceName": "contracts/SockPattern/PatternMetadataLibrary.sol",
       "solcConfig": {
         "version": "0.8.13",

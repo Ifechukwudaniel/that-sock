@@ -22,11 +22,49 @@
     "inputs": [
       {
         "internalType": "uint256",
+        "name": "colorInt",
+        "type": "uint256"
+      }
+    ],
+    "name": "GetBackgroundColorText",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
         "name": "backgroundType",
         "type": "uint256"
       }
     ],
     "name": "GetBackgroundTypeMetadata",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "backgroundType",
+        "type": "uint256"
+      }
+    ],
+    "name": "GetBackgroundTypeText",
     "outputs": [
       {
         "internalType": "string",

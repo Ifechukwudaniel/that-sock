@@ -91,7 +91,7 @@
           ]
         },
         "BackgroundMetadataLibrary": {
-          "address": "0x3d009EE2FB10D114e12b0BDbBC5F0A198319369A",
+          "address": "0x5a91980Bec7bE5c2A9ef352AB3320acE93671daD",
           "abi": [
             {
               "inputs": [
@@ -116,11 +116,49 @@
               "inputs": [
                 {
                   "internalType": "uint256",
+                  "name": "colorInt",
+                  "type": "uint256"
+                }
+              ],
+              "name": "GetBackgroundColorText",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "pure",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
                   "name": "backgroundType",
                   "type": "uint256"
                 }
               ],
               "name": "GetBackgroundTypeMetadata",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "pure",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "backgroundType",
+                  "type": "uint256"
+                }
+              ],
+              "name": "GetBackgroundTypeText",
               "outputs": [
                 {
                   "internalType": "string",
@@ -368,7 +406,7 @@
           ]
         },
         "PatternMetadataLibrary": {
-          "address": "0xa994149F46C5D483F95894Abf17Ad3ba6643426B",
+          "address": "0xAC328Cd835BD716f74eA57159308C64d4B9C6162",
           "abi": [
             {
               "inputs": [
@@ -379,6 +417,25 @@
                 }
               ],
               "name": "GetPatternMetadata",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "pure",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "currentPattern",
+                  "type": "uint256"
+                }
+              ],
+              "name": "GetPatternText",
               "outputs": [
                 {
                   "internalType": "string",
@@ -440,7 +497,7 @@
           ]
         },
         "PinMetadataLibrary": {
-          "address": "0x186328255cFfbCba0B126c53b23CE570b93249cC",
+          "address": "0xAdcd149C6d927a3ec0993F3E4b316614535c5948",
           "abi": [
             {
               "inputs": [
@@ -451,6 +508,25 @@
                 }
               ],
               "name": "GetPinMetadata",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "pure",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "currentPin",
+                  "type": "uint256"
+                }
+              ],
+              "name": "GetPinText",
               "outputs": [
                 {
                   "internalType": "string",
@@ -779,7 +855,7 @@
           ]
         },
         "ThisSocks": {
-          "address": "0xc20b9e8f470fdaB60E9a8D7D3b483E04442F97F3",
+          "address": "0x3dd4b25C28640CA79c09A0d6e84a07425095Eddf",
           "abi": [
             {
               "inputs": [],
@@ -944,111 +1020,6 @@
                   "internalType": "address",
                   "name": "",
                   "type": "address"
-                }
-              ],
-              "stateMutability": "view",
-              "type": "function"
-            },
-            {
-              "inputs": [
-                {
-                  "internalType": "uint256",
-                  "name": "id",
-                  "type": "uint256"
-                }
-              ],
-              "name": "getBackgroundByTokenId",
-              "outputs": [
-                {
-                  "internalType": "uint256",
-                  "name": "",
-                  "type": "uint256"
-                }
-              ],
-              "stateMutability": "view",
-              "type": "function"
-            },
-            {
-              "inputs": [
-                {
-                  "internalType": "uint256",
-                  "name": "id",
-                  "type": "uint256"
-                }
-              ],
-              "name": "getBackgroundTypeByTokenId",
-              "outputs": [
-                {
-                  "internalType": "uint256",
-                  "name": "",
-                  "type": "uint256"
-                }
-              ],
-              "stateMutability": "view",
-              "type": "function"
-            },
-            {
-              "inputs": [
-                {
-                  "internalType": "uint256",
-                  "name": "id",
-                  "type": "uint256"
-                }
-              ],
-              "name": "getColorsByTokenId",
-              "outputs": [
-                {
-                  "internalType": "uint256",
-                  "name": "color1",
-                  "type": "uint256"
-                },
-                {
-                  "internalType": "uint256",
-                  "name": "color2",
-                  "type": "uint256"
-                },
-                {
-                  "internalType": "uint256",
-                  "name": "color3",
-                  "type": "uint256"
-                }
-              ],
-              "stateMutability": "view",
-              "type": "function"
-            },
-            {
-              "inputs": [
-                {
-                  "internalType": "uint256",
-                  "name": "id",
-                  "type": "uint256"
-                }
-              ],
-              "name": "getPatternByTokenId",
-              "outputs": [
-                {
-                  "internalType": "uint256",
-                  "name": "",
-                  "type": "uint256"
-                }
-              ],
-              "stateMutability": "view",
-              "type": "function"
-            },
-            {
-              "inputs": [
-                {
-                  "internalType": "uint256",
-                  "name": "id",
-                  "type": "uint256"
-                }
-              ],
-              "name": "getPinByTokenId",
-              "outputs": [
-                {
-                  "internalType": "uint256",
-                  "name": "",
-                  "type": "uint256"
                 }
               ],
               "stateMutability": "view",
@@ -1266,106 +1237,6 @@
                 }
               ],
               "name": "setApprovalForAll",
-              "outputs": [],
-              "stateMutability": "nonpayable",
-              "type": "function"
-            },
-            {
-              "inputs": [
-                {
-                  "internalType": "uint256",
-                  "name": "id",
-                  "type": "uint256"
-                },
-                {
-                  "internalType": "uint256",
-                  "name": "backgroundId",
-                  "type": "uint256"
-                }
-              ],
-              "name": "setBackgroundByTokenId",
-              "outputs": [],
-              "stateMutability": "nonpayable",
-              "type": "function"
-            },
-            {
-              "inputs": [
-                {
-                  "internalType": "uint256",
-                  "name": "id",
-                  "type": "uint256"
-                },
-                {
-                  "internalType": "uint256",
-                  "name": "backgroundType",
-                  "type": "uint256"
-                }
-              ],
-              "name": "setBackgroundTypeByTokenId",
-              "outputs": [],
-              "stateMutability": "nonpayable",
-              "type": "function"
-            },
-            {
-              "inputs": [
-                {
-                  "internalType": "uint256",
-                  "name": "id",
-                  "type": "uint256"
-                },
-                {
-                  "internalType": "uint256",
-                  "name": "color1",
-                  "type": "uint256"
-                },
-                {
-                  "internalType": "uint256",
-                  "name": "color2",
-                  "type": "uint256"
-                },
-                {
-                  "internalType": "uint256",
-                  "name": "color3",
-                  "type": "uint256"
-                }
-              ],
-              "name": "setColorsByTokenId",
-              "outputs": [],
-              "stateMutability": "nonpayable",
-              "type": "function"
-            },
-            {
-              "inputs": [
-                {
-                  "internalType": "uint256",
-                  "name": "id",
-                  "type": "uint256"
-                },
-                {
-                  "internalType": "uint256",
-                  "name": "pattern",
-                  "type": "uint256"
-                }
-              ],
-              "name": "setPatternByTokenId",
-              "outputs": [],
-              "stateMutability": "nonpayable",
-              "type": "function"
-            },
-            {
-              "inputs": [
-                {
-                  "internalType": "uint256",
-                  "name": "id",
-                  "type": "uint256"
-                },
-                {
-                  "internalType": "uint256",
-                  "name": "pinId",
-                  "type": "uint256"
-                }
-              ],
-              "name": "setPinByTokenId",
               "outputs": [],
               "stateMutability": "nonpayable",
               "type": "function"

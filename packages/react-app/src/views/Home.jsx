@@ -92,12 +92,14 @@ function Home({
 
   const getLatestMint = async () => {
     let supply = readContracts[ContractName] && (await readContracts[ContractName].totalSupply());
-    let tokenURI = readContracts[ContractName] && (await readContracts[ContractName].tokenURI(supply.toNumber()));
-    const jsonManifestString = atob(tokenURI.substring(29));
-    console.log("jsonManifestString", jsonManifestString);
-    const jsonManifest = JSON.parse(jsonManifestString);
-    console.log("jsonManifest", jsonManifest);
-    setImage(jsonManifest.image);
+    if (supply.toNumber() < 1) {
+      let tokenURI = readContracts[ContractName] && (await readContracts[ContractName].tokenURI(supply.toNumber()));
+      const jsonManifestString = atob(tokenURI.substring(29));
+      console.log("jsonManifestString", jsonManifestString);
+      const jsonManifest = JSON.parse(jsonManifestString);
+      console.log("jsonManifest", jsonManifest);
+      setImage(jsonManifest.image);
+    }
   };
 
   const handleMint = async () => {
