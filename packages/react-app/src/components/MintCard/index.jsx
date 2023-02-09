@@ -3,7 +3,7 @@ import { Button } from "antd";
 import React, { useEffect, useRef, useState } from "react";
 import Party from "../Icons/Party";
 import scratchImage from "../Icons/scratch.png";
-import ScratchCard, { CUSTOM_BRUSH_PRESET } from "react-scratchcard-v2";
+// import ScratchCard, { CUSTOM_BRUSH_PRESET } from "react-scratchcard-v2";
 import "./MintCard.css";
 import { ethers } from "ethers";
 

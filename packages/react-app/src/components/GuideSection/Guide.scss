@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Just+Another+Hand&display=swap");
+.headings {
+  text-align: center;
+  color: black;
+  font-family: "Just Another Hand", cursive;
+  z-index: 5;
+  position: relative;
+}
+.paragraph {
+  text-align: center;
+  color: black;
+  font-size: clamp(14px, 1rem, 20px);
+  max-width: 80%;
+  margin: 0 auto;
+  z-index: 5;
+  position: relative;
+}
+.container {
+  padding: 0.5rem 2vw;
+  position: relative;
+  overflow: hidden;
+}
+.component {
+  position: relative;
+  margin: clamp(1rem, 20px, 5vh) 0;
+}
+.containerise {
+  z-index: 5;
+  position: relative;
+  div {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    padding: 1rem;
+    align-items: center;
+    justify-items: center;
+    max-width: 700px;
+    margin: 0 auto;
+    gap: 20px;
+    img {
+      width: min(100%, 200px);
+      border-radius: 40px;
+      border: 2px solid black;
+    }
+    @media (min-width: 950px) {
+      gap: 40px;
+      img {
+        border-radius: 80px;
+      }
+    }
+    @media (max-width: 500px) {
+      gap: 10px;
+      img {
+        border-radius: 20px;
+      }
+    }
+  }
+  .imageContainer4 {
+    grid-template-columns: repeat(4, 1fr);
+    img {
+      border-radius: 20px;
+    }
+    @media (min-width: 950px) {
+      gap: 20px;
+      img {
+        border-radius: 40px;
+      }
+    }
+    @media (max-width: 500px) {
+      gap: 10px;
+    }
+  }
+  .imageContainer2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media (max-width: 600px) {
+      display: grid;
+      grid-template-columns: repeat(2, 0.34fr);
+      grid-template-rows: auto;
+      gap: 10px;
+    }
+  }
+}
+
+.cloud {
+  position: absolute;
+  z-index: 3;
+}
