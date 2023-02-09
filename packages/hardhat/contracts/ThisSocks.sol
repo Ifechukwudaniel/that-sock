@@ -105,14 +105,36 @@ contract ThisSocks is ERC721Enumerable, Ownable {
         string memory name = string(abi.encodePacked("Sock #", id.toString()));
 
         string memory base = string("Sock");
-        string memory image = Base64.encode(bytes(generateSVGofTokenById(id)));
-        
-        string memory background =   BackgroundMetadataLibrary.GetBackgroundColorMetadata(getBackgroundByTokenId(id))
 
-        string memory description = string(abi.encodePacked("This Socks has"));
+        string memory image = Base64.encode(bytes(generateSVGofTokenById(id)));
 
         (uint256 color1, uint256 color2, uint256 color3) = getColorsByTokenId(
             id
+        );
+
+        string memory description = string(
+            abi.encodePacked(
+                "This Socks has ",
+                BackgroundMetadataLibrary.GetBackgroundTypeText(
+                    getBackgroundTypeByTokenId(id)
+                ),
+                " background, ",
+                BackgroundMetadataLibrary.GetBackgroundColorText(
+                    getBackgroundTypeByTokenId(id)
+                ),
+                " background color, ",
+                PatternMetadataLibrary.GetPatternText(getPinByTokenId(id)),
+                " pattern, ",
+                PinMetadataLibrary.GetPinText(getPinByTokenId(id)),
+                "  pin. ",
+                "And has ",
+                SockLayoutLibrary.GetColorName(color1),
+                ",",
+                SockLayoutLibrary.GetColorName(color2),
+                ",",
+                SockLayoutLibrary.GetColorName(color3),
+                " colors"
+            )
         );
 
         return
