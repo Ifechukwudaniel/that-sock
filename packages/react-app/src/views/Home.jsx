@@ -4,6 +4,7 @@ import { Address, AddressInput } from "../components";
 import { useContractReader } from "eth-hooks";
 import { ethers } from "ethers";
 import MintCard from "../components/MintCard";
+import SockBackground from "../components/SocksBackground";
 /**
  * web3 props can be passed from '../App.jsx' into your local view component for use
  * @param {*} yourLocalBalance balance on current network
@@ -90,35 +91,53 @@ function Home({
     if (address && balance) updateYourCollectibles();
   }, [ContractName, DEBUG, address, balance, readContracts, page, perPage, showMineTokenOnly]);
 
-  const getLatestMint = async () => {
+  const getLatestMint = async beforeMintSupply => {
     let supply = readContracts[ContractName] && (await readContracts[ContractName].totalSupply());
-    if (supply.toNumber() < 1) {
+    if (!supply) return;
+    console.log(beforeMintSupply.toNumber(), supply.toNumber());
+    // if (beforeMintSupply == supply) return;
+    if (supply.toNumber() > 1) {
       let tokenURI = readContracts[ContractName] && (await readContracts[ContractName].tokenURI(supply.toNumber()));
       const jsonManifestString = atob(tokenURI.substring(29));
-      console.log("jsonManifestString", jsonManifestString);
+      // console.log("jsonManifestString", jsonManifestString);
       const jsonManifest = JSON.parse(jsonManifestString);
-      console.log("jsonManifest", jsonManifest);
+      // console.log("jsonManifest", jsonManifest);
       setImage(jsonManifest.image);
     }
   };
 
-  const handleMint = async () => {
+  const setEmptyImage = () => {
     setImage("");
+  };
+
+  const handleMint = async () => {
+    // setImage("");
     const priceRightNow = readContracts[ContractName] && (await readContracts[ContractName].price());
+    const beforeMintSupply = readContracts[ContractName] && (await readContracts[ContractName].totalSupply());
     try {
-      const mintTx = tx(
+      const mintTx = await tx(
         writeContracts[ContractName].mintItem({ value: priceRightNow, gasLimit: 500000 }),
-        function (transaction) {
-          getLatestMint();
-        },
+        async function (transaction) {},
       );
       console.log(mintTx);
+      await getLatestMint(beforeMintSupply);
     } catch (e) {
       DEBUG && console.log("mint failed", e);
     }
   };
 
-  return <MintCard onMint={handleMint} image={image} getLatestMint={getLatestMint} priceToMint={priceToMint} />;
+  return (
+    <>
+      <SockBackground />
+      <MintCard
+        onMint={handleMint}
+        setEmptyImage={setEmptyImage}
+        image={image}
+        getLatestMint={getLatestMint}
+        priceToMint={priceToMint}
+      />
+    </>
+  );
 }
 
 export default Home;

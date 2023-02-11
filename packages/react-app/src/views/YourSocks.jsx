@@ -32,7 +32,7 @@ function YourSocks({
             md: 2,
             lg: 3,
             xl: 4,
-            xxl: 6,
+            xxl: 4,
           }}
           pagination={{
             defaultPageSize: 8,
@@ -40,7 +40,6 @@ function YourSocks({
           dataSource={yourSocks}
           renderItem={item => {
             const id = item.id;
-
             return (
               <List.Item key={id + "_" + "_" + item.owner}>
                 <SocksCard
@@ -48,6 +47,7 @@ function YourSocks({
                   id={id}
                   name={item.name}
                   description={item.description}
+                  color={item.attributes[4].value}
                   owner={item.owner}
                   mainnetProvider={mainnetProvider}
                   blockExplorer={blockExplorer}

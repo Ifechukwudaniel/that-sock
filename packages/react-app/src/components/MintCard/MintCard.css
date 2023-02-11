@@ -142,7 +142,7 @@
     /* background-color: #fff; */
   }
   .nft_image_wrapper  img {
-    width: 100%;
+    width: auto;
     height: 100%;
     border-radius: 40px;
     border: 1px solid #000000;

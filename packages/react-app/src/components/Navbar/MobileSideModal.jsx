@@ -1,14 +1,14 @@
 /* eslint-disable prettier/prettier */
 import React from "react";
 import "./Navbar.css";
-import {  useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 function MobileSideModal({ openMenu, setOpenMenu }) {
-  const location = useLocation(); 
+  const location = useLocation();
   let REF = useRef();
   useEffect(() => {
-    let handler = (e) => {
+    let handler = e => {
       try {
         if (!REF.current.contains(e.target)) {
           setOpenMenu(false);

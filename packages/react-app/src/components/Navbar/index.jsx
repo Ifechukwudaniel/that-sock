@@ -7,6 +7,8 @@ import "./Navbar.css";
 import { useState } from "react";
 import CloseBtn from "../Icons/mobilenavbtn/CloseBtn";
 import OpenBtn from "../Icons/mobilenavbtn/OpenBtn";
+import LogoIcon from "../Icons/LogoIcon";
+import { MenuOutlined } from "@ant-design/icons";
 export default function NavBar({
   useBurner,
   address,
@@ -20,8 +22,8 @@ export default function NavBar({
 }) {
   const location = useLocation();
   const [openMenu, setOpenMenu] = useState(false);
-  
-  const isMobile = useMediaQuery("(max-width: 900px)")
+
+  const isMobile = useMediaQuery("(max-width: 900px)");
 
   function menu() {
     setOpenMenu(!openMenu);
@@ -31,9 +33,7 @@ export default function NavBar({
     <div className="navbar">
       <div className="navbar__menu__container">
         <div className="navbar__menu-item__mobile">
-          <div onClick={menu}>
-            {openMenu ? <CloseBtn /> : <OpenBtn />}
-          </div>
+          <div onClick={menu}>{openMenu ? <CloseBtn /> : <OpenBtn />}</div>
           {openMenu && <MobileSideModal openMenu={openMenu} setOpenMenu={setOpenMenu} />}
         </div>
         <Menu selectedKeys={[location.pathname]} mode="horizontal" className="navbar__menu">
@@ -65,7 +65,7 @@ export default function NavBar({
 
       <div className="navbar__logo">
         <Link to="/">
-          <img src="/LOGO.png" />  
+          <LogoIcon />
         </Link>
       </div>
       <div className="navbar__account">
@@ -79,7 +79,7 @@ export default function NavBar({
           web3Modal={web3Modal}
           loadWeb3Modal={loadWeb3Modal}
           logoutOfWeb3Modal={logoutOfWeb3Modal}
-          connectButtonStyles={isMobile ? "" : 'lg'}
+          connectButtonStyles={isMobile ? "" : "lg"}
         />
       </div>
     </div>

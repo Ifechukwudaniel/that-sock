@@ -27,6 +27,7 @@
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
+  text-decoration: none;
 }
 
 .navbar .navbar__menu {
@@ -51,14 +52,10 @@
   margin-left: 1.2rem;
 }
 
-.navbar__menu-item svg {
-  color: #fff;
+.navbar__menu-item :active {
+  border-bottom: 0px solid #000 !important;
 }
 
-.navbar__menu-item.ant-menu-item-active svg,
-.navbar__menu-item.ant-menu-item-selected svg {
-  color: #a056ff;
-}
 
 .Sidebar__Container {
   position: fixed;

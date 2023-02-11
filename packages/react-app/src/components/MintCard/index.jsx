@@ -3,13 +3,13 @@ import { Button } from "antd";
 import React, { useEffect, useRef, useState } from "react";
 import Party from "../Icons/Party";
 import scratchImage from "../Icons/scratch.png";
-// import ScratchCard, { CUSTOM_BRUSH_PRESET } from "react-scratchcard-v2";
+import ScratchCard, { CUSTOM_BRUSH_PRESET } from "react-scratchcard-v2";
 import "./MintCard.css";
 import { ethers } from "ethers";
 
-function MintCard({ onMint, priceToMint, image }) {
+function MintCard({ onMint, priceToMint, image, setEmptyImage }) {
   const ref = useRef(null);
-
+  console.log(image);
   const resetScratch = () => {
     ref.current && ref.current.reset();
   };
@@ -26,7 +26,7 @@ function MintCard({ onMint, priceToMint, image }) {
               <Party />
             </div>
             <div className="Header__Text">
-              <strong>Scratch this protective layer to see the true colours of your Sock</strong>
+              <strong>Scratch this protective layer to see the true colors of your Sock</strong>
             </div>
           </div>
           <ScratchCard
@@ -54,6 +54,7 @@ function MintCard({ onMint, priceToMint, image }) {
             <Button
               onClick={() => {
                 resetScratch();
+                setEmptyImage();
                 onMint();
               }}
               className="mint__button"
