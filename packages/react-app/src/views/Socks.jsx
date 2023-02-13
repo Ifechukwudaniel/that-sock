@@ -17,7 +17,6 @@ function Socks({
   transferToAddresses,
   setTransferToAddresses,
   address,
-  loading,
   alchemyKey,
   readContracts,
   totalSupply,
@@ -66,7 +65,7 @@ function Socks({
               md: 2,
               lg: 3,
               xl: 4,
-              xxl: 6,
+              xxl: 4,
             }}
             pagination={{
               total: totalSupply,
@@ -77,7 +76,7 @@ function Socks({
               },
               showTotal: (total, range) => `${range[0]}-${range[1]} of ${totalSupply} items`,
             }}
-            loading={loading}
+            loading={loadingSocks}
             dataSource={allSocks}
             renderItem={item => {
               const id = item.tokenId;
@@ -85,12 +84,12 @@ function Socks({
               return (
                 <List.Item key={id + "_" + "_" + item.owner}>
                   <SockCard
-                    image={item.image}
+                    image={item.rawMetadata.image}
                     id={id}
-                    name={item.name}
-                    description={item.description}
-                    color={item.attributes[4].value}
-                    owner={item.owner}
+                    name={item.rawMetadata.name}
+                    description={item.rawMetadata.description}
+                    color={item.rawMetadata.attributes[4].value}
+                    owner={item.rawMetadata.owner}
                     mainnetProvider={mainnetProvider}
                     blockExplorer={blockExplorer}
                     yourSocks

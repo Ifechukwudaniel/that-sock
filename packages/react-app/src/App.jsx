@@ -274,6 +274,7 @@ function App(props) {
                 ContractName={"ThisSocks"}
                 DEBUG={DEBUG}
                 perPage={perPage}
+                alchemyKey={ALCHEMY_KEY}
               />
             </div>
           </Route>

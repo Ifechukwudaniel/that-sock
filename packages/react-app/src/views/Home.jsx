@@ -6,6 +6,7 @@ import { ethers } from "ethers";
 import MintCard from "../components/MintCard";
 import SockBackground from "../components/SocksBackground";
 import Socks from "./Socks";
+import "./Home.css";
 /**
  * web3 props can be passed from '../App.jsx' into your local view component for use
  * @param {*} yourLocalBalance balance on current network
@@ -138,7 +139,7 @@ function Home({
         getLatestMint={getLatestMint}
         priceToMint={priceToMint}
       />
-      <div>
+      <div className="allSocks">
         <Socks
           readContracts={readContracts}
           mainnetProvider={mainnetProvider}
