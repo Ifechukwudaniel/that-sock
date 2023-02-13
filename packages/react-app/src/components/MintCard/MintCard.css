@@ -108,19 +108,16 @@
   }
 
   .ScratchCard__Container{
-    height: 60% !important;
-    width: 90% !important;
     margin: auto;
+    margin-top: 10px;
   }
 
   .ScratchCard__Canvas {
     display: flex;
-    margin-top: 10% ;
     justify-content: center;
     height: 100% !important;
     width: 100% !important;
     margin: auto;
-    margin-top: 10px;
     position: relative;
     cursor: url('https://i.imgur.com/47em5kM.png'), auto
   }
@@ -128,18 +125,15 @@
    .ScratchCard__Result {
     position: absolute;
     margin: auto;
-    width: 90%;
+    width: 100%;
     height: 100%;
   }
 
   .nft_image_wrapper {
     position: absolute;
-    margin-top: 10px;
     width: 100%;
     height: 100%;
     border-radius: 42px;
-    /* border: 2px solid #000; */
-    /* background-color: #fff; */
   }
   .nft_image_wrapper  img {
     width: auto;
@@ -187,14 +181,14 @@
 
   .sock__button_wrapper{
     width: 100%;
-    height: 15%;
+    height: 10%;
   }
 
   @media screen and (min-width: 768px) {
     
     .mint-card__wrapper {
       width: 420px;
-      height: 581px;
+      height: 600px;
     }
   }
   
@@ -202,7 +196,7 @@
     .mint-card__wrapper {
         padding-top: 50px;
         width: 450px;
-        height: 581px;
+        height: 620px;
         padding-bottom: 50px;
      }
   }

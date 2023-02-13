@@ -32,8 +32,8 @@ function MintCard({ onMint, priceToMint, image, setEmptyImage, left }) {
           <ScratchCard
             ref={undefined}
             isDrawing={false}
-            width={400}
-            height={400}
+            width={350}
+            height={350}
             image={scratchImage}
             finishPercent={50}
             onComplete={() => console.log("complete")}
