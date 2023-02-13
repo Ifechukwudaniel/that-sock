@@ -10,7 +10,10 @@ export default function SockBackground() {
   return (
     <div className="socks__container">
       <div className="Background__Socks__Container">
-        <img src={isDesktop ? socks_3 : isTablet ? socks_2 : isMobile ? socks_1 : null} />
+        <img
+          className={isDesktop ? "sock__desktop" : isTablet ? "sock__tablet" : isMobile ? "sock__mobile" : ""}
+          src={isDesktop ? socks_3 : isTablet ? socks_3 : isMobile ? socks_1 : null}
+        />
       </div>
     </div>
   );

@@ -4,10 +4,35 @@
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 0;
+  z-index: -10;
 }
 .Background__Socks__Container {
   width: 100%;
   z-index: 10;
   position: relative;
+}
+
+.sock__desktop{
+  top: 0vh;
+  width: 120vw;
+  height: 50vh;
+  left: -18vw;
+  position: absolute;
+  z-index: -10;
+  transform: translateZ(-100px);
+}
+
+.sock__tablet {
+  width: 120vw;
+  left: -20vw;
+  position: absolute;
+  height: 50vh;
+
+}
+
+.sock__mobile{
+  position: absolute;
+  z-index: -10;
+  left: 0vw;
+  width: 100vw;
 }
