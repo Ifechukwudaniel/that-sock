@@ -7,7 +7,7 @@ import ScratchCard, { CUSTOM_BRUSH_PRESET } from "react-scratchcard-v2";
 import "./MintCard.css";
 import { ethers } from "ethers";
 
-function MintCard({ onMint, priceToMint, image, setEmptyImage }) {
+function MintCard({ onMint, priceToMint, image, setEmptyImage, left }) {
   const ref = useRef(null);
   console.log(image);
   const resetScratch = () => {
@@ -46,7 +46,7 @@ function MintCard({ onMint, priceToMint, image, setEmptyImage }) {
           </ScratchCard>
           <div className="Footer__Text">
             <b>
-              Only <span>3728 Socks</span>available on a price curve <span>increasing 0.2% </span>with each new mint.
+              Only <span>{left} Socks</span>available on a price curve <span>increasing 0.2% </span>with each new mint.
               Double the supply of the <a href="#">Original Ethereum Mainnet That Socks!</a>
             </b>
           </div>

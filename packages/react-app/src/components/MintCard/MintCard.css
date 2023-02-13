@@ -2,8 +2,8 @@
 .mint-card__wrapper {
     position: relative;
     margin: auto;
-    width:  95%;
-    height: 600px;
+    width: 402px;
+    height: 630px;
     left: -15px;
 }
 .mint__card__background-1 {
@@ -155,7 +155,8 @@
     font-style: normal;
     font-weight: 600;
     height: 15%;
-    margin-top: 7%;
+    margin-top: 4%;
+    margin-bottom: 3%;
   }
 
   .Mint span {
@@ -178,7 +179,6 @@
     align-items: center;
     text-align: center;
 
-    width: 150px !important;
     height: 40px !important;
      border-radius: 20px  !important;
     color: #FFFFFF !important;
@@ -191,16 +191,18 @@
   }
 
   @media screen and (min-width: 768px) {
+    
     .mint-card__wrapper {
-       width:  50%;
+      width: 420px;
+      height: 581px;
     }
   }
   
   @media screen and (min-width: 1024px) {
     .mint-card__wrapper {
         padding-top: 50px;
-        width:  30%;
-        height: 80vh;
+        width: 450px;
+        height: 581px;
         padding-bottom: 50px;
      }
   }
