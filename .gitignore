@@ -3,3 +3,6 @@ build
 .eslintcache
 generated
 data
+
+# Local Netlify folder
+.netlify

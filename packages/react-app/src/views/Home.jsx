@@ -5,6 +5,7 @@ import { useContractReader } from "eth-hooks";
 import { ethers } from "ethers";
 import MintCard from "../components/MintCard";
 import SockBackground from "../components/SocksBackground";
+import Socks from "./Socks";
 /**
  * web3 props can be passed from '../App.jsx' into your local view component for use
  * @param {*} yourLocalBalance balance on current network
@@ -12,18 +13,19 @@ import SockBackground from "../components/SocksBackground";
  * @returns react component
  **/
 function Home({
-  userSigner,
   readContracts,
   writeContracts,
   tx,
-  loadWeb3Modal,
   blockExplorer,
   mainnetProvider,
   address,
   ContractName,
   DEBUG,
   perPage,
-  gasPrice,
+  serverUrl,
+  localProviderPollingTime,
+  totalSupply,
+  alchemyKey,
 }) {
   const [transferToAddresses, setTransferToAddresses] = useState({});
 
@@ -136,6 +138,19 @@ function Home({
         getLatestMint={getLatestMint}
         priceToMint={priceToMint}
       />
+      <div>
+        <Socks
+          readContracts={readContracts}
+          mainnetProvider={mainnetProvider}
+          blockExplorer={blockExplorer}
+          totalSupply={allbalanceContract}
+          DEBUG={DEBUG}
+          serverUrl={serverUrl}
+          localProviderPollingTime={localProviderPollingTime}
+          writeContracts={writeContracts}
+          alchemyKey={alchemyKey}
+        />
+      </div>
     </>
   );
 }
