@@ -1,8 +1,8 @@
-#  This Socks  NFT 
+#  That Socks  NFT 
 
 http://cluttered-flavor.surge.sh/
  
-This scock is an nft project that hopes to bring sock to the tblock chain 
+That sock is an nft project that hopes to bring sock to the blockchain 
 > everything you need to build on Ethereum! 🚀
 
 🧪 Quickly experiment with Solidity using a frontend that adapts to your smart contract:
