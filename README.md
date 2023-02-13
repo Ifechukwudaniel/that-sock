@@ -1,10 +1,13 @@
-# Oh Pandas
+#  This Socks  NFT 
 
+http://cluttered-flavor.surge.sh/
+ 
+This scock is an nft project that hopes to bring sock to the tblock chain 
 > everything you need to build on Ethereum! 🚀
 
 🧪 Quickly experiment with Solidity using a frontend that adapts to your smart contract:
 
-![image](https://user-images.githubusercontent.com/2653167/124158108-c14ca380-da56-11eb-967e-69cde37ca8eb.png)
+![image](https://github.com/Ifechukwudaniel/scaffold-eth/blob/sre-sock-operations/packages/react-app/public/project%20image.png)
 
 
 # 🏄‍♂️ Quick Start
