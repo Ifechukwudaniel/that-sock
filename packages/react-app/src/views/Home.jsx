@@ -25,7 +25,6 @@ function Home({
   perPage,
   serverUrl,
   localProviderPollingTime,
-  totalSupply,
   alchemyKey,
 }) {
   const [transferToAddresses, setTransferToAddresses] = useState({});
@@ -38,6 +37,7 @@ function Home({
   const [balance, setBalance] = useState();
 
   const priceToMint = useContractReader(readContracts, ContractName, "price");
+  const totalSupply = useContractReader(readContracts, ContractName, "totalSupply");
   // DEBUG && console.log("🤗 priceToMint:", priceToMint);
 
   const [page, setPage] = useState(1);
@@ -137,7 +137,8 @@ function Home({
         setEmptyImage={setEmptyImage}
         image={image}
         getLatestMint={getLatestMint}
-        priceToMint={priceToMint}
+        priceToMint={priceToMint || 0}
+        left={3728 - totalSupply || 0}
       />
       <div className="allSocks">
         <Socks
