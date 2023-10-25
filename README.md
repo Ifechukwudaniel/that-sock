@@ -17,7 +17,7 @@ Prerequisites: [Node (v16 LTS)](https://nodejs.org/en/download/) plus [Yarn](htt
 > clone/fork Oh Pandas:
 
 ```bash
-git clone https://github.com/scaffold-eth/scaffold-eth.git
+git clone https://github.com/Ifechukwudaniel/that-sock
 ```
 
 > install and start your 👷‍ Hardhat chain:
