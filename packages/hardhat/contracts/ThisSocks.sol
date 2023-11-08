@@ -189,7 +189,6 @@ contract ThisSocks is ERC721Enumerable, Ownable {
             );
     }
 
-    // function generateSVGofTokenById(uint256 id) internal view returns (string memory) {
     function generateSVGofTokenById(
         uint256 id
     ) internal view returns (string memory) {
@@ -203,7 +202,6 @@ contract ThisSocks is ERC721Enumerable, Ownable {
         return svg;
     }
 
-    // Visibility is `public` to enable it being called by other contracts for composition.
     function renderTokenById(uint256 id) public view returns (string memory) {
         (uint256 color1, uint256 color2, uint256 color3) = getColorsByTokenId(
             id
